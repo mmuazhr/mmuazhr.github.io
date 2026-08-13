@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Muaz Husaini CV</title>
+<style>
+  @font-face {
+    font-family: "General Sans";
+    src: url("fonts/GeneralSans-Variable.woff2") format("woff2");
+    font-weight: 200 700;
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("fonts/JetBrainsMono-Regular.woff2") format("woff2");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("fonts/JetBrainsMono-Medium.woff2") format("woff2");
+    font-weight: 500;
+  }
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "General Sans", Arial, sans-serif;
+    font-weight: 430;
+    color: #17171A;
+    font-size: 8.7pt;
+    line-height: 1.34;
+    padding: 11mm 14mm;
+  }
+  .mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+  header { margin-bottom: 5mm; }
+  h1 {
+    font-size: 20pt;
+    font-weight: 620;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  h1 .sig { color: #E9530E; }
+  .fullname {
+    font-size: 8pt;
+    color: #54545C;
+    margin-top: 1mm;
+  }
+  .contact {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 7.4pt;
+    color: #54545C;
+    margin-top: 2.5mm;
+  }
+  .thesis {
+    margin-top: 2.6mm;
+    font-size: 9.6pt;
+    max-width: 150mm;
+  }
+  section { margin-top: 3.2mm; }
+  h2 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 7.2pt;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #54545C;
+    border-top: 0.6pt solid #D8D8D5;
+    padding-top: 2mm;
+    margin-bottom: 2.2mm;
+  }
+  .role { margin-bottom: 2.2mm; }
+  .role-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 6mm;
+  }
+  h3 {
+    font-size: 10pt;
+    font-weight: 580;
+    letter-spacing: -0.01em;
+  }
+  .when {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 7.2pt;
+    color: #54545C;
+    white-space: nowrap;
+  }
+  .role-sub {
+    font-size: 8.6pt;
+    color: #54545C;
+    margin-bottom: 1.2mm;
+  }
+  ul { list-style: none; }
+  li {
+    padding-left: 3.5mm;
+    position: relative;
+    margin-bottom: 0.45mm;
+  }
+  li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 1.6mm;
+    height: 0.4mm;
+    background: #17171A;
+  }
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8mm;
+  }
+  .kv { margin-bottom: 1.2mm; }
+  .kv strong { font-weight: 560; }
+  .kv span { color: #54545C; }
+  .note {
+    margin-top: 5mm;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 7.2pt;
+    color: #54545C;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Muaz Husaini<span class="sig">.</span></h1>
+    <p class="fullname">Muhammad Muaz Husaini bin Rosli</p>
+    <p class="contact">muazhusaini@gmail.com&nbsp;&nbsp;&middot;&nbsp;&nbsp;mmuazhr.github.io&nbsp;&nbsp;&middot;&nbsp;&nbsp;github.com/mmuazhr&nbsp;&nbsp;&middot;&nbsp;&nbsp;linkedin.com/in/muazhusaini&nbsp;&nbsp;&middot;&nbsp;&nbsp;Kuala Lumpur, Malaysia</p>
+    <p class="thesis">AI Engineer building production multi-agent systems on Google Cloud. I ship agents with grounding guardrails, verification loops and full LLMOps ownership, not demos.</p>
+  </header>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="role">
+      <div class="role-head"><h3>Maxis, IT Associate (Data &amp; AI DevOps)</h3><p class="when">Jan 2026 - present</p></div>
+      <p class="role-sub">Graduate Program, current rotation. Kuala Lumpur.</p>
+      <ul>
+        <li>Designed and deployed a production agentic NL2SQL business-analyst agent on Vertex AI Agent Engine (Google ADK, BigQuery), letting non-technical users query complex telecom KPIs in natural language.</li>
+        <li>Engineered the multi-agent architecture: semantic routing, M-Schema-aware SQL generation, and data-grounding guardrails that eliminated hallucinated numerical outputs by validating every response against live BigQuery results.</li>
+        <li>Built multi-turn conversational memory, query planning, anomaly detection and abstention handling, with structured narrative, chart and table output for executive insight.</li>
+        <li>Own the end-to-end LLMOps loop: containerized Cloud Run deployment, versioned prompts and agent configs, production reliability and cost monitoring.</li>
+      </ul>
+    </div>
+    <div class="role">
+      <div class="role-head"><h3>Maxis, Consumer Business Associate (Go-to-Market)</h3><p class="when">Aug 2025 - Jan 2026</p></div>
+      <ul>
+        <li>Built go-to-market strategy for Maxis and Hotlink merchandising campaigns from market research and commercial data analysis; managed campaign execution across pre-launch, launch and post-launch.</li>
+        <li>Drove rebate-assignment process automation for newly launched plans, cutting manual processing and accelerating campaign readiness.</li>
+      </ul>
+    </div>
+    <div class="role">
+      <div class="role-head"><h3>Maxis, Consumer Business Associate (Mobile Product)</h3><p class="when">Jan 2025 - Jul 2025</p></div>
+      <ul>
+        <li>Financial modelling and data analysis of pricing, discounts and subsidy effectiveness for mobile device ownership; targeted campaigns from segmentation, sales-trend analysis and ROI modelling.</li>
+      </ul>
+    </div>
+    <div class="role">
+      <div class="role-head"><h3>Deloitte Consulting SEA, AI &amp; Data (Inspires Program)</h3><p class="when">May 2024 - Aug 2024</p></div>
+      <ul>
+        <li>Contributed to NavigAite, a generative AI solution automating document tasks: ML models for summarization, PII identification and initial contract review on Microsoft Fabric and Lakehouse.</li>
+        <li>Business analyst on a dashboard migration: requirement analysis, data-model refinement, and deployment on Tableau Server.</li>
+      </ul>
+    </div>
+    <div class="role">
+      <div class="role-head"><h3>PJBUMI Heavy Engineering, MLOps Apprentice</h3><p class="when">Aug 2023 - Feb 2024</p></div>
+      <ul>
+        <li>Led AI model development for asset inspection services (AIMS) used with oil and gas clients, including a Petronas engagement: defect detection and real-time asset-health assessment.</li>
+        <li>Built InOutVision (face-recognition attendance with OpenCV and TensorFlow, Power BI dashboards) and a CNN-based stockpile volume tracker served with Flask.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected independent builds</h2>
+    <ul>
+      <li><strong>Job Agent</strong>: Claude-driven application pipeline where every generated bullet must cite a stored fact and unsourced claims are rejected before rendering; ~190 test files, Airflow discovery, Playwright autofill.</li>
+      <li><strong>QueLess</strong>: QR queue and order-ahead SaaS live on Railway (Next.js, Prisma, Postgres) with CI, health checks and Sentry.</li>
+      <li><strong>Content Studio</strong>: Airflow-orchestrated AI video pipeline with schema-validated Claude generation and a human approval gate.</li>
+    </ul>
+  </section>
+
+  <div class="cols">
+    <section>
+      <h2>Education</h2>
+      <p class="kv"><strong>BSc Computer Science (Hons), UKM</strong><br><span>First Class Honours, CGPA 3.88. Dean's List, 8 of 8 semesters. Graduated Dec 2024.</span></p>
+    </section>
+    <section>
+      <h2>Certificates</h2>
+      <p class="kv"><strong>IBM AI Engineering</strong> <span>(Coursera, 2024)</span><br><strong>Google Data Analytics</strong> <span>(Coursera)</span></p>
+    </section>
+  </div>
+
+  <section>
+    <h2>Skills</h2>
+    <p><strong>AI engineering:</strong> multi-agent orchestration (Google ADK, Vertex AI Agent Engine), LLM grounding and guardrails, agent evaluation and adversarial QA, LLMOps on Cloud Run, Firestore policy stores.<br>
+    <strong>Data:</strong> Python, SQL, BigQuery, Power BI and DAX, Microsoft Fabric, machine learning (scikit-learn, TensorFlow, PyTorch).<br>
+    <strong>Product:</strong> financial modelling, go-to-market analysis, stakeholder delivery across business and engineering.</p>
+  </section>
+
+  <p class="note">References available on request. Portfolio with case studies: mmuazhr.github.io</p>
+</body>
+</html>

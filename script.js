@@ -1,22 +1,41 @@
-// Progressive enhancement: diagrams draw themselves in when scrolled into view.
+// Progressive enhancement: diagrams and sections reveal on scroll.
 // Without JS (or with reduced motion) everything is simply visible.
 document.documentElement.classList.add("js");
 
 const diagrams = document.querySelectorAll(".diagram");
+const revealables = document.querySelectorAll(
+  "h2, .cs, .ledger > li, .timeline > li, .proofs > li, .contact-line, .cta, .contact-note, .contact-links"
+);
 
 if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
+  const diagramObserver = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
           entry.target.classList.add("live");
-          observer.unobserve(entry.target);
+          diagramObserver.unobserve(entry.target);
         }
       }
     },
     { threshold: 0.35 }
   );
-  diagrams.forEach((d) => observer.observe(d));
+  diagrams.forEach((d) => diagramObserver.observe(d));
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          revealObserver.unobserve(entry.target);
+        }
+      }
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+  );
+  revealables.forEach((el) => {
+    el.classList.add("rv");
+    revealObserver.observe(el);
+  });
 } else {
   diagrams.forEach((d) => d.classList.add("live"));
 }

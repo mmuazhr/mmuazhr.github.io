@@ -38,3 +38,18 @@
 [2026-08-13T05:17:14.874Z] [warning] The resource https://s3-alpha.figma.com/hub/file/2257305081325013539/d588d68b-2921-4565-8bb9-34f0c0673504-cover.png was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
 [2026-08-13T05:17:38.236Z] [warning] The resource https://www.figma.com/api/hub_files/1541392698838328951/versions was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
 [2026-08-13T05:17:38.237Z] [warning] The resource https://s3-alpha.figma.com/hub/file/2257305081325013539/d588d68b-2921-4565-8bb9-34f0c0673504-cover.png was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-08-13T05:27:06.302Z] [error] Failed to load resource: the server responded with a status of 999 ()
+[2026-08-13T05:27:07.453Z] [warning] Element with id: dust-var-locale not found
+[2026-08-13T05:27:08.029Z] [warning] [GSI_LOGGER]: Your client application may not display the Google One Tap in its default position. When FedCM becomes mandatory, One Tap only displays in the default position. Refer to the migration guide to update your code accordingly and opt-in to FedCM to test your changes. Learn more: https://developers.google.com/identity/gsi/web/guides/fedcm-migration?s=dc#layout
+[2026-08-13T05:27:08.029Z] [warning] [GSI_LOGGER]: Your client application uses one of the Google One Tap prompt UI status methods that may stop functioning when FedCM becomes mandatory. Refer to the migration guide to update your code accordingly and opt-in to FedCM to test your changes. Learn more: https://developers.google.com/identity/gsi/web/guides/fedcm-migration?s=dc#display_moment and https://developers.google.com/identity/gsi/web/guides/fedcm-migration?s=dc#skipped_moment
+[2026-08-13T05:27:08.029Z] [warning] [GSI_LOGGER]: Currently, you disable FedCM on Google One Tap. FedCM for One Tap will become mandatory starting Oct 2024, and you won’t be able to disable it. Refer to the migration guide to update your code accordingly to ensure users will not be blocked from logging in. Learn more: https://developers.google.com/identity/gsi/web/guides/fedcm-migration
+[2026-08-13T05:27:08.029Z] [warning] [GSI_LOGGER]: Currently, you disable FedCM on Google One Tap. FedCM for One Tap will become mandatory starting Oct 2024, and you won’t be able to disable it. Refer to the migration guide to update your code accordingly to ensure users will not be blocked from logging in. Learn more: https://developers.google.com/identity/gsi/web/guides/fedcm-migration
+[2026-08-13T05:27:08.680Z] [endGroup] EvalError
+    at qg (https://client.protechts.net/PXdOjV695v/main.min.js:2:69685)
+    at si (https://client.protechts.net/PXdOjV695v/main.min.js:2:76361)
+    at LH (https://client.protechts.net/PXdOjV695v/main.min.js:2:237645)
+    at LF (https://client.protechts.net/PXdOjV695v/main.min.js:2:237263)
+    at https://client.protechts.net/PXdOjV695v/main.min.js:2:239026
+    at https://client.protechts.net/PXdOjV695v/main.min.js:2:239032
+    at https://client.protechts.net/PXdOjV695v/main.min.js:2:239497
+[2026-08-13T05:27:09.238Z] [debug] TMS load event sent successfully: 

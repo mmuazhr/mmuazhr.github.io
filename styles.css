@@ -139,7 +139,12 @@ a { color: inherit; }
   line-height: 0.98;
   max-width: 18ch;
 }
-.sig { color: var(--signal); }
+.sig { color: var(--signal); display: inline-block; }
+.js .sig { animation: beat 3.6s ease-in-out 1.6s infinite; }
+@keyframes beat {
+  0%, 12%, 100% { transform: scale(1); }
+  6% { transform: scale(1.22); }
+}
 .hero-sub {
   margin-top: 2rem;
   font-size: clamp(1.125rem, 1.8vw, 1.375rem);
@@ -158,6 +163,22 @@ a { color: inherit; }
 @keyframes rise {
   to { opacity: 1; transform: none; }
 }
+
+/* ---------- Scroll reveals ---------- */
+
+.js .rv {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+.js .rv.in {
+  opacity: 1;
+  transform: none;
+}
+.js .ledger > li.rv.in:nth-child(2),
+.js .proofs > li.rv.in:nth-child(even) { transition-delay: 0.08s; }
+.js .ledger > li.rv.in:nth-child(3) { transition-delay: 0.12s; }
+.js .ledger > li.rv.in:nth-child(4) { transition-delay: 0.2s; }
 
 /* ---------- Sections ---------- */
 
@@ -333,14 +354,16 @@ p + .lbl { margin-top: 1.5rem; }
 }
 @keyframes pulse-x {
   0%   { opacity: 1; left: 0; }
+  14%  { opacity: 0; left: calc(100% - 6px); }
   100% { opacity: 0; left: calc(100% - 6px); }
 }
 @keyframes pulse-y {
   0%   { opacity: 1; top: 0; left: -2.5px; }
+  14%  { opacity: 0; top: calc(100% - 6px); left: -2.5px; }
   100% { opacity: 0; top: calc(100% - 6px); left: -2.5px; }
 }
 .js .diagram.live .arrow::before {
-  animation: pulse-x 0.9s var(--ease) 1 both;
+  animation: pulse-x 6.5s var(--ease) infinite both;
 }
 .js .diagram.live > * > :nth-child(2).arrow::before { animation-delay: 0.55s; }
 .js .diagram.live > * > :nth-child(4).arrow::before { animation-delay: 0.85s; }
@@ -681,6 +704,12 @@ p + .lbl { margin-top: 1.5rem; }
     transition: none;
   }
   .arrow::before { animation: none !important; }
+  .js .sig { animation: none; }
+  .js .rv {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
   .cta,
   .site-head nav a,
   .proofs a { transition: none; }
