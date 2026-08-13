@@ -103,6 +103,13 @@ a { color: inherit; }
   font-weight: 560;
   letter-spacing: -0.01em;
 }
+.avail {
+  font-family: var(--mono);
+  font-size: 0.71875rem;
+  font-weight: 500;
+  color: var(--graphite);
+  margin-left: 0.875rem;
+}
 .site-head nav {
   display: flex;
   gap: clamp(16px, 3vw, 32px);

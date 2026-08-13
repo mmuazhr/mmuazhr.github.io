@@ -1,0 +1,40 @@
+[2026-08-13T05:16:29.219Z] [error] Failed to load resource: the server responded with a status of 403 ()
+[2026-08-13T05:16:58.001Z] [log] Running frontend commit 8814496d41a34921a1067561916108c2b008d429
+[2026-08-13T05:16:58.384Z] [warning] Statsig is not ready to log exposures, will retry in 1 seconds
+[2026-08-13T05:16:58.406Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:16:58.414Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:16:58.427Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:16:58.432Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:16:59.639Z] [log] Running frontend commit 8814496d41a34921a1067561916108c2b008d429
+[2026-08-13T05:16:59.954Z] [warning] Statsig is not ready to log exposures, will retry in 1 seconds
+[2026-08-13T05:16:59.976Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:16:59.984Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:16:59.992Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:16:59.995Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.096Z] [error] Failed to load resource: the server responded with a status of 403 (Forbidden)
+[2026-08-13T05:17:00.407Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.408Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.409Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.409Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.409Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.420Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.422Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.509Z] [debug] [Livegraph] Connected 2026-08-13T05:17:00.508Z.
+[2026-08-13T05:17:00.514Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.516Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.517Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.517Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.517Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.517Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:00.608Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:01.305Z] [error] No breakpoints elements found during hydration.
+[2026-08-13T05:17:01.314Z] [log] [Hydrated]
+[2026-08-13T05:17:01.632Z] [log] Running frontend commit 8814496d41a34921a1067561916108c2b008d429
+[2026-08-13T05:17:01.765Z] [warning] Statsig is not ready to log exposures, will retry in 1 seconds
+[2026-08-13T05:17:01.767Z] [debug] No theme provider exists currently, returning defaults, but switching modes is disabled
+[2026-08-13T05:17:08.234Z] [warning] The resource https://www.figma.com/api/hub_files/1541392698838328951/versions was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-08-13T05:17:08.234Z] [warning] The resource https://s3-alpha.figma.com/hub/file/2257305081325013539/d588d68b-2921-4565-8bb9-34f0c0673504-cover.png was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-08-13T05:17:14.874Z] [warning] The resource https://www.figma.com/api/hub_files/1541392698838328951/versions was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-08-13T05:17:14.874Z] [warning] The resource https://s3-alpha.figma.com/hub/file/2257305081325013539/d588d68b-2921-4565-8bb9-34f0c0673504-cover.png was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-08-13T05:17:38.236Z] [warning] The resource https://www.figma.com/api/hub_files/1541392698838328951/versions was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-08-13T05:17:38.237Z] [warning] The resource https://s3-alpha.figma.com/hub/file/2257305081325013539/d588d68b-2921-4565-8bb9-34f0c0673504-cover.png was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
