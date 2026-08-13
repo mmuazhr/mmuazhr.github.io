@@ -536,6 +536,53 @@ p + .lbl { margin-top: 1.5rem; }
 }
 .proofs a:hover { color: var(--ink); }
 
+/* ---------- Mascots ---------- */
+
+#contact { position: relative; }
+.exa {
+  position: absolute;
+  top: 1px;
+  right: clamp(24px, 9vw, 132px);
+  height: clamp(76px, 10vw, 128px);
+  width: auto;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+.js .exa { animation: exa-bob 4.5s ease-in-out infinite; }
+@keyframes exa-bob {
+  0%, 100% { transform: translateY(-100%); }
+  50% { transform: translateY(calc(-100% - 5px)); }
+}
+
+.naro {
+  position: fixed;
+  left: clamp(8px, 3vw, 40px);
+  bottom: 0;
+  height: clamp(84px, 9vw, 120px);
+  width: auto;
+  transform: translateY(103%);
+  transform-origin: 50% 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+.js .naro { animation: naro-peek 17s ease-in-out 6s infinite; }
+@keyframes naro-peek {
+  0%, 100% { transform: translateY(103%) rotate(0deg); }
+  4%  { transform: translateY(30%) rotate(-4deg); }
+  6%  { transform: translateY(28%) rotate(3deg); }
+  8%  { transform: translateY(30%) rotate(-3deg); }
+  10% { transform: translateY(28%) rotate(0deg); }
+  15% { transform: translateY(28%) rotate(0deg); }
+  20% { transform: translateY(103%) rotate(0deg); }
+}
+
+.mascot-note {
+  margin-top: 0.875rem;
+  font-size: 0.9375rem;
+  color: rgba(250, 250, 249, 0.55);
+  max-width: 52ch;
+}
+
 /* ---------- Contact (full-bleed ink band) ---------- */
 
 .dark {
@@ -705,6 +752,8 @@ p + .lbl { margin-top: 1.5rem; }
   }
   .arrow::before { animation: none !important; }
   .js .sig { animation: none; }
+  .js .exa { animation: none; }
+  .naro { display: none; }
   .js .rv {
     opacity: 1;
     transform: none;
