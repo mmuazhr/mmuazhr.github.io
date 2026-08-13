@@ -118,13 +118,18 @@ a { color: inherit; }
 /* ---------- Hero ---------- */
 
 .hero {
-  padding-block: clamp(88px, 16vh, 176px) clamp(72px, 12vh, 144px);
+  max-width: 1400px;
+  min-height: calc(100svh - 65px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 48px 96px;
 }
 .hero h1 {
-  font-size: clamp(2.75rem, 8.2vw, 6.75rem);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 1.02;
+  font-size: clamp(2.75rem, 8.6vw, 7.75rem);
+  font-weight: 620;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
   max-width: 18ch;
 }
 .sig { color: var(--signal); }
@@ -177,7 +182,7 @@ h2 {
 }
 
 .cs h3 {
-  font-size: clamp(1.625rem, 3.4vw, 2.625rem);
+  font-size: clamp(1.75rem, 3.8vw, 3rem);
   font-weight: 580;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -250,38 +255,45 @@ p + .lbl { margin-top: 1.5rem; }
   align-items: stretch;
 }
 .node {
-  border: 1px solid var(--line);
+  border: 1px solid var(--ink);
   border-radius: 6px;
-  padding: 0.75rem 0.875rem;
+  padding: 0.875rem 1rem;
   flex: 1 1 0;
   min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.25rem;
-  background: var(--paper);
+  gap: 0.3rem;
+  background: #F3F3F0;
 }
 .node span {
   font-family: var(--mono);
-  font-size: 0.78125rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.01em;
 }
 .node small {
   font-family: var(--mono);
-  font-size: 0.65625rem;
+  font-size: 0.6875rem;
   line-height: 1.45;
   color: var(--graphite);
 }
 
 /* the single lit node: Signal is reserved for the flagship diagram only */
 .node.key {
+  background: var(--signal);
   border-color: var(--signal);
 }
-.node.key span { color: var(--signal); }
+.node.key span,
+.node.key small { color: var(--ink); }
 
-/* emphasized-but-quiet key nodes in the other diagrams */
-.node.strong { border-color: var(--ink); }
+/* emphasized key nodes in the other diagrams: solid ink */
+.node.strong {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.node.strong span { color: var(--paper); }
+.node.strong small { color: rgba(250, 250, 249, 0.66); }
 
 .arrow {
   flex: 0 0 clamp(16px, 2.2vw, 34px);
@@ -299,6 +311,37 @@ p + .lbl { margin-top: 1.5rem; }
   border-top: 3.5px solid transparent;
   border-bottom: 3.5px solid transparent;
 }
+
+/* a pulse travels the pipeline once, after the nodes settle */
+.arrow::before {
+  content: "";
+  position: absolute;
+  top: -2.5px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+  opacity: 0;
+}
+@keyframes pulse-x {
+  0%   { opacity: 1; left: 0; }
+  100% { opacity: 0; left: calc(100% - 6px); }
+}
+@keyframes pulse-y {
+  0%   { opacity: 1; top: 0; left: -2.5px; }
+  100% { opacity: 0; top: calc(100% - 6px); left: -2.5px; }
+}
+.js .diagram.live .arrow::before {
+  animation: pulse-x 0.9s var(--ease) 1 both;
+}
+.js .diagram.live > * > :nth-child(2).arrow::before { animation-delay: 0.55s; }
+.js .diagram.live > * > :nth-child(4).arrow::before { animation-delay: 0.85s; }
+.js .diagram.live > * > :nth-child(6).arrow::before { animation-delay: 1.15s; }
+.js .diagram.live > * > :nth-child(8).arrow::before { animation-delay: 1.45s; }
+.js .diagram.live > :nth-child(2).arrow::before,
+.js .diagram.live > :nth-child(4).arrow::before { animation-delay: 0.55s; }
+.diagram-v .arrow::before { animation-name: pulse-y !important; }
 
 /* diagram entrance: nodes rise in sequence once in view */
 .js .diagram .node,
@@ -463,16 +506,22 @@ p + .lbl { margin-top: 1.5rem; }
 }
 .proofs a:hover { color: var(--ink); }
 
-/* ---------- Contact ---------- */
+/* ---------- Contact (full-bleed ink band) ---------- */
+
+.dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+.dark ::selection { background: var(--paper); color: var(--ink); }
+.dark :focus-visible { outline-color: var(--paper); }
 
 .contact { padding-bottom: clamp(64px, 10vh, 128px); }
 .contact-line {
-  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 6.5vw, 5rem);
   font-weight: 600;
   letter-spacing: -0.035em;
-  line-height: 1.05;
-  border-top: 1px solid var(--hairline);
-  padding-top: clamp(40px, 7vh, 80px);
+  line-height: 1.03;
+  padding-top: clamp(56px, 9vh, 112px);
 }
 .cta {
   display: inline-block;
@@ -491,9 +540,10 @@ p + .lbl { margin-top: 1.5rem; }
 .cta:active { transform: translateY(1px) scale(0.99); }
 .contact-note {
   margin-top: 1.75rem;
-  color: var(--graphite);
+  color: rgba(250, 250, 249, 0.66);
   max-width: 52ch;
 }
+#contact { padding-block: 0; }
 .contact-links {
   list-style: none;
   display: flex;
@@ -505,22 +555,22 @@ p + .lbl { margin-top: 1.5rem; }
 .contact-links a {
   font-family: var(--mono);
   font-size: 0.8125rem;
-  color: var(--graphite);
+  color: rgba(250, 250, 249, 0.66);
 }
 .contact-links a {
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   transition: color 0.2s var(--ease);
 }
-.contact-links a:hover { color: var(--ink); }
+.contact-links a:hover { color: var(--paper); }
 
 .site-foot {
-  border-top: 1px solid var(--hairline);
+  border-top: 1px solid rgba(250, 250, 249, 0.16);
   padding-block: 2rem;
 }
 .site-foot p {
   font-size: 0.875rem;
-  color: var(--graphite);
+  color: rgba(250, 250, 249, 0.6);
 }
 
 /* ---------- Mobile ---------- */
@@ -549,6 +599,7 @@ p + .lbl { margin-top: 1.5rem; }
     border-top: 5px solid var(--line);
     border-bottom: none;
   }
+  .arrow::before { animation-name: pulse-y !important; }
 
   .diagram-merge {
     grid-template-columns: 1fr;
@@ -592,7 +643,10 @@ p + .lbl { margin-top: 1.5rem; }
   .site-head nav { gap: 18px; }
   .site-head nav a { font-size: 0.875rem; }
 
-  .hero { padding-block: 64px 56px; }
+  .hero {
+    min-height: calc(100svh - 100px);
+    padding-block: 24px 64px;
+  }
   .hero h1 br { display: none; }
   .hero h1 {
     font-size: clamp(2.25rem, 10.5vw, 2.75rem);
@@ -619,6 +673,7 @@ p + .lbl { margin-top: 1.5rem; }
     transform: none;
     transition: none;
   }
+  .arrow::before { animation: none !important; }
   .cta,
   .site-head nav a,
   .proofs a { transition: none; }
