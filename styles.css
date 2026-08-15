@@ -40,7 +40,7 @@ html { scroll-behavior: smooth; }
   html { scroll-behavior: auto; }
 }
 
-html, body { overflow-x: clip; }
+html, body { overflow-x: hidden; overflow-x: clip; }
 
 body {
   font-family: var(--sans);
@@ -126,6 +126,7 @@ a { color: inherit; }
 
 .hero {
   max-width: 1400px;
+  min-height: calc(100vh - 65px);
   min-height: calc(100svh - 65px);
   display: flex;
   flex-direction: column;
@@ -722,6 +723,7 @@ p + .lbl { margin-top: 1.5rem; }
   .site-head nav a { font-size: 0.875rem; }
 
   .hero {
+    min-height: calc(100vh - 100px);
     min-height: calc(100svh - 100px);
     padding-block: 24px 64px;
   }
