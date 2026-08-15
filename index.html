@@ -73,7 +73,7 @@
           <p class="lbl">Result</p>
           <p>In production at Maxis today, answering telecom KPI questions for non-technical users. The grounding loop eliminated hallucinated figures: every number shown has been checked against the warehouse that produced it. I own the full LLMOps loop, from containerized Cloud Run deploys to versioned prompts, reliability and cost monitoring.</p>
         </div>
-        <p class="stack" aria-label="Stack"><span>Python</span><span>Google ADK</span><span>Vertex AI Agent Engine</span><span>BigQuery</span><span>Cloud Run</span></p>
+        <ul class="stack" aria-label="Stack"><li>Python</li><li>Google ADK</li><li>Vertex AI Agent Engine</li><li>BigQuery</li><li>Cloud Run</li></ul>
       </article>
 
       <!-- Case study 2: split, diagram right -->
@@ -86,7 +86,7 @@
           <p>I built a natural-language-to-DAX agent for Power BI, then built an adversarial QA harness to break it: probes that feed the agent inputs the test oracle never covered, score the answers, and turn every failure into a permanent regression case.</p>
           <p class="lbl">Result</p>
           <p>This is now how I evaluate every agent I ship. A green suite is necessary. It is never sufficient.</p>
-          <p class="stack" aria-label="Stack"><span>Python</span><span>Power BI</span><span>DAX</span><span>LLM evaluation</span></p>
+          <ul class="stack" aria-label="Stack"><li>Python</li><li>Power BI</li><li>DAX</li><li>LLM evaluation</li></ul>
         </div>
         <div class="diagram diagram-v" role="img" aria-label="Evaluation flow: the agent under test passes the happy-path suite, then adversarial probes with uncovered inputs surface failures, each becoming a regression test for a hardened agent.">
           <div class="flow">
@@ -123,7 +123,7 @@
           <div class="arrow m-a2" aria-hidden="true"></div>
           <div class="node m-target"><span>agent turn</span><small>reads both at zero added latency, writes learned policy back</small></div>
         </div>
-        <p class="stack" aria-label="Stack"><span>Python</span><span>Firestore</span><span>Agent Engine</span></p>
+        <ul class="stack" aria-label="Stack"><li>Python</li><li>Firestore</li><li>Agent Engine</li></ul>
       </article>
 
       <!-- Case study 4: Job Agent -->
@@ -153,14 +153,14 @@
             <div class="node"><span>render</span><small>deterministic PDF and DOCX</small></div>
           </div>
         </div>
-        <p class="stack" aria-label="Stack"><span>Python</span><span>Claude API</span><span>Supabase</span><span>Airflow</span><span>Playwright</span></p>
+        <ul class="stack" aria-label="Stack"><li>Python</li><li>Claude API</li><li>Supabase</li><li>Airflow</li><li>Playwright</li></ul>
       </article>
 
       <!-- Case study 5: business case, text only -->
       <article class="cs cs-quiet" id="bundle">
         <h3>AI Bundle Business Case</h3>
         <p class="cs-narrow">Not every AI problem is a coding problem. At Maxis I built the full financial model and pitch for bundling an AI subscription into Hotlink Youth plans, and caught a rebate modelling error that changed the strategy. I can argue the business case for a system, not just build it.</p>
-        <p class="stack" aria-label="Stack"><span>Financial modelling</span><span>Go-to-market</span></p>
+        <ul class="stack" aria-label="Stack"><li>Financial modelling</li><li>Go-to-market</li></ul>
       </article>
     </section>
 
@@ -170,22 +170,22 @@
         <li>
           <div class="ledger-head"><h3>QueLess</h3><a class="live-link" href="https://queless-production.up.railway.app" rel="noopener">Live&nbsp;&#8599;</a></div>
           <p>QR queue and order-ahead SaaS for Malaysian merchants, running in front of real users with CI, health checks and Sentry.</p>
-          <p class="stack"><span>Next.js</span><span>Prisma</span><span>Postgres</span><span>Railway</span></p>
+          <ul class="stack"><li>Next.js</li><li>Prisma</li><li>Postgres</li><li>Railway</li></ul>
         </li>
         <li>
           <div class="ledger-head"><h3>Content Studio</h3></div>
           <p>Automated video pipeline for an AI mascot channel. Airflow orchestrates Claude script generation, asset generation and a human approval gate.</p>
-          <p class="stack"><span>Python</span><span>Airflow</span><span>Claude API</span><span>Supabase</span></p>
+          <ul class="stack"><li>Python</li><li>Airflow</li><li>Claude API</li><li>Supabase</li></ul>
         </li>
         <li>
           <div class="ledger-head"><h3>FluentAI</h3></div>
           <p>English fluency companion that adapts difficulty from your mistakes instead of correcting every sentence.</p>
-          <p class="stack"><span>Python</span><span>FastAPI</span><span>Gemini</span></p>
+          <ul class="stack"><li>Python</li><li>FastAPI</li><li>Gemini</li></ul>
         </li>
         <li>
           <div class="ledger-head"><h3>fitmu</h3></div>
           <p>iPhone and Apple Watch weight-loss coach that understands Malaysian food, with Claude coaching through Supabase Edge Functions.</p>
-          <p class="stack"><span>React Native</span><span>Supabase</span><span>Claude API</span></p>
+          <ul class="stack"><li>React Native</li><li>Supabase</li><li>Claude API</li></ul>
         </li>
       </ul>
     </section>

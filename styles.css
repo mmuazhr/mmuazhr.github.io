@@ -244,12 +244,13 @@ p + .lbl { margin-top: 1.5rem; }
 .cs-result { margin-top: clamp(28px, 4vh, 48px); max-width: 62ch; }
 
 .stack {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
   margin-top: 1.75rem;
 }
-.stack span {
+.stack li {
   font-family: var(--mono);
   font-size: 0.71875rem;
   font-weight: 500;
