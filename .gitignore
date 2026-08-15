@@ -1,0 +1,4 @@
+# Local tool state - never publish
+.gstack/
+.impeccable/
+.DS_Store
