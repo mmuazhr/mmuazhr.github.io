@@ -766,3 +766,71 @@ p + .lbl { margin-top: 1.5rem; }
   .site-head nav a,
   .proofs a { transition: none; }
 }
+
+/* ---------- Print ---------- */
+/* Browsers skip backgrounds by default and scroll reveals never fire on paper,
+   so every state below must resolve to dark ink on plain paper. */
+
+@media print {
+  .skip,
+  .naro,
+  .exa { display: none; }
+
+  .hero {
+    min-height: 0;
+    padding-block: 24px 48px;
+  }
+  .js .hero h1,
+  .js .hero-sub {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .js .rv {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .js .diagram .node,
+  .js .diagram .arrow {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .arrow::before { display: none; }
+
+  .dark {
+    background: none;
+    color: var(--ink);
+  }
+  .contact-note,
+  .mascot-note,
+  .contact-links li,
+  .contact-links a,
+  .site-foot p { color: var(--graphite); }
+  .site-foot { border-top-color: var(--hairline); }
+
+  .node.key,
+  .node.strong {
+    background: none;
+  }
+  .node.key span,
+  .node.strong span { color: var(--ink); }
+  .node.key small,
+  .node.strong small { color: var(--graphite); }
+
+  .cta {
+    background: none;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+  }
+
+  .contact-links a[href^="http"]::after,
+  .live-link[href^="http"]::after { content: " (" attr(href) ")"; }
+
+  h2, h3 { break-after: avoid; }
+  .node,
+  .ledger > li,
+  .timeline > li,
+  .proofs > li { break-inside: avoid; }
+}
