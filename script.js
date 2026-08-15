@@ -21,6 +21,16 @@ if ("IntersectionObserver" in window) {
   );
   diagrams.forEach((d) => diagramObserver.observe(d));
 
+  const pauseObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        entry.target.classList.toggle("offscreen", !entry.isIntersecting);
+      }
+    },
+    { rootMargin: "10% 0px" }
+  );
+  diagrams.forEach((d) => pauseObserver.observe(d));
+
   const revealObserver = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {

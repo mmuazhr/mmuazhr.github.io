@@ -367,6 +367,7 @@ p + .lbl { margin-top: 1.5rem; }
 .js .diagram.live .arrow::before {
   animation: pulse-x 6.5s var(--ease) infinite both;
 }
+.js .diagram.live.offscreen .arrow::before { animation-play-state: paused; }
 .js .diagram.live > * > :nth-child(2).arrow::before { animation-delay: 0.55s; }
 .js .diagram.live > * > :nth-child(4).arrow::before { animation-delay: 0.85s; }
 .js .diagram.live > * > :nth-child(6).arrow::before { animation-delay: 1.15s; }
