@@ -242,6 +242,11 @@ p + .lbl { margin-top: 1.5rem; }
 }
 
 .cs-result { margin-top: clamp(28px, 4vh, 48px); max-width: 62ch; }
+.cs-result strong,
+.cs p strong {
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
 
 .stack {
   display: flex;
@@ -249,7 +254,8 @@ p + .lbl { margin-top: 1.5rem; }
   gap: 0.5rem 1.5rem;
   margin-top: 1.75rem;
 }
-.stack span {
+.stack span,
+.stack a {
   font-family: var(--mono);
   font-size: 0.71875rem;
   font-weight: 500;
@@ -257,6 +263,13 @@ p + .lbl { margin-top: 1.5rem; }
   letter-spacing: 0.08em;
   color: var(--graphite);
 }
+.stack a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s var(--ease);
+}
+.stack a:hover { color: var(--ink); }
 
 /* split case study (text left, vertical diagram right) */
 .cs-split {

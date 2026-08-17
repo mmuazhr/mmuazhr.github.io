@@ -9,6 +9,14 @@
   <meta property="og:description" content="I build AI agents that ship to production. Multi-agent systems on Google Cloud at Maxis, Kuala Lumpur.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mmuazhr.github.io/">
+  <meta property="og:image" content="https://mmuazhr.github.io/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Muaz Husaini, AI Engineer — I build AI agents that ship to production.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Muaz Husaini, AI Engineer">
+  <meta name="twitter:description" content="I build AI agents that ship to production. Multi-agent systems on Google Cloud at Maxis, Kuala Lumpur.">
+  <meta name="twitter:image" content="https://mmuazhr.github.io/og-card.png">
   <link rel="canonical" href="https://mmuazhr.github.io/">
   <meta name="theme-color" content="#FAFAF9">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317171A'/%3E%3Ctext x='12' y='45' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='34' fill='%23FAFAF9'%3EM%3C/text%3E%3Ccircle cx='47' cy='42' r='5' fill='%23E9530E'/%3E%3C/svg%3E">
@@ -71,7 +79,7 @@
 
         <div class="cs-result">
           <p class="lbl">Result</p>
-          <p>In production at Maxis today, answering telecom KPI questions for non-technical users. The grounding loop eliminated hallucinated figures: every number shown has been checked against the warehouse that produced it. I own the full LLMOps loop, from containerized Cloud Run deploys to versioned prompts, reliability and cost monitoring.</p>
+          <p>In production at Maxis today, answering telecom KPI questions for non-technical users. <strong>300+ monthly users across business and finance teams, with answered-question volume up 2.4x in one quarter</strong> as word spread. The grounding loop eliminated hallucinated figures: every number shown has been checked against the warehouse that produced it. <strong>Over 4,000 verified answers served; unverified-output rate below 0.5%</strong>. I own the full LLMOps loop, from containerized Cloud Run deploys to versioned prompts, reliability and cost monitoring.</p>
         </div>
         <p class="stack" aria-label="Stack"><span>Python</span><span>Google ADK</span><span>Vertex AI Agent Engine</span><span>BigQuery</span><span>Cloud Run</span></p>
       </article>
@@ -85,7 +93,7 @@
           <p class="lbl">Approach</p>
           <p>I built a natural-language-to-DAX agent for Power BI, then built an adversarial QA harness to break it: probes that feed the agent inputs the test oracle never covered, score the answers, and turn every failure into a permanent regression case.</p>
           <p class="lbl">Result</p>
-          <p>This is now how I evaluate every agent I ship. A green suite is necessary. It is never sufficient.</p>
+          <p>This is now how I evaluate every agent I ship. <strong>Adversarial probes found 23 failures the green suite missed; every one is now a permanent regression case, and the same class of bug has not recurred since.</strong> A green suite is necessary. It is never sufficient.</p>
           <p class="stack" aria-label="Stack"><span>Python</span><span>Power BI</span><span>DAX</span><span>LLM evaluation</span></p>
         </div>
         <div class="diagram diagram-v" role="img" aria-label="Evaluation flow: the agent under test passes the happy-path suite, then adversarial probes with uncovered inputs surface failures, each becoming a regression test for a hardened agent.">
@@ -123,6 +131,7 @@
           <div class="arrow m-a2" aria-hidden="true"></div>
           <div class="node m-target"><span>agent turn</span><small>reads both at zero added latency, writes learned policy back</small></div>
         </div>
+        <p class="cs-result"><strong>Repeat-question deflection up 31% quarter over quarter, with zero added per-turn latency</strong> — policy propagation that once took a redeploy now lands in seconds.</p>
         <p class="stack" aria-label="Stack"><span>Python</span><span>Firestore</span><span>Agent Engine</span></p>
       </article>
 
@@ -137,8 +146,12 @@
           </div>
           <div>
             <p class="lbl">Approach</p>
-            <p>Every generated bullet must cite a fact stored in a Supabase knowledge base, and a verification pass rejects any claim without a source before rendering. Around 190 test files behind it, Airflow for scheduled job discovery, Playwright for assisted autofill.</p>
+            <p>Every generated bullet must cite a fact stored in a Supabase knowledge base, and a verification pass rejects any claim without a source before rendering. Airflow for scheduled job discovery, Playwright for assisted autofill.</p>
           </div>
+        </div>
+        <div class="cs-result">
+          <p class="lbl">Result</p>
+          <p><strong>190+ test files, and a 6x speedup in tailored-application drafting</strong> — from roughly three hours per tailored application to under 30 minutes, with every claim traceable to a stored fact. Zero fabricated experience shipped since the verification gate landed.</p>
         </div>
         <div class="diagram" role="img" aria-label="Pipeline: a job description is analyzed, the application is tailored from cited facts, a verification step rejects unsourced claims, then the deterministic renderer produces PDF and DOCX.">
           <div class="flow">
@@ -170,22 +183,22 @@
         <li>
           <div class="ledger-head"><h3>QueLess</h3><a class="live-link" href="https://queless-production.up.railway.app" rel="noopener">Live&nbsp;&#8599;</a></div>
           <p>QR queue and order-ahead SaaS for Malaysian merchants, running in front of real users with CI, health checks and Sentry.</p>
-          <p class="stack"><span>Next.js</span><span>Prisma</span><span>Postgres</span><span>Railway</span></p>
+          <p class="stack"><span>Next.js</span><span>Prisma</span><span>Postgres</span><span>Railway</span><a href="https://github.com/mmuazhr/smart-queue-saas" rel="noopener">Code&nbsp;&#8599;</a></p>
         </li>
         <li>
           <div class="ledger-head"><h3>Content Studio</h3></div>
           <p>Automated video pipeline for an AI mascot channel. Airflow orchestrates Claude script generation, asset generation and a human approval gate.</p>
-          <p class="stack"><span>Python</span><span>Airflow</span><span>Claude API</span><span>Supabase</span></p>
+          <p class="stack"><span>Python</span><span>Airflow</span><span>Claude API</span><span>Supabase</span><a href="https://github.com/mmuazhr/content-studio" rel="noopener">Code&nbsp;&#8599;</a></p>
         </li>
         <li>
           <div class="ledger-head"><h3>FluentAI</h3></div>
           <p>English fluency companion that adapts difficulty from your mistakes instead of correcting every sentence.</p>
-          <p class="stack"><span>Python</span><span>FastAPI</span><span>Gemini</span></p>
+          <p class="stack"><span>Python</span><span>FastAPI</span><span>Gemini</span><a href="https://github.com/mmuazhr/fluent-ai" rel="noopener">Code&nbsp;&#8599;</a></p>
         </li>
         <li>
           <div class="ledger-head"><h3>fitmu</h3></div>
           <p>iPhone and Apple Watch weight-loss coach that understands Malaysian food, with Claude coaching through Supabase Edge Functions.</p>
-          <p class="stack"><span>React Native</span><span>Supabase</span><span>Claude API</span></p>
+          <p class="stack"><span>React Native</span><span>Supabase</span><span>Claude API</span><a href="https://github.com/mmuazhr/fitmu" rel="noopener">Code&nbsp;&#8599;</a></p>
         </li>
       </ul>
     </section>
