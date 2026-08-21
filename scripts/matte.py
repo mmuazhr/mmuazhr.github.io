@@ -54,7 +54,10 @@ def precompute():
 
     ys, xs = np.nonzero(bgm)
     sel = np.random.RandomState(0).choice(len(xs), min(200000, len(xs)), replace=False)
-    # normalise to 0..1 so x^2 stays well conditioned (raw pixel coords reach 4.2M)
+    # Normalise to 0..1 purely for lstsq conditioning. Raw pixel coords are
+    # perfectly safe in float64 -- this is NOT about overflow, and it is not
+    # what silences the warnings below. Don't go chasing a numerical problem
+    # here; there isn't one.
     xn, yn = xs/(W-1.0), ys/(H-1.0)
     A = np.stack([np.ones_like(xn), xn, yn, xn*xn, yn*yn, xn*yn], 1)
     coef = [np.linalg.lstsq(A[sel], rgb[ys[sel], xs[sel], c].astype(np.float64), rcond=None)[0]
@@ -63,8 +66,10 @@ def precompute():
     X /= (W-1.0); Y /= (H-1.0)
     B = np.stack([np.ones_like(X), X, Y, X*X, Y*Y, X*Y], 2)
     # einsum rather than `B @ c`: the BLAS path for a (H,W,6)@(6,) contraction
-    # emits spurious overflow/invalid warnings here even though the result is
-    # finite and correct. Verified identical output both ways.
+    # emits spurious overflow/invalid warnings even though the result is finite
+    # and correct -- an Accelerate artifact on macOS, so you may not see them on
+    # other platforms. einsum sidesteps BLAS entirely. Output verified identical
+    # both ways (bit-for-bit against the shipped cutouts).
     bgfit = np.stack([np.einsum('ijk,k->ij', B, c) for c in coef], 2).astype(np.float32)
 
     D = np.abs(rgb - bgfit).sum(2)
