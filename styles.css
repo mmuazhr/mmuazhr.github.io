@@ -646,6 +646,27 @@ p + .lbl { margin-top: 1.5rem; }
 
 /* ---------- Mascots ---------- */
 
+/* Marginalia. These live in the outer gutter, outside the reading measure, and
+   only appear when the viewport is wide enough to have a real gutter to sit in.
+   Naro is on patrol at the top of the builds list; Exa sits on the rule that
+   closes the case studies. */
+#builds, #bundle { position: relative; }
+
+.gutter-mascot { display: none; }
+
+@media (min-width: 1380px) {
+  .gutter-mascot {
+    display: block;
+    position: absolute;
+    height: clamp(104px, 8.5vw, 148px);
+    width: auto;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .gm-left  { left: -138px; top: -0.5rem; }
+  .gm-right { right: -134px; bottom: -0.25rem; }
+}
+
 #contact { position: relative; }
 .exa {
   position: absolute;
@@ -681,30 +702,6 @@ p + .lbl { margin-top: 1.5rem; }
   100% { transform: translateY(-100%) scale(1, 1); }
 }
 
-.naro {
-  position: fixed;
-  left: clamp(8px, 3vw, 40px);
-  bottom: 0;
-  height: clamp(84px, 9vw, 120px);
-  width: auto;
-  transform: translateY(103%);
-  transform-origin: 50% 100%;
-  pointer-events: none;
-  z-index: 5;
-  transition: transform 0.5s var(--ease);
-}
-.js .naro.peek { animation: naro-peek 4.2s cubic-bezier(0.22, 1, 0.36, 1); }
-/* Rise, settle with a small overshoot, hold, then drop back. Again no
-   rotation — he is standing up into frame, not being tipped. */
-@keyframes naro-peek {
-  0%   { transform: translateY(103%) scale(1, 1); }
-  8%   { transform: translateY(60%)  scale(0.97, 1.03); }
-  22%  { transform: translateY(22%)  scale(1.02, 0.98); }
-  32%  { transform: translateY(30%)  scale(0.99, 1.01); }
-  40%  { transform: translateY(27%)  scale(1, 1); }
-  70%  { transform: translateY(27%)  scale(1, 1); }
-  100% { transform: translateY(103%) scale(1, 1); }
-}
 
 
 .mascot-note {
@@ -887,7 +884,6 @@ p + .lbl { margin-top: 1.5rem; }
   .js .exa.in,
   .js .exa.in.excited { animation: none; }
   .js .exa { opacity: 1; }
-  .naro { display: none; }
   .js .rv {
     opacity: 1;
     transform: none;

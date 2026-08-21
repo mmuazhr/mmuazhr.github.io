@@ -29,6 +29,16 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  /* Exa waves from the corner. Kept clear of the headline and the stat row so
+     nothing collides when a client crops the card. */
+  .og-exa {
+    position: absolute;
+    right: 52px;
+    bottom: 58px;
+    height: 232px;
+    width: auto;
+  }
+
   html, body {
     width: 1200px;
     height: 630px;
@@ -110,6 +120,7 @@
 </style>
 </head>
 <body>
+  <img class="og-exa" src="exa.png" alt="">
   <p class="eyebrow">AI Engineer</p>
 
   <h1>I build AI agents that<br>ship to production<span class="sig">.</span></h1>

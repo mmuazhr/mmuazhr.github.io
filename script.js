@@ -3,17 +3,10 @@
 document.documentElement.classList.add("js");
 
 const diagrams = document.querySelectorAll(".diagram");
-const revealables = document.querySelectorAll(".metrics");
-const naro = document.querySelector(".naro");
+const revealables = document.querySelectorAll(".metrics, .gutter-mascot");
 const exa = document.querySelector(".exa");
 const cta = document.querySelector(".cta");
 
-// The peek runs on a class the CSS animates; clearing it lets it run again later.
-function peek() {
-  if (!naro || naro.classList.contains("peek")) return;
-  naro.classList.add("peek");
-  setTimeout(() => naro.classList.remove("peek"), 4200);
-}
 
 if ("IntersectionObserver" in window) {
   const diagramObserver = new IntersectionObserver(
@@ -68,22 +61,6 @@ if ("IntersectionObserver" in window) {
     exaObserver.observe(exa);
   }
 
-  // Naro peeks once the reader reaches the contact band.
-  const contact = document.querySelector("#contact");
-  if (naro && contact) {
-    const naroObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            peek();
-            naroObserver.unobserve(contact);
-          }
-        }
-      },
-      { threshold: 0, rootMargin: "0px 0px -25% 0px" }
-    );
-    naroObserver.observe(contact);
-  }
 } else {
   diagrams.forEach((d) => d.classList.add("live"));
   if (exa) exa.classList.add("in");
@@ -99,16 +76,3 @@ if (exa && cta) {
   cta.addEventListener("blur", calm);
 }
 
-// ...and again whenever the reader has been still for a while, but never
-// while they are still on the hero, where he has no context.
-if (naro) {
-  let idleTimer;
-  const pastHero = () => window.scrollY > window.innerHeight * 0.9;
-  const armIdlePeek = () => {
-    clearTimeout(idleTimer);
-    if (!pastHero()) return;
-    idleTimer = setTimeout(peek, 12000);
-  };
-  window.addEventListener("scroll", armIdlePeek, { passive: true });
-  window.addEventListener("pointermove", armIdlePeek, { passive: true });
-}

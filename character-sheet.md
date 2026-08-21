@@ -7,7 +7,7 @@ visual half lives in `assets/mascots/`.
 | | |
 |---|---|
 | Visual reference | `assets/mascots/naro-character-sheet.jpg`, `assets/mascots/exa-character-sheet.jpg` |
-| Shipped web assets | `naro.png`, `exa.png` — transparent PNGs, 274×420 and 266×420 |
+| Shipped web assets | `naro.png` (312×462), `exa.png` (618×840), plus `assets/mascots/naro-scout.png`, `exa-sit.png`, `naro-adrift.png` — all transparent, all with 4–5% padding so nothing touches a canvas edge |
 | Origin | Cut from `content-studio/assets/mascot-concepts/duo-v2.png` by PIL floodfill |
 | Reference sheets | Generated 2026-08-21 with `nano-banana-pro` on Mitte, using the live PNGs as `image_urls` |
 
@@ -91,14 +91,30 @@ asset.
 
 ## Usage on the site
 
-- Both are decorative: `alt=""`, `aria-hidden="true"`.
-- Exa is absolutely positioned on `#contact`, fades in on scroll, bobs gently, and
-  does a small excited hop when the contact CTA is hovered or focused.
-- Naro is fixed to the bottom-left corner, peeks up when the reader reaches the
-  contact band, and again after 12 seconds of stillness.
-- Both are hidden or held still under `prefers-reduced-motion: reduce`.
-- The `.mascot-note` line in the contact band is what explains them to a visitor.
-  If the mascots change, that line changes too.
+Four placements, each in a distinct spot. On-page decorative instances carry
+`alt=""` and `aria-hidden="true"`; the 404 illustration has real alt text because
+it is the page's subject.
+
+| Where | Asset | Behaviour |
+|---|---|---|
+| `#contact` band | `exa.png` | Perched on the band's top edge. Fades in on scroll, bobs gently, small excited hop when the contact CTA is hovered or focused. |
+| `#bundle` right gutter | `assets/mascots/exa-sit.png` | Seated on the rule that closes the case studies, laptop on her lap. |
+| `#builds` left gutter | `assets/mascots/naro-scout.png` | Scouting, hand shading his eyes — "on patrol", surveying the independent builds. |
+| `404.html` | `assets/mascots/naro-adrift.png` | Floating untethered with a worried face. Slow drift loop. |
+
+**Naro no longer has a fixed bottom-left corner peek.** It was removed on
+2026-08-22: because it was `position: fixed`, it could sit on screen at the same
+time as the gutter Naro, putting two of the same character in one viewport. The
+gutter placement is now his only appearance, which is also a truer reading of
+"on patrol".
+
+The two gutter mascots live in the page's outer margin, outside the reading
+measure, and are `display: none` below 1380px where no real gutter exists.
+
+Everything is held still under `prefers-reduced-motion: reduce`.
+
+The `.mascot-note` line in the contact band is what explains them to a visitor.
+If the mascots change, that line changes too.
 
 ## Generation prompts
 
