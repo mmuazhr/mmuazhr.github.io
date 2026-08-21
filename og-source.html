@@ -30,7 +30,12 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   /* Exa waves from the corner. Kept clear of the headline and the stat row so
-     nothing collides when a client crops the card. */
+     nothing collides when a client crops the card.
+
+     NOTE: the committed og-card.png was rasterized while exa.png was still
+     840px tall. That asset is now 300px, so re-rendering this file today
+     produces a slightly softer Exa. If you need a crisp re-render, point this
+     img at a larger source rather than "fixing" the card you just softened. */
   .og-exa {
     position: absolute;
     right: 52px;

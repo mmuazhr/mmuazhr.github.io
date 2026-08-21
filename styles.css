@@ -665,16 +665,22 @@ p + .lbl { margin-top: 1.5rem; }
   }
   .gm-left  { left: -138px; top: -0.5rem; }
   .gm-right { right: -134px; bottom: -0.25rem; }
+  /* Exa's asset carries ~6% transparent padding under her feet, so she needs a
+     nudge to actually rest on the rule. Scoped above .js .rv.in, which would
+     otherwise reset the transform to none. */
+  .js .gm-right.rv    { transform: translateY(calc(6% + 16px)); }
+  .js .gm-right.rv.in { transform: translateY(6%); }
 }
 
 #contact { position: relative; }
 .exa {
+  --exa-rest: -94%;            /* -100% + the asset's 6% bottom padding */
   position: absolute;
   top: 1px;
   right: clamp(24px, 9vw, 132px);
   height: clamp(76px, 10vw, 128px);
   width: auto;
-  transform: translateY(-100%);
+  transform: translateY(var(--exa-rest));
   transform-origin: 50% 100%;
   pointer-events: none;
   transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
@@ -691,15 +697,15 @@ p + .lbl { margin-top: 1.5rem; }
    space reads as a cutout on a pin. Vertical travel plus a little squash and
    stretch reads as a physical object instead. */
 @keyframes exa-bob {
-  0%, 100% { transform: translateY(-100%) scale(1, 1); }
-  50%      { transform: translateY(calc(-100% - 6px)) scale(0.994, 1.006); }
+  0%, 100% { transform: translateY(var(--exa-rest)) scale(1, 1); }
+  50%      { transform: translateY(calc(var(--exa-rest) - 6px)) scale(0.994, 1.006); }
 }
 @keyframes exa-excited {
-  0%   { transform: translateY(-100%) scale(1, 1); }
-  22%  { transform: translateY(calc(-100% + 3px)) scale(1.05, 0.95); }
-  55%  { transform: translateY(calc(-100% - 16px)) scale(0.95, 1.05); }
-  78%  { transform: translateY(calc(-100% + 1px)) scale(1.03, 0.97); }
-  100% { transform: translateY(-100%) scale(1, 1); }
+  0%   { transform: translateY(var(--exa-rest)) scale(1, 1); }
+  22%  { transform: translateY(calc(var(--exa-rest) + 3px)) scale(1.05, 0.95); }
+  55%  { transform: translateY(calc(var(--exa-rest) - 16px)) scale(0.95, 1.05); }
+  78%  { transform: translateY(calc(var(--exa-rest) + 1px)) scale(1.03, 0.97); }
+  100% { transform: translateY(var(--exa-rest)) scale(1, 1); }
 }
 
 

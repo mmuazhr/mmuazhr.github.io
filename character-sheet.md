@@ -7,7 +7,9 @@ visual half lives in `assets/mascots/`.
 | | |
 |---|---|
 | Visual reference | `assets/mascots/naro-character-sheet.jpg`, `assets/mascots/exa-character-sheet.jpg` |
-| Shipped web assets | `naro.png` (312×462), `exa.png` (618×840), plus `assets/mascots/naro-scout.png`, `exa-sit.png`, `naro-adrift.png` — all transparent, all with 4–5% padding so nothing touches a canvas edge |
+| Shipped web assets | `naro.png` 203×300, `exa.png` 221×300, `assets/mascots/naro-scout.png` 210×320, `exa-sit.png` 226×320, `naro-adrift.png` 598×800 |
+| Asset rules | All transparent. All carry ~5–6% padding so no opaque pixel touches a canvas edge. All sized to ~2.4× their rendered height — enough for retina, no more. **Keep the `width`/`height` attributes in the markup in sync when you resize any of them.** |
+| Padding gotcha | That bottom padding means a character positioned with `translateY(-100%)` floats above the edge it should stand on. `.exa` offsets it with `--exa-rest: -94%`; `.gm-right` uses `translateY(6%)`. If you regenerate an asset with different padding, re-measure and update those two numbers. |
 | Origin | Cut from `content-studio/assets/mascot-concepts/duo-v2.png` by PIL floodfill |
 | Reference sheets | Generated 2026-08-21 with `nano-banana-pro` on Mitte, using the live PNGs as `image_urls` |
 
@@ -60,7 +62,16 @@ near-black.
 
 ## Regenerating
 
-Feed the **live PNGs** as reference images so the model has the real characters:
+Feed the **character sheets** as the primary reference — they are 2400px and
+show the character from every angle:
+
+```
+https://mmuazhr.github.io/assets/mascots/naro-character-sheet.jpg
+https://mmuazhr.github.io/assets/mascots/exa-character-sheet.jpg
+```
+
+The live PNGs can be passed alongside them, but note they are now only 300px
+tall after the 2026-08-22 resize, so on their own they are a weak reference:
 
 ```
 https://mmuazhr.github.io/naro.png
