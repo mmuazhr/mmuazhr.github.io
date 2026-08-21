@@ -1,3 +1,6 @@
 
 # gstack browse-session scratch (contains a local terminal token)
 .gstack/
+
+# derived arrays for scripts/matte.py (D.npy alone is ~16MB)
+scripts/.matte-cache/

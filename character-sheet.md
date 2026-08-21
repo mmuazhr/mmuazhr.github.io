@@ -64,12 +64,22 @@ near-black.
 
 `naro.png` and `exa.png` are cut from
 `content-studio/assets/mascot-concepts/duo-v2.png` (2048², both characters on a
-tan plinth over a cream gradient). The working script is at
-`scratchpad/matte/matte.py`. What makes it work:
+tan plinth over a cream gradient). Run `python3 scripts/matte.py` — it is
+self-contained and caches its derived arrays in `scripts/.matte-cache/`
+(gitignored; `D.npy` alone is ~16MB). Delete that directory to force a rebuild.
+What makes it work:
 
 - **Fit the background, don't assume it.** A per-channel quadratic fit over the
   flood-filled border region, then measure every pixel's deviation from that
   fit. A fixed cream constant is not good enough — the backdrop is a gradient.
+  The fit residual is printed on every rebuild (currently mean 3.4, p99 17.7
+  sum-abs over 2.19M background pixels). **Every `D` threshold in the script is
+  calibrated against this specific fit** — if you re-point it at a different
+  render, check that residual before trusting any of them.
+- **`chres` is the array doing the real work.** It is a *scale-invariant*
+  residual, which is why the plinth — essentially a darker scaling of the same
+  cream — separates from the characters at all, and why the dome interior reads
+  as background rather than as subject.
 - **The plinth is not a colour threshold.** Below its top edge (y=1340; Exa's
   laptop bottoms out at y=1297, so there is no overlap) a pixel is plinth if it
   is warm (`r−b > 15`) **and** `g/r > 0.62`. Measured separation: plinth
