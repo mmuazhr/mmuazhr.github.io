@@ -79,7 +79,13 @@
 
         <div class="cs-result">
           <p class="lbl">Result</p>
-          <p>In production at Maxis today, answering telecom KPI questions for non-technical users. <strong>300+ monthly users across business and finance teams, with answered-question volume up 2.4x in one quarter</strong> as word spread. The grounding loop eliminated hallucinated figures: every number shown has been checked against the warehouse that produced it. <strong>Over 4,000 verified answers served; unverified-output rate below 0.5%</strong>. I own the full LLMOps loop, from containerized Cloud Run deploys to versioned prompts, reliability and cost monitoring.</p>
+          <ul class="metrics">
+            <li><b>300+</b><span>monthly users across business and finance</span></li>
+            <li><b>2.4&#8202;x</b><span>answered-question growth in one quarter</span></li>
+            <li><b>4,000+</b><span>verified answers served</span></li>
+            <li><b>&lt;0.5%</b><span>unverified-output rate</span></li>
+          </ul>
+          <p>In production at Maxis today, answering telecom KPI questions for non-technical users, and growing by word of mouth. The grounding loop eliminated hallucinated figures: every number shown has been checked against the warehouse that produced it. I own the full LLMOps loop, from containerized Cloud Run deploys to versioned prompts, reliability and cost monitoring.</p>
         </div>
         <p class="stack" aria-label="Stack"><span>Python</span><span>Google ADK</span><span>Vertex AI Agent Engine</span><span>BigQuery</span><span>Cloud Run</span></p>
       </article>
@@ -93,7 +99,10 @@
           <p class="lbl">Approach</p>
           <p>I built a natural-language-to-DAX agent for Power BI, then built an adversarial QA harness to break it: probes that feed the agent inputs the test oracle never covered, score the answers, and turn every failure into a permanent regression case.</p>
           <p class="lbl">Result</p>
-          <p>This is now how I evaluate every agent I ship. <strong>Adversarial probes found 23 failures the green suite missed; every one is now a permanent regression case, and the same class of bug has not recurred since.</strong> A green suite is necessary. It is never sufficient.</p>
+          <ul class="metrics metrics-solo">
+            <li><b>23</b><span>failures the green suite missed, each now a permanent regression case</span></li>
+          </ul>
+          <p>This is now how I evaluate every agent I ship, and the same class of bug has not recurred since. A green suite is necessary. It is never sufficient.</p>
           <p class="stack" aria-label="Stack"><span>Python</span><span>Power BI</span><span>DAX</span><span>LLM evaluation</span></p>
         </div>
         <div class="diagram diagram-v" role="img" aria-label="Evaluation flow: the agent under test passes the happy-path suite, then adversarial probes with uncovered inputs surface failures, each becoming a regression test for a hardened agent.">
@@ -131,7 +140,14 @@
           <div class="arrow m-a2" aria-hidden="true"></div>
           <div class="node m-target"><span>agent turn</span><small>reads both at zero added latency, writes learned policy back</small></div>
         </div>
-        <p class="cs-result"><strong>Repeat-question deflection up 31% quarter over quarter, with zero added per-turn latency</strong> — policy propagation that once took a redeploy now lands in seconds.</p>
+        <div class="cs-result">
+          <p class="lbl">Result</p>
+          <ul class="metrics">
+            <li><b>31%</b><span>repeat-question deflection, quarter over quarter</span></li>
+            <li><b>Zero</b><span>added per-turn latency</span></li>
+          </ul>
+          <p>Policy propagation that once took a redeploy now lands in seconds.</p>
+        </div>
         <p class="stack" aria-label="Stack"><span>Python</span><span>Firestore</span><span>Agent Engine</span></p>
       </article>
 
@@ -151,7 +167,11 @@
         </div>
         <div class="cs-result">
           <p class="lbl">Result</p>
-          <p><strong>190+ test files, and a 6x speedup in tailored-application drafting</strong> — from roughly three hours per tailored application to under 30 minutes, with every claim traceable to a stored fact. Zero fabricated experience shipped since the verification gate landed.</p>
+          <ul class="metrics">
+            <li><b>190+</b><span>test files behind the pipeline</span></li>
+            <li><b>6&#8202;x</b><span>faster tailored-application drafting</span></li>
+          </ul>
+          <p>From roughly three hours per tailored application to under 30 minutes, with every claim traceable to a stored fact. Zero fabricated experience shipped since the verification gate landed.</p>
         </div>
         <div class="diagram" role="img" aria-label="Pipeline: a job description is analyzed, the application is tailored from cited facts, a verification step rejects unsourced claims, then the deterministic renderer produces PDF and DOCX.">
           <div class="flow">

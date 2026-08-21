@@ -3,9 +3,7 @@
 document.documentElement.classList.add("js");
 
 const diagrams = document.querySelectorAll(".diagram");
-const revealables = document.querySelectorAll(
-  "h2, .cs, .ledger > li, .timeline > li, .proofs > li, .contact-line, .cta, .contact-note, .contact-links"
-);
+const revealables = document.querySelectorAll(".metrics");
 const naro = document.querySelector(".naro");
 const exa = document.querySelector(".exa");
 const cta = document.querySelector(".cta");
@@ -46,6 +44,13 @@ if ("IntersectionObserver" in window) {
     el.classList.add("rv");
     revealObserver.observe(el);
   });
+
+  // The metrics carry the proof, so they must never stay hidden because an
+  // observer never fired. Anything still unrevealed after a few seconds is
+  // shown regardless.
+  setTimeout(() => {
+    revealables.forEach((el) => el.classList.add("in"));
+  }, 2500);
 
   // Exa slides into place when contact section approaches
   if (exa) {
@@ -94,14 +99,16 @@ if (exa && cta) {
   cta.addEventListener("blur", calm);
 }
 
-// ...and again whenever the reader has been still for a while.
+// ...and again whenever the reader has been still for a while, but never
+// while they are still on the hero, where he has no context.
 if (naro) {
   let idleTimer;
+  const pastHero = () => window.scrollY > window.innerHeight * 0.9;
   const armIdlePeek = () => {
     clearTimeout(idleTimer);
+    if (!pastHero()) return;
     idleTimer = setTimeout(peek, 12000);
   };
-  window.addEventListener("load", armIdlePeek);
   window.addEventListener("scroll", armIdlePeek, { passive: true });
   window.addEventListener("pointermove", armIdlePeek, { passive: true });
 }
