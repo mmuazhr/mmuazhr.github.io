@@ -7,9 +7,9 @@ visual half lives in `assets/mascots/`.
 | | |
 |---|---|
 | Visual reference | `assets/mascots/naro-character-sheet.jpg`, `assets/mascots/exa-character-sheet.jpg` |
-| Shipped web assets | `naro.png` 203×300, `exa.png` 221×300, `assets/mascots/naro-scout.png` 210×320, `exa-sit.png` 226×320, `naro-adrift.png` 598×800 |
+| Shipped web assets | `naro.png` 186×300, `exa.png` 219×300, `assets/mascots/naro-scout.png` 210×320, `exa-sit.png` 226×320, `naro-adrift.png` 598×800, `exa-source.png` 614×840 (full-res, used only to render the OG card) |
 | Asset rules | All transparent. All carry ~5–6% padding so no opaque pixel touches a canvas edge. All sized to ~2.4× their rendered height — enough for retina, no more. **Keep the `width`/`height` attributes in the markup in sync when you resize any of them.** |
-| Padding gotcha | That bottom padding means a character positioned with `translateY(-100%)` floats above the edge it should stand on. `.exa` offsets it with `--exa-rest: -94%`; `.gm-right` uses `translateY(6%)`. If you regenerate an asset with different padding, re-measure and update those two numbers. |
+| Padding gotcha | That bottom padding means a character positioned with `translateY(-100%)` floats above the edge it should stand on. `.exa` offsets it with `--exa-rest: -96%` (4% padding); `.gm-right` uses `translateY(6%)` (its asset has 6%). **If you regenerate an asset, re-measure its bottom padding and update the matching number.** |
 | Origin | Cut from `content-studio/assets/mascot-concepts/duo-v2.png` by PIL floodfill |
 | Reference sheets | Generated 2026-08-21 with `nano-banana-pro` on Mitte, using the live PNGs as `image_urls` |
 
@@ -59,6 +59,40 @@ Blocky voxel robot in warm coral / salmon-pink plastic.
 
 Colours: coral pink, deep coral shadow, pale cream, light silver grey, mid grey,
 near-black.
+
+## Re-cutting from the source render
+
+`naro.png` and `exa.png` are cut from
+`content-studio/assets/mascot-concepts/duo-v2.png` (2048², both characters on a
+tan plinth over a cream gradient). The working script is at
+`scratchpad/matte/matte.py`. What makes it work:
+
+- **Fit the background, don't assume it.** A per-channel quadratic fit over the
+  flood-filled border region, then measure every pixel's deviation from that
+  fit. A fixed cream constant is not good enough — the backdrop is a gradient.
+- **The plinth is not a colour threshold.** Below its top edge (y=1340; Exa's
+  laptop bottoms out at y=1297, so there is no overlap) a pixel is plinth if it
+  is warm (`r−b > 15`) **and** `g/r > 0.62`. Measured separation: plinth
+  0.80–0.90, its coral-bounce contact shadow 0.70–0.79, coral boots p99 0.585.
+  The warmth test is what stops Naro's pale-blue leg highlights being eaten,
+  which otherwise notches his legs.
+- **Naro's glass dome CAN be reconstructed** — an earlier attempt concluded
+  otherwise and was wrong. Take the convex disc around the low-chroma blob at
+  his head, guard it with `min channel > 90` so his black eyes and mouth are not
+  read as glass, and ramp alpha from D=62 to D=120 capped at 0.75. It renders as
+  a thin annulus with a rim specular, which is what real glass looks like.
+- **Gate hole-filling on plinth content**, so the wedge between Exa's legs stays
+  transparent while the near-cream NARO patch and screen interiors still fill.
+- **Take the largest connected component per side**, which drops a coral-tinted
+  glass sliver — the dome's right arc refracting Exa's body — that otherwise
+  floats beside her.
+- **Un-premultiply edge colours against the fitted background** after eroding
+  ~3px and feathering. This is what kills the cream halo on the ink band; a
+  halo is invisible on paper and glaring on `#17171A`, so always check both.
+
+Known residual: a ~4px tan nub at the lower-right of Exa's left boot, a contact
+shadow remnant. Two attempts to remove it bit notches out of the other boot, so
+it stays; it reads as contact shadow at display size.
 
 ## Regenerating
 

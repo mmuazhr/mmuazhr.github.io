@@ -32,10 +32,9 @@
   /* Exa waves from the corner. Kept clear of the headline and the stat row so
      nothing collides when a client crops the card.
 
-     NOTE: the committed og-card.png was rasterized while exa.png was still
-     840px tall. That asset is now 300px, so re-rendering this file today
-     produces a slightly softer Exa. If you need a crisp re-render, point this
-     img at a larger source rather than "fixing" the card you just softened. */
+     Renders from assets/mascots/exa-source.png (614x840) rather than the
+     300px exa.png the page uses, so re-running the headless render always
+     produces a crisp card. */
   .og-exa {
     position: absolute;
     right: 52px;
@@ -125,7 +124,7 @@
 </style>
 </head>
 <body>
-  <img class="og-exa" src="exa.png" alt="">
+  <img class="og-exa" src="assets/mascots/exa-source.png" alt="">
   <p class="eyebrow">AI Engineer</p>
 
   <h1>I build AI agents that<br>ship to production<span class="sig">.</span></h1>

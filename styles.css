@@ -674,7 +674,7 @@ p + .lbl { margin-top: 1.5rem; }
 
 #contact { position: relative; }
 .exa {
-  --exa-rest: -94%;            /* -100% + the asset's 6% bottom padding */
+  --exa-rest: -96%;            /* -100% + the asset's 4% bottom padding */
   position: absolute;
   top: 1px;
   right: clamp(24px, 9vw, 132px);
