@@ -250,6 +250,9 @@ h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 560; letter-spacing: -0
 .metrics-solo b { font-size: clamp(3.5rem, 9vw, 5.5rem); }
 .metrics-solo span { margin-top: 0.5rem; font-size: 0.75rem; max-width: 34ch; }
 
+/* a trace already closes with a rule, so the metrics beneath it drop theirs */
+.trace + .cs-result .metrics { border-top: 0; padding-top: 0; }
+
 /* Engineering notes: native disclosure */
 .notes {
   margin-top: clamp(24px, 3vh, 32px);
