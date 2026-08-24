@@ -152,9 +152,9 @@ it is the page's subject.
 
 | Where | Asset | Behaviour |
 |---|---|---|
-| `#contact` band | `exa.png` | Perched on the band's top edge. Fades in on scroll, bobs gently, small excited hop when the contact CTA is hovered or focused. |
-| `#bundle` right gutter | `assets/mascots/exa-sit.png` | Seated on the rule that closes the case studies, laptop on her lap. |
-| `#builds` left gutter | `assets/mascots/naro-scout.png` | Scouting, hand shading his eyes — "on patrol", surveying the independent builds. |
+| `#contact` band | `exa.png` | Perched on the band's top edge. Bobs gently, small excited hop when the contact CTA is hovered or focused. |
+| `#bundle` right gutter | `assets/mascots/exa-sit.png` | Seated on the rule that closes the case studies, laptop on her lap. ≥1380px only. |
+| Every `.trace` | `assets/mascots/naro-scout.png` | Appears at the bottom-right of the trace whenever the active stage's state is `caught` or `abstain`: "on patrol, so he turns up wherever a check catches something." All viewport sizes (64px on mobile). |
 | `404.html` | `assets/mascots/naro-adrift.png` | Floating untethered with a worried face. Slow drift loop. |
 
 **Naro no longer has a fixed bottom-left corner peek.** It was removed on
