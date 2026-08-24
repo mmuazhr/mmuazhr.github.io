@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Muaz Husaini, AI Engineer</title>
-  <meta name="description" content="Muaz Husaini builds production AI agents at Maxis: multi-agent NL2SQL on Vertex AI Agent Engine, grounding guardrails, adversarial evaluation. Kuala Lumpur, Malaysia.">
+  <meta name="description" content="Muaz Husaini builds AI agents that are checked before anyone sees the answer: multi-agent NL2SQL on Vertex AI Agent Engine with grounding guardrails, adversarial evaluation, LLMOps. Data & AI DevOps at Maxis, Kuala Lumpur.">
   <meta property="og:title" content="Muaz Husaini, AI Engineer">
-  <meta property="og:description" content="I build AI agents that ship to production. Multi-agent systems on Google Cloud at Maxis, Kuala Lumpur.">
+  <meta property="og:description" content="I build AI agents that are checked before anyone sees the answer. Multi-agent systems on Google Cloud, in production at Maxis.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mmuazhr.github.io/">
   <meta property="og:image" content="https://mmuazhr.github.io/og-card.png">
@@ -15,7 +15,7 @@
   <meta property="og:image:alt" content="Muaz Husaini, AI Engineer — I build AI agents that ship to production.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Muaz Husaini, AI Engineer">
-  <meta name="twitter:description" content="I build AI agents that ship to production. Multi-agent systems on Google Cloud at Maxis, Kuala Lumpur.">
+  <meta name="twitter:description" content="I build AI agents that are checked before anyone sees the answer. Multi-agent systems on Google Cloud, in production at Maxis.">
   <meta name="twitter:image" content="https://mmuazhr.github.io/og-card.png">
   <link rel="canonical" href="https://mmuazhr.github.io/">
   <meta name="theme-color" content="#FAFAF9">
@@ -24,196 +24,391 @@
   <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
   <link rel="preload" href="fonts/GeneralSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
   <a class="skip" href="#work">Skip to work</a>
 
   <header class="site-head">
     <div class="wrap head-row">
-      <p class="brand">Muaz Husaini <span class="avail">Open to roles</span></p>
+      <a class="brand" href="#top">Muaz Husaini</a>
       <nav aria-label="Sections">
         <a href="#work">Work</a>
         <a href="#builds">Builds</a>
         <a href="#experience">Experience</a>
-        <a href="muaz-husaini-cv.pdf">CV</a>
         <a href="#contact">Contact</a>
+        <a class="nav-cv" href="muaz-husaini-cv.pdf">CV<span class="visually-hidden"> (PDF)</span></a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero wrap" aria-label="Introduction">
-      <h1>I build AI agents that <br>ship to production<span class="sig">.</span></h1>
-      <p class="hero-sub">Data &amp; AI DevOps at Maxis. I design and run multi-agent systems on Google Cloud.</p>
+  <main id="top">
+
+    <!-- ============ Hero ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <p class="eyebrow">AI Engineer<span class="dot" aria-hidden="true"></span>Data &amp; AI DevOps at Maxis<span class="dot" aria-hidden="true"></span>Kuala Lumpur<span class="dot" aria-hidden="true"></span><span class="avail">Open to roles</span></p>
+        <h1 id="hero-title">I build AI agents that are <em>checked</em> before anyone sees the answer<span class="sig">.</span></h1>
+        <p class="lede">Multi-agent systems on Google Cloud, in production at Maxis. Every number the flagship agent shows has been validated against the warehouse that produced it, or it says so and abstains.</p>
+
+        <div class="hero-foot">
+          <ul class="proof" aria-label="Production figures">
+            <li><b data-count="300" data-suffix="+">300+</b><span>monthly users of the NL2SQL agent</span></li>
+            <li><b data-count="4000" data-suffix="+">4,000+</b><span>verified answers served</span></li>
+            <li><b>&lt;0.5%</b><span>unverified-output rate</span></li>
+          </ul>
+          <div class="cta-row">
+            <a class="cta" href="mailto:muazhusaini@gmail.com">Email Muaz</a>
+            <a class="cta-ghost" href="muaz-husaini-cv.pdf">Download CV</a>
+            <a class="cta-ghost" href="https://github.com/mmuazhr" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="work" class="wrap">
-      <h2>Selected work</h2>
+    <!-- ============ Work ============ -->
+    <section id="work" class="wrap" aria-labelledby="work-title">
+      <div class="sec-head">
+        <h2 id="work-title">Selected work</h2>
+        <p class="sec-note">Three systems, each with a trace you can step through. The inputs are illustrative; the components and the checks are the real ones.</p>
+      </div>
 
-      <!-- Case study 1: flagship -->
-      <article class="cs cs-flagship" id="nl2sql">
-        <p class="cs-meta">Maxis&ensp;/&ensp;In production</p>
-        <h3>NL2SQL Agentic System</h3>
+      <!-- 01 NL2SQL -->
+      <article class="cs" id="nl2sql">
+        <header class="cs-head">
+          <p class="cs-meta"><span class="num">01</span>Maxis<span class="dot" aria-hidden="true"></span>In production since 2026</p>
+          <h3>NL2SQL agent for telecom KPIs</h3>
+          <p class="cs-line">Business teams ask BigQuery questions in plain language. A grounding guardrail validates every figure against live results before the answer is shown, or the agent abstains.</p>
+        </header>
+
         <div class="cs-cols">
           <div>
             <p class="lbl">Problem</p>
-            <p>Business teams could not query BigQuery themselves, so every KPI question became an ad-hoc ticket and analysts spent their weeks answering them.</p>
+            <p>Business and finance teams could not query BigQuery themselves. Every KPI question became a ticket, and analysts spent their weeks answering them.</p>
           </div>
           <div>
-            <p class="lbl">Approach</p>
-            <p>A multi-agent system on Vertex AI Agent Engine, built with Google ADK. A semantic router sends each question to the right specialist. SQL generation is M-Schema aware, so the agent cannot invent tables that do not exist, and a grounding guardrail validates every number against live BigQuery results before it reaches a user. When confidence is low, the agent abstains instead of guessing.</p>
+            <p class="lbl">Decision</p>
+            <p>Treat hallucinated numbers as the failure that matters. Split the work across specialist agents, constrain SQL generation to the schema that exists (M-Schema), and put a verification step between the model and the user, with permission to say "I can't answer that".</p>
           </div>
         </div>
 
-        <div class="diagram" role="img" aria-label="Architecture: a user question passes through a semantic router to an M-Schema aware SQL agent, then a grounding guardrail validates results against live BigQuery before answering or abstaining.">
-          <div class="flow">
-            <div class="node"><span>question</span><small>plain language, multi-turn</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>semantic router</span><small>picks the specialist agent</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>SQL agent</span><small>M-Schema aware generation</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node key"><span>grounding guardrail</span><small>validates against live BigQuery</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>answer, or abstain</span><small>no unverified numbers</small></div>
+        <div class="trace" data-trace="nl2sql">
+          <div class="trace-bar">
+            <p class="lbl">Trace a request</p>
+            <fieldset class="scn">
+              <legend class="visually-hidden">Scenario</legend>
+              <label><input type="radio" name="scn-nl2sql" value="a" checked><span>Answerable question</span></label>
+              <label><input type="radio" name="scn-nl2sql" value="b"><span>Question it should refuse</span></label>
+            </fieldset>
+            <div class="trace-ctl">
+              <button type="button" class="tbtn" data-step="-1" aria-label="Previous step">&larr;</button>
+              <button type="button" class="tbtn" data-step="1" aria-label="Next step">&rarr;</button>
+            </div>
           </div>
+
+          <ol class="stages">
+            <li class="stage" data-state-a="pass" data-state-b="pass">
+              <button type="button" class="stage-btn"><span class="stage-name">Question</span><span class="stage-sub">plain language, multi-turn</span></button>
+              <div class="stage-body">
+                <p data-scn="a">"How did prepaid activations move month on month in the northern region?"</p>
+                <p data-scn="b">"What was churn for the loyalty tier we launched last week?"</p>
+              </div>
+            </li>
+            <li class="stage" data-state-a="pass" data-state-b="pass">
+              <button type="button" class="stage-btn"><span class="stage-name">Semantic router</span><span class="stage-sub">picks the specialist</span></button>
+              <div class="stage-body">
+                <p data-scn="a">Classified as a KPI trend question. Routed to the KPI specialist agent with the conversation so far.</p>
+                <p data-scn="b">Also a KPI question on the surface. Routed the same way. The router is not where this one gets caught.</p>
+              </div>
+            </li>
+            <li class="stage" data-state-a="pass" data-state-b="warn">
+              <button type="button" class="stage-btn"><span class="stage-name">SQL agent</span><span class="stage-sub">M-Schema aware</span></button>
+              <div class="stage-body">
+                <p data-scn="a">Plans the query against the schema it was given: only tables and columns that exist. Generates SQL and runs it.</p>
+                <p data-scn="b">No table or column in M-Schema describes a tier launched last week. The agent cannot invent one, so its confidence in the draft SQL is low.</p>
+              </div>
+            </li>
+            <li class="stage" data-state-a="pass" data-state-b="caught">
+              <button type="button" class="stage-btn"><span class="stage-name">Grounding guardrail</span><span class="stage-sub">validates against live BigQuery</span></button>
+              <div class="stage-body">
+                <p data-scn="a">Every figure in the draft answer is checked against the live query result. They match. The answer is cleared.</p>
+                <p data-scn="b">Low confidence plus figures that cannot be grounded. The guardrail blocks the answer instead of letting a plausible number through.</p>
+              </div>
+            </li>
+            <li class="stage stage-out" data-state-a="pass" data-state-b="abstain">
+              <button type="button" class="stage-btn"><span class="stage-name" data-scn="a">Answer</span><span class="stage-name" data-scn="b">Abstain</span><span class="stage-sub">no unverified numbers</span></button>
+              <div class="stage-body">
+                <p data-scn="a">Narrative, chart and table, with only validated figures. Anomalies are flagged where the numbers move unexpectedly.</p>
+                <p data-scn="b">The user is told what could not be answered and why, and what data would be needed. No guess, no number.</p>
+              </div>
+            </li>
+          </ol>
+          <img class="trace-naro" src="assets/mascots/naro-scout.png" alt="" aria-hidden="true" loading="lazy" width="210" height="320">
         </div>
 
         <div class="cs-result">
-          <p class="lbl">Result</p>
           <ul class="metrics">
-            <li><b>300+</b><span>monthly users across business and finance</span></li>
-            <li><b>2.4&#8202;x</b><span>answered-question growth in one quarter</span></li>
-            <li><b>4,000+</b><span>verified answers served</span></li>
+            <li><b data-count="300" data-suffix="+">300+</b><span>monthly users across business and finance</span></li>
+            <li><b data-count="2.4" data-suffix="&#8202;x" data-decimals="1">2.4&#8202;x</b><span>growth in questions answered, in one quarter</span></li>
+            <li><b data-count="4000" data-suffix="+">4,000+</b><span>verified answers served</span></li>
             <li><b>&lt;0.5%</b><span>unverified-output rate</span></li>
           </ul>
-          <p>In production at Maxis today, answering telecom KPI questions for non-technical users, and growing by word of mouth. The grounding loop eliminated hallucinated figures: every number shown has been checked against the warehouse that produced it. I own the full LLMOps loop, from containerized Cloud Run deploys to versioned prompts, reliability and cost monitoring.</p>
+          <p>Live at Maxis, answering telecom KPI questions for non-technical users and growing by word of mouth. I own the LLMOps loop end to end: containerised Cloud Run deploys, versioned prompts and agent configs, reliability and cost monitoring.</p>
         </div>
+
+        <details class="notes">
+          <summary>Engineering notes</summary>
+          <ul>
+            <li><b>Orchestration.</b> Google ADK on Vertex AI Agent Engine. A semantic router dispatches to specialist agents; each specialist owns one class of question.</li>
+            <li><b>SQL generation.</b> M-Schema-aware: the agent sees a compact, typed description of the tables it may use, which removes the most common hallucination (querying a table that does not exist).</li>
+            <li><b>Grounding.</b> The draft answer's figures are validated against the live BigQuery result set before rendering. A mismatch or a low-confidence plan triggers abstention with an explanation.</li>
+            <li><b>Conversation.</b> Multi-turn memory and query planning, so follow-ups ("same thing for postpaid") resolve against the previous question.</li>
+            <li><b>Output.</b> Structured narrative, chart and table for executive use, with anomaly detection on the returned series.</li>
+            <li><b>Operations.</b> Containerised Cloud Run deployment, versioned prompts and agent configs, production reliability and cost monitoring.</li>
+          </ul>
+        </details>
         <p class="stack" aria-label="Stack"><span>Python</span><span>Google ADK</span><span>Vertex AI Agent Engine</span><span>BigQuery</span><span>Cloud Run</span></p>
       </article>
 
-      <!-- Case study 2: split, diagram right -->
-      <article class="cs cs-split" id="qa-harness">
-        <div class="cs-text">
-          <h3>NL-to-DAX Agent, and the harness that attacks it</h3>
-          <p class="lbl">Problem</p>
-          <p>An agent can pass every automated test and still fail real users. Happy-path suites reward memorizing the demo.</p>
-          <p class="lbl">Approach</p>
-          <p>I built a natural-language-to-DAX agent for Power BI, then built an adversarial QA harness to break it: probes that feed the agent inputs the test oracle never covered, score the answers, and turn every failure into a permanent regression case.</p>
-          <p class="lbl">Result</p>
-          <ul class="metrics metrics-solo">
-            <li><b>23</b><span>failures the green suite missed, each now a permanent regression case</span></li>
-          </ul>
-          <p>This is now how I evaluate every agent I ship, and the same class of bug has not recurred since. A green suite is necessary. It is never sufficient.</p>
-          <p class="stack" aria-label="Stack"><span>Python</span><span>Power BI</span><span>DAX</span><span>LLM evaluation</span></p>
-        </div>
-        <div class="cs-aside">
-        <div class="diagram diagram-v" role="img" aria-label="Evaluation flow: the agent under test passes the happy-path suite, then adversarial probes with uncovered inputs surface failures, each becoming a regression test for a hardened agent.">
-          <div class="flow">
-            <div class="node"><span>agent under test</span></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>happy-path suite</span><small>all green. necessary</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node strong"><span>adversarial probes</span><small>inputs the oracle never covered</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>surfaced failures</span><small>each becomes a regression test</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>hardened agent</span></div>
-          </div>
-        </div>
-        </div>
-      </article>
+      <!-- 02 Harness -->
+      <article class="cs" id="qa-harness">
+        <header class="cs-head">
+          <p class="cs-meta"><span class="num">02</span>Maxis<span class="dot" aria-hidden="true"></span>NL-to-DAX agent for Power BI</p>
+          <h3>The harness that attacks the agent</h3>
+          <p class="cs-line">A green test suite proves an agent can pass its own tests. The harness feeds it inputs the tests never covered and turns every failure into a permanent regression case.</p>
+        </header>
 
-      <!-- Case study 3: merge diagram -->
-      <article class="cs" id="self-improving">
-        <h3>Self-Improving Agent Architecture</h3>
         <div class="cs-cols">
           <div>
             <p class="lbl">Problem</p>
-            <p>Agent Engine sessions are stateless. Anything an agent learns dies with the conversation, and the naive fix adds a database read to every single turn.</p>
+            <p>An agent can pass every automated test and still fail real users. Happy-path suites reward memorising the demo.</p>
           </div>
           <div>
-            <p class="lbl">Approach</p>
-            <p>Learned policy lives in Firestore, separated cleanly from per-user conversational memory. In-memory caching plus realtime listeners mean agents pick up cross-user policy updates instantly, without a per-turn latency cost. What one conversation teaches, every future conversation knows.</p>
+            <p class="lbl">Decision</p>
+            <p>Treat evaluation as an adversary, not a checklist. Build a second system whose only job is to break the first, and make each break permanent.</p>
           </div>
         </div>
-        <div class="diagram diagram-merge" role="img" aria-label="Architecture: a cross-user policy store in Firestore with caching and realtime listeners, and per-user session memory, both feed each agent turn; the agent writes what it learns back to the policy store.">
-          <div class="node strong m-src1"><span>policy store</span><small>Firestore. cross-user, cached, realtime listeners</small></div>
-          <div class="arrow m-a1" aria-hidden="true"></div>
-          <div class="node m-src2"><span>session memory</span><small>per-user, stateless sessions</small></div>
-          <div class="arrow m-a2" aria-hidden="true"></div>
-          <div class="node m-target"><span>agent turn</span><small>reads both at zero added latency, writes learned policy back</small></div>
+
+        <div class="trace" data-trace="harness">
+          <div class="trace-bar">
+            <p class="lbl">Trace a test run</p>
+            <fieldset class="scn">
+              <legend class="visually-hidden">Scenario</legend>
+              <label><input type="radio" name="scn-harness" value="a"><span>Happy-path suite</span></label>
+              <label><input type="radio" name="scn-harness" value="b" checked><span>Adversarial probe</span></label>
+            </fieldset>
+            <div class="trace-ctl">
+              <button type="button" class="tbtn" data-step="-1" aria-label="Previous step">&larr;</button>
+              <button type="button" class="tbtn" data-step="1" aria-label="Next step">&rarr;</button>
+            </div>
+          </div>
+
+          <ol class="stages">
+            <li class="stage" data-state-a="pass" data-state-b="pass">
+              <button type="button" class="stage-btn"><span class="stage-name">Agent under test</span><span class="stage-sub">NL question in, DAX out</span></button>
+              <div class="stage-body">
+                <p data-scn="a">"Total revenue by product line for last quarter." A question shaped exactly like the examples it was built on.</p>
+                <p data-scn="b">A question the oracle never covered: an ambiguous time range, a measure that exists under two names, a filter phrased as a negation.</p>
+              </div>
+            </li>
+            <li class="stage" data-state-a="pass" data-state-b="pass">
+              <button type="button" class="stage-btn"><span class="stage-name">Happy-path suite</span><span class="stage-sub">necessary, not sufficient</span></button>
+              <div class="stage-body">
+                <p data-scn="a">All green. The generated DAX matches the expected measure and filter. This is where most evaluation stops.</p>
+                <p data-scn="b">Still all green. The suite does not contain this input, so it has nothing to say about it.</p>
+              </div>
+            </li>
+            <li class="stage" data-state-a="skip" data-state-b="caught">
+              <button type="button" class="stage-btn"><span class="stage-name">Adversarial probe</span><span class="stage-sub">inputs the oracle never saw</span></button>
+              <div class="stage-body">
+                <p data-scn="a">Not reached. A happy-path run ends at the suite, which is the problem.</p>
+                <p data-scn="b">The probe scores the answer independently. The DAX filtered the wrong measure and silently returned a number. Failure recorded.</p>
+              </div>
+            </li>
+            <li class="stage" data-state-a="skip" data-state-b="pass">
+              <button type="button" class="stage-btn"><span class="stage-name">Regression case</span><span class="stage-sub">the failure becomes permanent</span></button>
+              <div class="stage-body">
+                <p data-scn="a">Nothing new is learned.</p>
+                <p data-scn="b">The failing input, the wrong output and the expected behaviour are stored as a test. From now on the suite covers it.</p>
+              </div>
+            </li>
+            <li class="stage stage-out" data-state-a="warn" data-state-b="pass">
+              <button type="button" class="stage-btn"><span class="stage-name">Agent</span><span class="stage-sub" data-scn="a">unchanged</span><span class="stage-sub" data-scn="b">hardened</span></button>
+              <div class="stage-body">
+                <p data-scn="a">Ships with the same blind spot it had before. Green, and no safer.</p>
+                <p data-scn="b">Fixed against this class of input, and the fix cannot quietly regress. The same class of bug has not recurred since.</p>
+              </div>
+            </li>
+          </ol>
+          <img class="trace-naro" src="assets/mascots/naro-scout.png" alt="" aria-hidden="true" loading="lazy" width="210" height="320">
+        </div>
+
+        <div class="cs-result">
+          <ul class="metrics metrics-solo">
+            <li><b data-count="23">23</b><span>failures the green suite missed, each now a permanent regression case</span></li>
+          </ul>
+          <p>This is now how I evaluate every agent I ship. A green suite is necessary. It is never sufficient.</p>
+        </div>
+
+        <details class="notes">
+          <summary>Engineering notes</summary>
+          <ul>
+            <li><b>Agent.</b> Natural language to DAX for Power BI semantic models: measure resolution, filter construction, time intelligence.</li>
+            <li><b>Probes.</b> Generated from the classes of input the oracle did not contain: ambiguous ranges, synonyms for measures, negated filters, questions that should be refused.</li>
+            <li><b>Scoring.</b> Each answer is scored independently of the suite, so a probe can fail an output the suite would have called correct.</li>
+            <li><b>Loop.</b> Every surfaced failure is written back as a regression case. The suite only grows; nothing is deleted when it goes green.</li>
+          </ul>
+        </details>
+        <p class="stack" aria-label="Stack"><span>Python</span><span>Power BI</span><span>DAX</span><span>LLM evaluation</span></p>
+      </article>
+
+      <!-- 03 Job Agent -->
+      <article class="cs" id="job-agent">
+        <header class="cs-head">
+          <p class="cs-meta"><span class="num">03</span>Independent build</p>
+          <h3>Job Agent, a pipeline that cannot lie about you</h3>
+          <p class="cs-line">Most LLM résumé tools happily invent experience. Here every generated claim must cite a stored fact, and anything unsourced is rejected before it can be rendered.</p>
+        </header>
+
+        <div class="cs-cols">
+          <div>
+            <p class="lbl">Problem</p>
+            <p>An agent that writes about you has to be incapable of lying. "Usually accurate" is not a property you can put on a job application.</p>
+          </div>
+          <div>
+            <p class="lbl">Decision</p>
+            <p>Make citation a hard gate, not a prompt instruction. Generation may only draw on facts in a knowledge base, and a separate verification pass rejects any claim it cannot trace to one.</p>
+          </div>
+        </div>
+
+        <div class="trace" data-trace="job">
+          <div class="trace-bar">
+            <p class="lbl">Trace a claim</p>
+            <fieldset class="scn">
+              <legend class="visually-hidden">Scenario</legend>
+              <label><input type="radio" name="scn-job" value="a"><span>Sourced claim</span></label>
+              <label><input type="radio" name="scn-job" value="b" checked><span>Unsourced claim</span></label>
+            </fieldset>
+            <div class="trace-ctl">
+              <button type="button" class="tbtn" data-step="-1" aria-label="Previous step">&larr;</button>
+              <button type="button" class="tbtn" data-step="1" aria-label="Next step">&rarr;</button>
+            </div>
+          </div>
+
+          <ol class="stages">
+            <li class="stage" data-state-a="pass" data-state-b="pass">
+              <button type="button" class="stage-btn"><span class="stage-name">Job description</span><span class="stage-sub">discovered on a schedule</span></button>
+              <div class="stage-body">
+                <p data-scn="a">Airflow picks up a new posting. It asks for production LLM experience on Google Cloud.</p>
+                <p data-scn="b">Same posting. It also asks for Kubernetes.</p>
+              </div>
+            </li>
+            <li class="stage" data-state-a="pass" data-state-b="pass">
+              <button type="button" class="stage-btn"><span class="stage-name">Analyse</span><span class="stage-sub">requirements, fit</span></button>
+              <div class="stage-body">
+                <p data-scn="a">Requirements are extracted and matched against the knowledge base. Production LLM work on Google Cloud: strong match, several facts.</p>
+                <p data-scn="b">Kubernetes: no fact in the knowledge base. The gap is recorded, not papered over.</p>
+              </div>
+            </li>
+            <li class="stage" data-state-a="pass" data-state-b="warn">
+              <button type="button" class="stage-btn"><span class="stage-name">Tailor</span><span class="stage-sub">from cited facts only</span></button>
+              <div class="stage-body">
+                <p data-scn="a">Drafts a bullet about the NL2SQL agent on Vertex AI and attaches the fact IDs it drew on.</p>
+                <p data-scn="b">The model drafts "deployed services on Kubernetes" anyway. Models do this. That is why the next stage exists.</p>
+              </div>
+            </li>
+            <li class="stage" data-state-a="pass" data-state-b="caught">
+              <button type="button" class="stage-btn"><span class="stage-name">Verify</span><span class="stage-sub">cite or reject</span></button>
+              <div class="stage-body">
+                <p data-scn="a">Each cited fact is fetched and compared with the claim. The bullet is supported. Cleared for rendering.</p>
+                <p data-scn="b">No citation resolves to a fact about Kubernetes. The claim is rejected and never reaches the document.</p>
+              </div>
+            </li>
+            <li class="stage stage-out" data-state-a="pass" data-state-b="pass">
+              <button type="button" class="stage-btn"><span class="stage-name">Render</span><span class="stage-sub">deterministic PDF and DOCX</span></button>
+              <div class="stage-body">
+                <p data-scn="a">The verified bullets are rendered with a deterministic template. Playwright assists with the application form.</p>
+                <p data-scn="b">The document renders without the Kubernetes line. The gap stays visible to me, so I can decide what to do about it honestly.</p>
+              </div>
+            </li>
+          </ol>
+          <img class="trace-naro" src="assets/mascots/naro-scout.png" alt="" aria-hidden="true" loading="lazy" width="210" height="320">
+        </div>
+
+        <div class="cs-result">
+          <ul class="metrics">
+            <li><b data-count="190" data-suffix="+">190+</b><span>test files behind the pipeline</span></li>
+            <li><b data-count="6" data-suffix="&#8202;x">6&#8202;x</b><span>faster tailored-application drafting</span></li>
+            <li><b>0</b><span>fabricated claims shipped since the gate landed</span></li>
+          </ul>
+          <p>From roughly three hours per tailored application to under thirty minutes, with every claim traceable to a stored fact.</p>
+        </div>
+
+        <details class="notes">
+          <summary>Engineering notes</summary>
+          <ul>
+            <li><b>Knowledge base.</b> Facts about my experience live in Supabase with stable IDs. Generation prompts receive facts, not free text about me.</li>
+            <li><b>Verification.</b> A separate pass resolves every citation and compares the claim to the fact. Unresolvable or contradicted claims are rejected; the draft is regenerated without them.</li>
+            <li><b>Rendering.</b> Deterministic templates to PDF and DOCX, so a verified draft cannot change on the way out.</li>
+            <li><b>Orchestration.</b> Airflow for scheduled job discovery, Playwright for assisted autofill, ~190 test files across the pipeline.</li>
+          </ul>
+        </details>
+        <p class="stack" aria-label="Stack"><span>Python</span><span>Claude API</span><span>Supabase</span><span>Airflow</span><span>Playwright</span></p>
+      </article>
+
+      <!-- 04 Self-improving -->
+      <article class="cs cs-compact" id="self-improving">
+        <header class="cs-head">
+          <p class="cs-meta"><span class="num">04</span>Maxis<span class="dot" aria-hidden="true"></span>Agent Engine</p>
+          <h3>Agents that remember what they learned</h3>
+          <p class="cs-line">Agent Engine sessions are stateless, so anything an agent learns dies with the conversation. The naive fix adds a database read to every turn.</p>
+        </header>
+        <div class="cs-cols">
+          <div>
+            <p class="lbl">Decision</p>
+            <p>Separate learned policy from conversational memory. Policy lives in Firestore, cached in memory and updated through realtime listeners, so every agent picks up cross-user updates instantly without a per-turn read. What one conversation teaches, every future conversation knows.</p>
+          </div>
+          <div class="merge" role="img" aria-label="Architecture: a cross-user policy store in Firestore and per-user session memory both feed each agent turn; the agent writes what it learns back to the policy store.">
+            <div class="mnode strong"><span>policy store</span><small>Firestore, cross-user, cached, realtime listeners</small></div>
+            <div class="mnode"><span>session memory</span><small>per-user, stateless sessions</small></div>
+            <div class="mjoin" aria-hidden="true"></div>
+            <div class="mnode target"><span>agent turn</span><small>reads both at zero added latency, writes learned policy back</small></div>
+          </div>
         </div>
         <div class="cs-result">
-          <p class="lbl">Result</p>
           <ul class="metrics">
-            <li><b>31%</b><span>repeat-question deflection, quarter over quarter</span></li>
-            <li><b>Zero</b><span>added per-turn latency</span></li>
+            <li><b data-count="31" data-suffix="%">31%</b><span>repeat-question deflection, quarter over quarter</span></li>
+            <li><b>0&#8202;ms</b><span>added per-turn latency</span></li>
+            <li><b>seconds</b><span>to propagate a policy change, previously a redeploy</span></li>
           </ul>
-          <p>Policy propagation that once took a redeploy now lands in seconds.</p>
         </div>
         <p class="stack" aria-label="Stack"><span>Python</span><span>Firestore</span><span>Agent Engine</span></p>
       </article>
 
-      <!-- Case study 4: Job Agent -->
-      <article class="cs" id="job-agent">
-        <p class="cs-meta">Independent build</p>
-        <h3>Job Agent, a pipeline that cannot lie about you</h3>
-        <div class="cs-cols">
-          <div>
-            <p class="lbl">Problem</p>
-            <p>Most LLM resume tools happily invent experience. An agent that writes about you has to be incapable of lying.</p>
-          </div>
-          <div>
-            <p class="lbl">Approach</p>
-            <p>Every generated bullet must cite a fact stored in a Supabase knowledge base, and a verification pass rejects any claim without a source before rendering. Airflow for scheduled job discovery, Playwright for assisted autofill.</p>
-          </div>
-        </div>
-        <div class="cs-result">
-          <p class="lbl">Result</p>
-          <ul class="metrics">
-            <li><b>190+</b><span>test files behind the pipeline</span></li>
-            <li><b>6&#8202;x</b><span>faster tailored-application drafting</span></li>
-          </ul>
-          <p>From roughly three hours per tailored application to under 30 minutes, with every claim traceable to a stored fact. Zero fabricated experience shipped since the verification gate landed.</p>
-        </div>
-        <div class="diagram" role="img" aria-label="Pipeline: a job description is analyzed, the application is tailored from cited facts, a verification step rejects unsourced claims, then the deterministic renderer produces PDF and DOCX.">
-          <div class="flow flow-numbered">
-            <div class="node"><span>job description</span></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>analyze</span><small>requirements, fit</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>tailor</span><small>from cited facts only</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node strong"><span>verify</span><small>unsourced claims rejected</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>render</span><small>deterministic PDF and DOCX</small></div>
-          </div>
-        </div>
-        <p class="stack" aria-label="Stack"><span>Python</span><span>Claude API</span><span>Supabase</span><span>Airflow</span><span>Playwright</span></p>
-      </article>
-
-      <!-- Case study 5: business case, text only -->
+      <!-- 05 Business case -->
       <article class="cs cs-quiet" id="bundle">
-        <img class="gutter-mascot gm-right" src="assets/mascots/exa-sit.png" alt="" aria-hidden="true" loading="lazy" width="226" height="320">
-        <h3>AI Bundle Business Case</h3>
-        <p class="cs-narrow">Not every AI problem is a coding problem. At Maxis I built the full financial model and pitch for bundling an AI subscription into Hotlink Youth plans, and caught a rebate modelling error that changed the strategy. I can argue the business case for a system, not just build it.</p>
+        <p class="cs-meta"><span class="num">05</span>Maxis<span class="dot" aria-hidden="true"></span>Consumer Business</p>
+        <p class="cs-narrow">Not every AI problem is a coding problem. I built the financial model and the pitch for bundling an AI subscription into Hotlink Youth plans, and caught a rebate modelling error that changed the strategy. I can argue the business case for a system, not just build it.</p>
         <p class="stack" aria-label="Stack"><span>Financial modelling</span><span>Go-to-market</span></p>
+        <img class="gutter-mascot gm-right" src="assets/mascots/exa-sit.png" alt="" aria-hidden="true" loading="lazy" width="226" height="320">
       </article>
     </section>
 
-    <section id="builds" class="wrap">
-      <img class="gutter-mascot gm-left" src="assets/mascots/naro-scout.png" alt="" aria-hidden="true" loading="lazy" width="210" height="320">
-      <h2>Independent builds</h2>
+    <!-- ============ Builds ============ -->
+    <section id="builds" class="wrap" aria-labelledby="builds-title">
+      <div class="sec-head">
+        <h2 id="builds-title">Independent builds</h2>
+        <p class="sec-note">Things I run outside work. One of them has real merchants behind it.</p>
+      </div>
       <ul class="ledger">
         <li>
           <div class="ledger-head"><h3>QueLess</h3><a class="live-link" href="https://queless-production.up.railway.app" rel="noopener">Live&nbsp;&#8599;</a></div>
-          <p>QR queue and order-ahead SaaS for Malaysian merchants, running in front of real users with CI, health checks and Sentry.</p>
+          <p>QR queue and order-ahead SaaS for Malaysian merchants, in front of real users with CI, health checks and Sentry.</p>
           <p class="stack"><span>Next.js</span><span>Prisma</span><span>Postgres</span><span>Railway</span><a href="https://github.com/mmuazhr/smart-queue-saas" rel="noopener">Code&nbsp;&#8599;</a></p>
         </li>
         <li>
           <div class="ledger-head"><h3>Content Studio</h3></div>
-          <p>Automated video pipeline for an AI mascot channel. Airflow orchestrates Claude script generation, asset generation and a human approval gate.</p>
+          <p>Automated video pipeline for an AI mascot channel. Airflow orchestrates schema-validated Claude script generation, asset generation and a human approval gate.</p>
           <p class="stack"><span>Python</span><span>Airflow</span><span>Claude API</span><span>Supabase</span><a href="https://github.com/mmuazhr/content-studio" rel="noopener">Code&nbsp;&#8599;</a></p>
         </li>
         <li>
@@ -229,32 +424,43 @@
       </ul>
     </section>
 
-    <section id="experience" class="wrap">
-      <h2>Experience</h2>
+    <!-- ============ Experience ============ -->
+    <section id="experience" class="wrap" aria-labelledby="exp-title">
+      <div class="sec-head">
+        <h2 id="exp-title">Experience</h2>
+        <p class="sec-note">Graduated December 2024. Three rotations at Maxis since, the current one building the systems above.</p>
+      </div>
       <ol class="timeline">
         <li>
-          <p class="when">2025 to now</p>
+          <p class="when">Jan 2026 to now</p>
           <div>
-            <h3>Maxis, Kuala Lumpur</h3>
-            <p>Graduate Program. Current rotation in Data &amp; AI DevOps, building the agentic systems above. Earlier rotations in Consumer Business go-to-market and Mobile Product.</p>
+            <h3>Maxis, Data &amp; AI DevOps</h3>
+            <p>Graduate Program, current rotation. Designed and shipped the NL2SQL agent, the evaluation harness and the policy store. Own the LLMOps loop.</p>
           </div>
         </li>
         <li>
-          <p class="when">2024</p>
+          <p class="when">Jan to Dec 2025</p>
           <div>
-            <h3>Deloitte Consulting SEA</h3>
-            <p>AI &amp; Data internship. Generative AI document automation on Microsoft Fabric, plus a dashboard migration as business analyst.</p>
+            <h3>Maxis, Consumer Business</h3>
+            <p>Two rotations: Mobile Product (pricing, subsidy and ROI modelling for device ownership) and Go-to-Market (campaign strategy and execution, rebate-assignment automation for new plans).</p>
           </div>
         </li>
         <li>
-          <p class="when">2023 to 2024</p>
+          <p class="when">May to Aug 2024</p>
           <div>
-            <h3>PJBUMI Heavy Engineering</h3>
-            <p>MLOps apprentice. Computer-vision inspection and asset-health models for oil and gas clients, including work on a Petronas engagement.</p>
+            <h3>Deloitte Consulting SEA, AI &amp; Data</h3>
+            <p>Generative AI document automation on Microsoft Fabric (summarisation, PII identification, contract review), plus a dashboard migration as business analyst.</p>
           </div>
         </li>
         <li>
-          <p class="when">2024</p>
+          <p class="when">Aug 2023 to Feb 2024</p>
+          <div>
+            <h3>PJBUMI Heavy Engineering, MLOps</h3>
+            <p>Computer-vision inspection and asset-health models for oil and gas clients, including a Petronas engagement.</p>
+          </div>
+        </li>
+        <li>
+          <p class="when">Dec 2024</p>
           <div>
             <h3>UKM, BSc Computer Science</h3>
             <p>First Class Honours, CGPA 3.88. Dean's List in all eight semesters.</p>
@@ -263,32 +469,40 @@
       </ol>
     </section>
 
-    <section id="skills" class="wrap">
-      <h2>Skills, as evidence</h2>
+    <!-- ============ Skills as evidence ============ -->
+    <section id="skills" class="wrap" aria-labelledby="skills-title">
+      <div class="sec-head">
+        <h2 id="skills-title">Skills, as evidence</h2>
+        <p class="sec-note">Each one points at the place on this page that proves it.</p>
+      </div>
       <ul class="proofs">
-        <li><strong>Multi-agent orchestration</strong><a href="#nl2sql">in production at Maxis</a></li>
-        <li><strong>Grounding and guardrails</strong><a href="#nl2sql">every number validated against BigQuery</a></li>
-        <li><strong>Agent evaluation</strong><a href="#qa-harness">adversarial probing beyond green suites</a></li>
+        <li><strong>Multi-agent orchestration</strong><a href="#nl2sql">Google ADK on Agent Engine, in production</a></li>
+        <li><strong>Grounding and guardrails</strong><a href="#nl2sql">every number validated against BigQuery, or abstain</a></li>
+        <li><strong>Agent evaluation</strong><a href="#qa-harness">adversarial probes beyond green suites</a></li>
+        <li><strong>Verification-first design</strong><a href="#job-agent">generation that must cite or be rejected</a></li>
         <li><strong>LLMOps on Google Cloud</strong><a href="#nl2sql">Cloud Run, versioned prompts, cost monitoring</a></li>
-        <li><strong>Verification-first design</strong><a href="#job-agent">generation that must cite or abstain</a></li>
         <li><strong>Shipping full products</strong><a href="#builds">a live SaaS with CI and monitoring</a></li>
+        <li><strong>Data</strong><a href="#experience">SQL, BigQuery, Power BI and DAX, Fabric, scikit-learn, TensorFlow</a></li>
+        <li><strong>Business cases</strong><a href="#bundle">financial modelling and go-to-market at Maxis</a></li>
       </ul>
     </section>
 
-    <section id="contact" class="dark">
+    <!-- ============ Contact ============ -->
+    <section id="contact" class="dark" aria-labelledby="contact-title">
       <img class="exa" src="exa.png" alt="" aria-hidden="true" loading="lazy" width="219" height="300">
       <div class="wrap contact">
-        <h2 class="visually-hidden">Contact</h2>
-        <p class="contact-line">Need agents that hold up <br>in production?</p>
-        <a class="cta" href="mailto:muazhusaini@gmail.com">Email Muaz</a>
-        <p class="contact-note">Open to AI Engineer roles, and select freelance work through TERAS TECH.</p>
-        <p class="mascot-note">The robots are Naro and Exa, my voxel sidekicks. Exa brought the laptop; Naro is on patrol.</p>
+        <h2 id="contact-title" class="contact-line">Need agents that hold up <br>in production?</h2>
+        <div class="cta-row">
+          <a class="cta" href="mailto:muazhusaini@gmail.com">Email Muaz</a>
+          <a class="cta-ghost" href="muaz-husaini-cv.pdf">Download CV</a>
+        </div>
+        <p class="contact-note">Open to AI Engineer roles, and select freelance work through TERAS TECH. Based in Kuala Lumpur.</p>
         <ul class="contact-links">
-          <li>muazhusaini@gmail.com</li>
+          <li><a href="mailto:muazhusaini@gmail.com">muazhusaini@gmail.com</a></li>
           <li><a href="https://github.com/mmuazhr" rel="noopener">github.com/mmuazhr</a></li>
           <li><a href="https://linkedin.com/in/muazhusaini" rel="noopener">linkedin.com/in/muazhusaini</a></li>
-          <li><a href="muaz-husaini-cv.pdf">download CV (PDF)</a></li>
         </ul>
+        <p class="mascot-note">The robots are Naro and Exa, my voxel sidekicks. Naro is on patrol, so he turns up wherever a check catches something. Exa brought the laptop.</p>
       </div>
     </section>
   </main>
@@ -296,6 +510,7 @@
   <footer class="dark">
     <div class="wrap site-foot">
       <p>Muaz Husaini. Kuala Lumpur, Malaysia.</p>
+      <p><a href="v1/">Portfolio V1</a></p>
     </div>
   </footer>
 
