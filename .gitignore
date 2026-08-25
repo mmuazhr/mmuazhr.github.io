@@ -1,6 +1,4 @@
-
-# gstack browse-session scratch (contains a local terminal token)
+# Local tool state - never publish
 .gstack/
-
-# derived arrays for scripts/matte.py (D.npy alone is ~16MB)
-scripts/.matte-cache/
+.impeccable/
+.DS_Store

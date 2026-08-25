@@ -40,7 +40,7 @@ html { scroll-behavior: smooth; }
   html { scroll-behavior: auto; }
 }
 
-html, body { overflow-x: clip; }
+html, body { overflow-x: hidden; overflow-x: clip; }
 
 body {
   font-family: var(--sans);
@@ -126,6 +126,7 @@ a { color: inherit; }
 
 .hero {
   max-width: 1400px;
+  min-height: calc(100vh - 65px);
   min-height: calc(100svh - 65px);
   display: flex;
   flex-direction: column;
@@ -229,7 +230,7 @@ h2 {
 }
 p + .lbl { margin-top: 1.5rem; }
 
-.cs p:not(.lbl):not(.stack):not(.cs-meta):not(.cs-narrow) {
+.cs p:not(.lbl):not(.stack):not(.cs-meta) {
   max-width: 62ch;
   color: var(--ink);
 }
@@ -241,66 +242,16 @@ p + .lbl { margin-top: 1.5rem; }
   margin-bottom: clamp(28px, 4vh, 48px);
 }
 
-.cs-result { margin-top: clamp(28px, 4vh, 48px); }
-.cs-result > p { max-width: 62ch; }
-.cs-result strong,
-.cs p strong {
-  font-weight: 600;
-  letter-spacing: -0.005em;
-}
-
-/* ---------- Proof metrics ----------
-   The numbers are the strongest thing on the page. They get typographic
-   weight instead of being buried inside a paragraph as bold runs. */
-
-.metrics {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
-  gap: clamp(20px, 3vw, 40px);
-  margin: 0 0 clamp(24px, 3.5vh, 36px);
-  padding-top: clamp(18px, 2.5vh, 26px);
-  border-top: 1px solid var(--line);
-}
-.metrics b {
-  display: block;
-  font-weight: 680;
-  font-size: clamp(2rem, 4.4vw, 3.125rem);
-  line-height: 0.95;
-  letter-spacing: -0.035em;
-  font-variant-numeric: tabular-nums;
-  color: var(--ink);
-}
-.metrics span {
-  display: block;
-  margin-top: 0.6875rem;
-  font-family: var(--mono);
-  font-size: 0.6875rem;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--graphite);
-  max-width: 24ch;
-}
-
-/* A single metric carries the section on its own, so it goes much larger. */
-.metrics-solo { grid-template-columns: 1fr; }
-.metrics-solo b { font-size: clamp(3.5rem, 9vw, 5.5rem); }
-.metrics-solo span {
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  max-width: 34ch;
-}
-
-.cs-split .metrics { grid-template-columns: 1fr; }
+.cs-result { margin-top: clamp(28px, 4vh, 48px); max-width: 62ch; }
 
 .stack {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
   margin-top: 1.75rem;
 }
-.stack span,
-.stack a {
+.stack li {
   font-family: var(--mono);
   font-size: 0.71875rem;
   font-weight: 500;
@@ -308,13 +259,6 @@ p + .lbl { margin-top: 1.5rem; }
   letter-spacing: 0.08em;
   color: var(--graphite);
 }
-.stack a {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  transition: color 0.2s var(--ease);
-}
-.stack a:hover { color: var(--ink); }
 
 /* split case study (text left, vertical diagram right) */
 .cs-split {
@@ -325,42 +269,8 @@ p + .lbl { margin-top: 1.5rem; }
 }
 .cs-split h3 { margin-bottom: 1.75rem; }
 
-/* The text column runs far longer than the diagram, which left a dead field
-   below it. The wrapper stretches to the row height so the diagram inside it
-   has somewhere to travel — a content-height grid item cannot stick. */
-@media (min-width: 861px) {
-  .cs-split .cs-aside { align-self: stretch; }
-  .cs-split .cs-aside .diagram-v {
-    position: sticky;
-    top: clamp(88px, 12vh, 132px);
-  }
-}
-
-/* quiet case study: the coda. No diagram and no metric by design, so it earns
-   its place through scale instead. */
-.cs-quiet .cs-narrow {
-  max-width: 21em;
-  font-size: clamp(1.375rem, 2.4vw, 1.875rem);
-  font-weight: 480;
-  line-height: 1.35;
-  letter-spacing: -0.018em;
-}
-
-/* A numbered variant so the Job Agent pipeline does not read as a repeat of
-   the NL2SQL flow above it. */
-.flow-numbered { counter-reset: step; }
-.flow-numbered .node { counter-increment: step; }
-.flow-numbered .node::before {
-  content: counter(step);
-  display: block;
-  margin-bottom: 0.5rem;
-  font-family: var(--mono);
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  color: var(--line);
-}
-.flow-numbered .node.strong::before { color: rgba(250, 250, 249, 0.55); }
+/* quiet case study */
+.cs-quiet .cs-narrow { max-width: 58ch; }
 
 /* ---------- Diagrams ---------- */
 
@@ -457,6 +367,7 @@ p + .lbl { margin-top: 1.5rem; }
 .js .diagram.live .arrow::before {
   animation: pulse-x 6.5s var(--ease) infinite both;
 }
+.js .diagram.live.offscreen .arrow::before { animation-play-state: paused; }
 .js .diagram.live > * > :nth-child(2).arrow::before { animation-delay: 0.55s; }
 .js .diagram.live > * > :nth-child(4).arrow::before { animation-delay: 0.85s; }
 .js .diagram.live > * > :nth-child(6).arrow::before { animation-delay: 1.15s; }
@@ -540,25 +451,9 @@ p + .lbl { margin-top: 1.5rem; }
 
 .ledger {
   list-style: none;
-  counter-reset: build;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(36px, 5vh, 56px) clamp(32px, 5vw, 72px);
-}
-.ledger > li {
-  counter-increment: build;
-  border-top: 1px solid var(--line);
-  padding-top: 1.125rem;
-}
-.ledger > li::before {
-  content: counter(build, decimal-leading-zero);
-  display: block;
-  margin-bottom: 0.75rem;
-  font-family: var(--mono);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  color: var(--line);
+  gap: clamp(40px, 6vh, 64px) clamp(32px, 5vw, 72px);
 }
 .ledger-head {
   display: flex;
@@ -646,69 +541,43 @@ p + .lbl { margin-top: 1.5rem; }
 
 /* ---------- Mascots ---------- */
 
-/* Marginalia. These live in the outer gutter, outside the reading measure, and
-   only appear when the viewport is wide enough to have a real gutter to sit in.
-   Naro is on patrol at the top of the builds list; Exa sits on the rule that
-   closes the case studies. */
-#builds, #bundle { position: relative; }
-
-.gutter-mascot { display: none; }
-
-@media (min-width: 1380px) {
-  .gutter-mascot {
-    display: block;
-    position: absolute;
-    height: clamp(104px, 8.5vw, 148px);
-    width: auto;
-    pointer-events: none;
-    z-index: 1;
-  }
-  .gm-left  { left: -138px; top: -0.5rem; }
-  .gm-right { right: -134px; bottom: -0.25rem; }
-  /* Exa's asset carries ~6% transparent padding under her feet, so she needs a
-     nudge to actually rest on the rule. Scoped above .js .rv.in, which would
-     otherwise reset the transform to none. */
-  .js .gm-right.rv    { transform: translateY(calc(6% + 16px)); }
-  .js .gm-right.rv.in { transform: translateY(6%); }
-}
-
 #contact { position: relative; }
 .exa {
-  --exa-rest: -96%;            /* -100% + the asset's 4% bottom padding */
   position: absolute;
   top: 1px;
   right: clamp(24px, 9vw, 132px);
   height: clamp(76px, 10vw, 128px);
   width: auto;
-  transform: translateY(var(--exa-rest));
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+.js .exa { animation: exa-bob 4.5s ease-in-out infinite; }
+@keyframes exa-bob {
+  0%, 100% { transform: translateY(-100%); }
+  50% { transform: translateY(calc(-100% - 5px)); }
+}
+
+.naro {
+  position: fixed;
+  left: clamp(8px, 3vw, 40px);
+  bottom: 0;
+  height: clamp(84px, 9vw, 120px);
+  width: auto;
+  transform: translateY(103%);
   transform-origin: 50% 100%;
   pointer-events: none;
-  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+  z-index: 5;
 }
-.js .exa { opacity: 0; }
-.js .exa.in {
-  opacity: 1;
-  animation: exa-bob 4.5s ease-in-out infinite;
+.js .naro { animation: naro-peek 17s ease-in-out 6s infinite; }
+@keyframes naro-peek {
+  0%, 100% { transform: translateY(103%) rotate(0deg); }
+  4%  { transform: translateY(30%) rotate(-4deg); }
+  6%  { transform: translateY(28%) rotate(3deg); }
+  8%  { transform: translateY(30%) rotate(-3deg); }
+  10% { transform: translateY(28%) rotate(0deg); }
+  15% { transform: translateY(28%) rotate(0deg); }
+  20% { transform: translateY(103%) rotate(0deg); }
 }
-.js .exa.in.excited {
-  animation: exa-excited 0.7s cubic-bezier(0.34, 1.4, 0.5, 1);
-}
-/* No 2D rotation: these are isometric 3D renders, so tilting them in screen
-   space reads as a cutout on a pin. Vertical travel plus a little squash and
-   stretch reads as a physical object instead. */
-@keyframes exa-bob {
-  0%, 100% { transform: translateY(var(--exa-rest)) scale(1, 1); }
-  50%      { transform: translateY(calc(var(--exa-rest) - 6px)) scale(0.994, 1.006); }
-}
-@keyframes exa-excited {
-  0%   { transform: translateY(var(--exa-rest)) scale(1, 1); }
-  22%  { transform: translateY(calc(var(--exa-rest) + 3px)) scale(1.05, 0.95); }
-  55%  { transform: translateY(calc(var(--exa-rest) - 16px)) scale(0.95, 1.05); }
-  78%  { transform: translateY(calc(var(--exa-rest) + 1px)) scale(1.03, 0.97); }
-  100% { transform: translateY(var(--exa-rest)) scale(1, 1); }
-}
-
-
 
 .mascot-note {
   margin-top: 0.875rem;
@@ -855,6 +724,7 @@ p + .lbl { margin-top: 1.5rem; }
   .site-head nav a { font-size: 0.875rem; }
 
   .hero {
+    min-height: calc(100vh - 100px);
     min-height: calc(100svh - 100px);
     padding-block: 24px 64px;
   }
@@ -886,10 +756,8 @@ p + .lbl { margin-top: 1.5rem; }
   }
   .arrow::before { animation: none !important; }
   .js .sig { animation: none; }
-  .js .exa,
-  .js .exa.in,
-  .js .exa.in.excited { animation: none; }
-  .js .exa { opacity: 1; }
+  .js .exa { animation: none; }
+  .naro { display: none; }
   .js .rv {
     opacity: 1;
     transform: none;
@@ -898,4 +766,72 @@ p + .lbl { margin-top: 1.5rem; }
   .cta,
   .site-head nav a,
   .proofs a { transition: none; }
+}
+
+/* ---------- Print ---------- */
+/* Browsers skip backgrounds by default and scroll reveals never fire on paper,
+   so every state below must resolve to dark ink on plain paper. */
+
+@media print {
+  .skip,
+  .naro,
+  .exa { display: none; }
+
+  .hero {
+    min-height: 0;
+    padding-block: 24px 48px;
+  }
+  .js .hero h1,
+  .js .hero-sub {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .js .rv {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .js .diagram .node,
+  .js .diagram .arrow {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .arrow::before { display: none; }
+
+  .dark {
+    background: none;
+    color: var(--ink);
+  }
+  .contact-note,
+  .mascot-note,
+  .contact-links li,
+  .contact-links a,
+  .site-foot p { color: var(--graphite); }
+  .site-foot { border-top-color: var(--hairline); }
+
+  .node.key,
+  .node.strong {
+    background: none;
+  }
+  .node.key span,
+  .node.strong span { color: var(--ink); }
+  .node.key small,
+  .node.strong small { color: var(--graphite); }
+
+  .cta {
+    background: none;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+  }
+
+  .contact-links a[href^="http"]::after,
+  .live-link[href^="http"]::after { content: " (" attr(href) ")"; }
+
+  h2, h3 { break-after: avoid; }
+  .node,
+  .ledger > li,
+  .timeline > li,
+  .proofs > li { break-inside: avoid; }
 }

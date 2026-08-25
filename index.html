@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Muaz Husaini, AI Engineer</title>
   <meta name="description" content="Muaz Husaini builds production AI agents at Maxis: multi-agent NL2SQL on Vertex AI Agent Engine, grounding guardrails, adversarial evaluation. Kuala Lumpur, Malaysia.">
@@ -9,21 +10,29 @@
   <meta property="og:description" content="I build AI agents that ship to production. Multi-agent systems on Google Cloud at Maxis, Kuala Lumpur.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mmuazhr.github.io/">
-  <meta property="og:image" content="https://mmuazhr.github.io/og-card.png">
+  <meta property="og:image" content="https://mmuazhr.github.io/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Muaz Husaini, AI Engineer — I build AI agents that ship to production.">
+  <meta property="og:image:alt" content="Muaz Husaini, AI Engineer: I build AI agents that ship to production.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Muaz Husaini, AI Engineer">
-  <meta name="twitter:description" content="I build AI agents that ship to production. Multi-agent systems on Google Cloud at Maxis, Kuala Lumpur.">
-  <meta name="twitter:image" content="https://mmuazhr.github.io/og-card.png">
   <link rel="canonical" href="https://mmuazhr.github.io/">
   <meta name="theme-color" content="#FAFAF9">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317171A'/%3E%3Ctext x='12' y='45' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='34' fill='%23FAFAF9'%3EM%3C/text%3E%3Ccircle cx='47' cy='42' r='5' fill='%23E9530E'/%3E%3C/svg%3E">
   <link rel="preload" href="fonts/GeneralSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muaz Husaini",
+    "url": "https://mmuazhr.github.io/",
+    "jobTitle": "AI Engineer",
+    "worksFor": { "@type": "Organization", "name": "Maxis" },
+    "email": "mailto:muazhusaini@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" },
+    "sameAs": ["https://github.com/mmuazhr", "https://linkedin.com/in/muazhusaini"]
+  }
+  </script>
 </head>
 <body>
   <a class="skip" href="#work">Skip to work</a>
@@ -47,7 +56,7 @@
       <p class="hero-sub">Data &amp; AI DevOps at Maxis. I design and run multi-agent systems on Google Cloud.</p>
     </section>
 
-    <section id="work" class="wrap">
+    <section id="work" class="wrap" tabindex="-1">
       <h2>Selected work</h2>
 
       <!-- Case study 1: flagship -->
@@ -81,15 +90,9 @@
 
         <div class="cs-result">
           <p class="lbl">Result</p>
-          <ul class="metrics">
-            <li><b>300+</b><span>monthly users across business and finance</span></li>
-            <li><b>2.4&#8202;x</b><span>answered-question growth in one quarter</span></li>
-            <li><b>4,000+</b><span>verified answers served</span></li>
-            <li><b>&lt;0.5%</b><span>unverified-output rate</span></li>
-          </ul>
-          <p>In production at Maxis today, answering telecom KPI questions for non-technical users, and growing by word of mouth. The grounding loop eliminated hallucinated figures: every number shown has been checked against the warehouse that produced it. I own the full LLMOps loop, from containerized Cloud Run deploys to versioned prompts, reliability and cost monitoring.</p>
+          <p>In production at Maxis today, answering telecom KPI questions for non-technical users. The grounding loop eliminated hallucinated figures: every number shown has been checked against the warehouse that produced it. I own the full LLMOps loop, from containerized Cloud Run deploys to versioned prompts, reliability and cost monitoring.</p>
         </div>
-        <p class="stack" aria-label="Stack"><span>Python</span><span>Google ADK</span><span>Vertex AI Agent Engine</span><span>BigQuery</span><span>Cloud Run</span></p>
+        <ul class="stack" aria-label="Stack"><li>Python</li><li>Google ADK</li><li>Vertex AI Agent Engine</li><li>BigQuery</li><li>Cloud Run</li></ul>
       </article>
 
       <!-- Case study 2: split, diagram right -->
@@ -101,13 +104,9 @@
           <p class="lbl">Approach</p>
           <p>I built a natural-language-to-DAX agent for Power BI, then built an adversarial QA harness to break it: probes that feed the agent inputs the test oracle never covered, score the answers, and turn every failure into a permanent regression case.</p>
           <p class="lbl">Result</p>
-          <ul class="metrics metrics-solo">
-            <li><b>23</b><span>failures the green suite missed, each now a permanent regression case</span></li>
-          </ul>
-          <p>This is now how I evaluate every agent I ship, and the same class of bug has not recurred since. A green suite is necessary. It is never sufficient.</p>
-          <p class="stack" aria-label="Stack"><span>Python</span><span>Power BI</span><span>DAX</span><span>LLM evaluation</span></p>
+          <p>This is now how I evaluate every agent I ship. A green suite is necessary. It is never sufficient.</p>
+          <ul class="stack" aria-label="Stack"><li>Python</li><li>Power BI</li><li>DAX</li><li>LLM evaluation</li></ul>
         </div>
-        <div class="cs-aside">
         <div class="diagram diagram-v" role="img" aria-label="Evaluation flow: the agent under test passes the happy-path suite, then adversarial probes with uncovered inputs surface failures, each becoming a regression test for a hardened agent.">
           <div class="flow">
             <div class="node"><span>agent under test</span></div>
@@ -120,7 +119,6 @@
             <div class="arrow" aria-hidden="true"></div>
             <div class="node"><span>hardened agent</span></div>
           </div>
-        </div>
         </div>
       </article>
 
@@ -144,15 +142,7 @@
           <div class="arrow m-a2" aria-hidden="true"></div>
           <div class="node m-target"><span>agent turn</span><small>reads both at zero added latency, writes learned policy back</small></div>
         </div>
-        <div class="cs-result">
-          <p class="lbl">Result</p>
-          <ul class="metrics">
-            <li><b>31%</b><span>repeat-question deflection, quarter over quarter</span></li>
-            <li><b>Zero</b><span>added per-turn latency</span></li>
-          </ul>
-          <p>Policy propagation that once took a redeploy now lands in seconds.</p>
-        </div>
-        <p class="stack" aria-label="Stack"><span>Python</span><span>Firestore</span><span>Agent Engine</span></p>
+        <ul class="stack" aria-label="Stack"><li>Python</li><li>Firestore</li><li>Agent Engine</li></ul>
       </article>
 
       <!-- Case study 4: Job Agent -->
@@ -166,19 +156,11 @@
           </div>
           <div>
             <p class="lbl">Approach</p>
-            <p>Every generated bullet must cite a fact stored in a Supabase knowledge base, and a verification pass rejects any claim without a source before rendering. Airflow for scheduled job discovery, Playwright for assisted autofill.</p>
+            <p>Every generated bullet must cite a fact stored in a Supabase knowledge base, and a verification pass rejects any claim without a source before rendering. The repository currently collects 129 tests, with Airflow for scheduled job discovery and Playwright for assisted autofill.</p>
           </div>
         </div>
-        <div class="cs-result">
-          <p class="lbl">Result</p>
-          <ul class="metrics">
-            <li><b>190+</b><span>test files behind the pipeline</span></li>
-            <li><b>6&#8202;x</b><span>faster tailored-application drafting</span></li>
-          </ul>
-          <p>From roughly three hours per tailored application to under 30 minutes, with every claim traceable to a stored fact. Zero fabricated experience shipped since the verification gate landed.</p>
-        </div>
         <div class="diagram" role="img" aria-label="Pipeline: a job description is analyzed, the application is tailored from cited facts, a verification step rejects unsourced claims, then the deterministic renderer produces PDF and DOCX.">
-          <div class="flow flow-numbered">
+          <div class="flow">
             <div class="node"><span>job description</span></div>
             <div class="arrow" aria-hidden="true"></div>
             <div class="node"><span>analyze</span><small>requirements, fit</small></div>
@@ -190,48 +172,46 @@
             <div class="node"><span>render</span><small>deterministic PDF and DOCX</small></div>
           </div>
         </div>
-        <p class="stack" aria-label="Stack"><span>Python</span><span>Claude API</span><span>Supabase</span><span>Airflow</span><span>Playwright</span></p>
+        <ul class="stack" aria-label="Stack"><li>Python</li><li>Claude API</li><li>Supabase</li><li>Airflow</li><li>Playwright</li></ul>
       </article>
 
       <!-- Case study 5: business case, text only -->
       <article class="cs cs-quiet" id="bundle">
-        <img class="gutter-mascot gm-right" src="assets/mascots/exa-sit.png" alt="" aria-hidden="true" loading="lazy" width="226" height="320">
         <h3>AI Bundle Business Case</h3>
         <p class="cs-narrow">Not every AI problem is a coding problem. At Maxis I built the full financial model and pitch for bundling an AI subscription into Hotlink Youth plans, and caught a rebate modelling error that changed the strategy. I can argue the business case for a system, not just build it.</p>
-        <p class="stack" aria-label="Stack"><span>Financial modelling</span><span>Go-to-market</span></p>
+        <ul class="stack" aria-label="Stack"><li>Financial modelling</li><li>Go-to-market</li></ul>
       </article>
     </section>
 
     <section id="builds" class="wrap">
-      <img class="gutter-mascot gm-left" src="assets/mascots/naro-scout.png" alt="" aria-hidden="true" loading="lazy" width="210" height="320">
       <h2>Independent builds</h2>
       <ul class="ledger">
         <li>
           <div class="ledger-head"><h3>QueLess</h3><a class="live-link" href="https://queless-production.up.railway.app" rel="noopener">Live&nbsp;&#8599;</a></div>
           <p>QR queue and order-ahead SaaS for Malaysian merchants, running in front of real users with CI, health checks and Sentry.</p>
-          <p class="stack"><span>Next.js</span><span>Prisma</span><span>Postgres</span><span>Railway</span><a href="https://github.com/mmuazhr/smart-queue-saas" rel="noopener">Code&nbsp;&#8599;</a></p>
+          <ul class="stack"><li>Next.js</li><li>Prisma</li><li>Postgres</li><li>Railway</li></ul>
         </li>
         <li>
           <div class="ledger-head"><h3>Content Studio</h3></div>
           <p>Automated video pipeline for an AI mascot channel. Airflow orchestrates Claude script generation, asset generation and a human approval gate.</p>
-          <p class="stack"><span>Python</span><span>Airflow</span><span>Claude API</span><span>Supabase</span><a href="https://github.com/mmuazhr/content-studio" rel="noopener">Code&nbsp;&#8599;</a></p>
+          <ul class="stack"><li>Python</li><li>Airflow</li><li>Claude API</li><li>Supabase</li></ul>
         </li>
         <li>
           <div class="ledger-head"><h3>FluentAI</h3></div>
           <p>English fluency companion that adapts difficulty from your mistakes instead of correcting every sentence.</p>
-          <p class="stack"><span>Python</span><span>FastAPI</span><span>Gemini</span><a href="https://github.com/mmuazhr/fluent-ai" rel="noopener">Code&nbsp;&#8599;</a></p>
+          <ul class="stack"><li>Python</li><li>FastAPI</li><li>Gemini</li></ul>
         </li>
         <li>
           <div class="ledger-head"><h3>fitmu</h3></div>
           <p>iPhone and Apple Watch weight-loss coach that understands Malaysian food, with Claude coaching through Supabase Edge Functions.</p>
-          <p class="stack"><span>React Native</span><span>Supabase</span><span>Claude API</span><a href="https://github.com/mmuazhr/fitmu" rel="noopener">Code&nbsp;&#8599;</a></p>
+          <ul class="stack"><li>React Native</li><li>Supabase</li><li>Claude API</li></ul>
         </li>
       </ul>
     </section>
 
     <section id="experience" class="wrap">
       <h2>Experience</h2>
-      <ol class="timeline">
+      <ul class="timeline">
         <li>
           <p class="when">2025 to now</p>
           <div>
@@ -260,7 +240,7 @@
             <p>First Class Honours, CGPA 3.88. Dean's List in all eight semesters.</p>
           </div>
         </li>
-      </ol>
+      </ul>
     </section>
 
     <section id="skills" class="wrap">
@@ -276,7 +256,7 @@
     </section>
 
     <section id="contact" class="dark">
-      <img class="exa" src="exa.png" alt="" aria-hidden="true" loading="lazy" width="219" height="300">
+      <img class="exa" src="exa.png" alt="" aria-hidden="true" loading="lazy" width="266" height="420">
       <div class="wrap contact">
         <h2 class="visually-hidden">Contact</h2>
         <p class="contact-line">Need agents that hold up <br>in production?</p>
@@ -284,10 +264,10 @@
         <p class="contact-note">Open to AI Engineer roles, and select freelance work through TERAS TECH.</p>
         <p class="mascot-note">The robots are Naro and Exa, my voxel sidekicks. Exa brought the laptop; Naro is on patrol.</p>
         <ul class="contact-links">
-          <li>muazhusaini@gmail.com</li>
+          <li><a href="mailto:muazhusaini@gmail.com">muazhusaini@gmail.com</a></li>
           <li><a href="https://github.com/mmuazhr" rel="noopener">github.com/mmuazhr</a></li>
           <li><a href="https://linkedin.com/in/muazhusaini" rel="noopener">linkedin.com/in/muazhusaini</a></li>
-          <li><a href="muaz-husaini-cv.pdf">download CV (PDF)</a></li>
+          <li><a href="muaz-husaini-cv.pdf" download>download CV (PDF)</a></li>
         </ul>
       </div>
     </section>
@@ -298,6 +278,8 @@
       <p>Muaz Husaini. Kuala Lumpur, Malaysia.</p>
     </div>
   </footer>
+
+  <img class="naro" src="naro.png" alt="" aria-hidden="true" width="274" height="420">
 
   <script src="script.js" defer></script>
 </body>

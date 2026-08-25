@@ -3,10 +3,9 @@
 document.documentElement.classList.add("js");
 
 const diagrams = document.querySelectorAll(".diagram");
-const revealables = document.querySelectorAll(".metrics, .gutter-mascot");
-const exa = document.querySelector(".exa");
-const cta = document.querySelector(".cta");
-
+const revealables = document.querySelectorAll(
+  "h2, .cs, .ledger > li, .timeline > li, .proofs > li, .contact-line, .cta, .contact-note, .contact-links"
+);
 
 if ("IntersectionObserver" in window) {
   const diagramObserver = new IntersectionObserver(
@@ -21,6 +20,16 @@ if ("IntersectionObserver" in window) {
     { threshold: 0.35 }
   );
   diagrams.forEach((d) => diagramObserver.observe(d));
+
+  const pauseObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        entry.target.classList.toggle("offscreen", !entry.isIntersecting);
+      }
+    },
+    { rootMargin: "10% 0px" }
+  );
+  diagrams.forEach((d) => pauseObserver.observe(d));
 
   const revealObserver = new IntersectionObserver(
     (entries) => {
@@ -37,42 +46,6 @@ if ("IntersectionObserver" in window) {
     el.classList.add("rv");
     revealObserver.observe(el);
   });
-
-  // The metrics carry the proof, so they must never stay hidden because an
-  // observer never fired. Anything still unrevealed after a few seconds is
-  // shown regardless.
-  setTimeout(() => {
-    revealables.forEach((el) => el.classList.add("in"));
-  }, 2500);
-
-  // Exa slides into place when contact section approaches
-  if (exa) {
-    const exaObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            exa.classList.add("in");
-            exaObserver.unobserve(exa);
-          }
-        }
-      },
-      { threshold: 0.1, rootMargin: "0px 0px 40% 0px" }
-    );
-    exaObserver.observe(exa);
-  }
-
 } else {
   diagrams.forEach((d) => d.classList.add("live"));
-  if (exa) exa.classList.add("in");
 }
-
-// Exa gets excited when the contact CTA is hovered/focused
-if (exa && cta) {
-  const excite = () => exa.classList.add("excited");
-  const calm = () => exa.classList.remove("excited");
-  cta.addEventListener("mouseenter", excite);
-  cta.addEventListener("mouseleave", calm);
-  cta.addEventListener("focus", excite);
-  cta.addEventListener("blur", calm);
-}
-
