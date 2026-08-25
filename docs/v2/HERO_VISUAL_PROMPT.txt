@@ -1,0 +1,12 @@
+Use case: stylized-concept
+Asset type: portfolio hero-side editorial image
+Primary request: Using both attached character sheets as strict identity references, create one polished stop-motion voxel scene of Naro and Exa performing a verification check together.
+Input images: Image 1 is Naro's identity and proportions reference. Image 2 is Exa's identity and proportions reference.
+Scene/backdrop: seamless warm paper-white studio matching #FAFAF9.
+Subject: Naro, the green astronaut, leans over a small paper-white inspection desk and examines one orange verification marker. Exa, the coral robot, stands beside him with the existing grey laptop open and points to a single confirmed indicator.
+Style/medium: handcrafted voxel / clay stop-motion product photography, consistent with the reference characters.
+Composition/framing: 4:3 landscape; characters grouped on the right two thirds; generous clean negative space on the left; full characters visible; strong readable silhouette at small web size.
+Lighting/mood: soft daylight, quiet concentration, gentle contact shadows, tactile materials, calm and intelligent rather than cute or childish.
+Color palette: paper white, graphite, Naro green/blue, Exa coral; one small signal-orange verification accent only.
+Constraints: preserve the characters' faces, colors, body shapes, badges and laptop from the references; no interface, no dashboard, no charts, no numbers, no readable text, no product claims, no logos, no watermark.
+Avoid: purple gradients, neon, glassmorphism, neural networks, floating particles, sci-fi holograms, dramatic cinematic backgrounds, extra characters, extra limbs, generic AI imagery.

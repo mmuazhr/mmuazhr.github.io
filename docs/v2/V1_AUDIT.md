@@ -10,7 +10,7 @@ Audited 2026-08-25 against the live site (mmuazhr.github.io, commit `9075ec0`), 
 - Shipped, in production: a multi-agent NL2SQL system on Vertex AI Agent Engine (Google ADK, BigQuery, Cloud Run) with semantic routing, M-Schema-aware SQL, a grounding guardrail that validates every figure against live BigQuery, and abstention. 300+ monthly users, 4,000+ verified answers, <0.5% unverified-output rate, 2.4× question growth in a quarter. Owns the LLMOps loop.
 - Built an NL-to-DAX agent plus an adversarial QA harness (23 failures the green suite missed, each now a regression case).
 - Self-improving agent architecture: Firestore policy store + realtime listeners, 31% repeat-question deflection, zero added per-turn latency.
-- Independent: Job Agent (cite-or-reject generation, ~190 test files, 6× faster drafting), QueLess (live SaaS, CI + Sentry), Content Studio, FluentAI, fitmu.
+- Independent: Job Agent (cite-or-reject generation, 129 automated tests across 25 files, 6× faster drafting), QueLess (live SaaS, CI + Sentry), Content Studio, FluentAI, fitmu.
 - Also did the AI bundle business case at Maxis (financial model, caught a rebate modelling error).
 - Voice in existing copy: short declaratives, specific, dry humour ("a pipeline that cannot lie about you"), no filler.
 

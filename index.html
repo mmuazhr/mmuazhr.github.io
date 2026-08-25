@@ -23,7 +23,7 @@
   <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
   <link rel="preload" href="fonts/GeneralSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=7">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -35,8 +35,8 @@
       <nav aria-label="Sections">
         <a href="#work">Work</a>
         <a href="#builds">Builds</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a class="nav-secondary" href="#experience">Experience</a>
+        <a class="nav-secondary" href="#contact">Contact</a>
         <a class="nav-cv" href="muaz-husaini-cv.pdf">CV<span class="visually-hidden"> (PDF)</span></a>
       </nav>
     </div>
@@ -50,12 +50,11 @@
         <p class="eyebrow">AI Engineer<span class="dot" aria-hidden="true"></span>Data &amp; AI DevOps at Maxis<span class="dot" aria-hidden="true"></span>Kuala Lumpur<span class="dot" aria-hidden="true"></span><span class="avail">Open to roles</span></p>
         <h1 id="hero-title">I build AI agents that are <em>checked</em> before anyone sees the answer<span class="sig">.</span></h1>
         <p class="lede">Multi-agent systems on Google Cloud, in production at Maxis. Every number the flagship agent shows has been validated against the warehouse that produced it, or it says so and abstains.</p>
-
         <div class="hero-foot">
-          <ul class="proof" aria-label="Production figures">
-            <li><b data-count="300" data-suffix="+">300+</b><span>monthly users of the NL2SQL agent</span></li>
-            <li><b data-count="4000" data-suffix="+">4,000+</b><span>verified answers served</span></li>
-            <li><b>&lt;0.5%</b><span>unverified-output rate</span></li>
+          <ul class="proof" aria-label="Production figures. Point to or focus a figure to let Naro verify it.">
+            <li><button type="button" class="metric-check" data-crew-target="300+ monthly users"><b>300+</b><span>monthly users of the NL2SQL agent</span><i aria-hidden="true">checked</i></button></li>
+            <li><button type="button" class="metric-check" data-crew-target="4,000+ verified answers"><b>4,000+</b><span>verified answers served</span><i aria-hidden="true">checked</i></button></li>
+            <li><button type="button" class="metric-check" data-crew-target="under 0.5% unverified"><b>&lt;0.5%</b><span>unverified-output rate</span><i aria-hidden="true">checked</i></button></li>
           </ul>
           <div class="cta-row">
             <a class="cta" href="mailto:muazhusaini@gmail.com">Email Muaz</a>
@@ -63,6 +62,12 @@
             <a class="cta-ghost" href="https://github.com/mmuazhr" rel="noopener">GitHub</a>
           </div>
         </div>
+        <div class="hero-crew" aria-hidden="true">
+          <img class="crew-exa" src="assets/mascots/exa-live.webp" alt="" width="219" height="300">
+          <img class="crew-naro" src="assets/mascots/naro-live.webp" alt="" width="226" height="300">
+          <span class="crew-status">Point at a number. Naro will check it.</span>
+        </div>
+        <p class="crew-live visually-hidden" aria-live="polite"></p>
       </div>
     </section>
 
@@ -70,7 +75,7 @@
     <section id="work" class="wrap" aria-labelledby="work-title">
       <div class="sec-head">
         <h2 id="work-title">Selected work</h2>
-        <p class="sec-note">Three systems, each with a trace you can step through. The inputs are illustrative; the components and the checks are the real ones.</p>
+        <p class="sec-note">Three systems, shown three ways: a production request trace, an adversarial evaluation loop and a public anti-fabrication test. Maxis inputs are redacted illustrations; the components and checks are real.</p>
       </div>
 
       <!-- 01 NL2SQL -->
@@ -148,9 +153,9 @@
 
         <div class="cs-result">
           <ul class="metrics">
-            <li><b data-count="300" data-suffix="+">300+</b><span>monthly users across business and finance</span></li>
-            <li><b data-count="2.4" data-suffix="&#8202;x" data-decimals="1">2.4&#8202;x</b><span>growth in questions answered, in one quarter</span></li>
-            <li><b data-count="4000" data-suffix="+">4,000+</b><span>verified answers served</span></li>
+            <li><b>300+</b><span>monthly users across business and finance</span></li>
+            <li><b>2.4&#8202;x</b><span>growth in questions answered, in one quarter</span></li>
+            <li><b>4,000+</b><span>verified answers served</span></li>
             <li><b>&lt;0.5%</b><span>unverified-output rate</span></li>
           </ul>
           <p>Live at Maxis, answering telecom KPI questions for non-technical users and growing by word of mouth. I own the LLMOps loop end to end: containerised Cloud Run deploys, versioned prompts and agent configs, reliability and cost monitoring.</p>
@@ -245,7 +250,7 @@
 
         <div class="cs-result">
           <ul class="metrics metrics-solo">
-            <li><b data-count="23">23</b><span>failures the green suite missed, each now a permanent regression case</span></li>
+            <li><b>23</b><span>failures the green suite missed, each now a permanent regression case</span></li>
           </ul>
           <p>This is now how I evaluate every agent I ship. A green suite is necessary. It is never sufficient.</p>
         </div>
@@ -281,64 +286,35 @@
           </div>
         </div>
 
-        <div class="trace" data-trace="job">
-          <div class="trace-bar">
-            <p class="lbl">Trace a claim</p>
-            <fieldset class="scn">
-              <legend class="visually-hidden">Scenario</legend>
-              <label><input type="radio" name="scn-job" value="a"><span>Sourced claim</span></label>
-              <label><input type="radio" name="scn-job" value="b" checked><span>Unsourced claim</span></label>
-            </fieldset>
-            <div class="trace-ctl">
-              <button type="button" class="tbtn" data-step="-1" aria-label="Previous step">&larr;</button>
-              <button type="button" class="tbtn" data-step="1" aria-label="Next step">&rarr;</button>
+        <figure class="verifier-artifact">
+          <figcaption class="artifact-head">
+            <span class="lbl">Public test fixture · test_verifier.py</span>
+            <a href="https://github.com/mmuazhr/job-agent/blob/main/tests/test_verifier.py" rel="noopener">View source&nbsp;&#8599;</a>
+          </figcaption>
+          <div class="artifact-flow">
+            <div class="artifact-cell">
+              <span class="artifact-kicker">01 · Stored fact</span>
+              <p>Built ETL pipelines processing 2M+ daily events.</p>
+              <code>fact_id: achievement_01</code>
+            </div>
+            <div class="artifact-cell artifact-risk">
+              <span class="artifact-kicker">02 · Generated claim</span>
+              <p>Led a team of 500 engineers and increased revenue by $50M.</p>
+              <code>cites: achievement_01</code>
+            </div>
+            <div class="artifact-cell artifact-verdict">
+              <span class="artifact-kicker">03 · Independent verifier</span>
+              <strong>Rejected</strong>
+              <p>CTO role and $50M revenue are not supported by the cited fact.</p>
             </div>
           </div>
-
-          <ol class="stages">
-            <li class="stage" data-state-a="pass" data-state-b="pass">
-              <button type="button" class="stage-btn"><span class="stage-name">Job description</span><span class="stage-sub">discovered on a schedule</span></button>
-              <div class="stage-body">
-                <p data-scn="a">Airflow picks up a new posting. It asks for production LLM experience on Google Cloud.</p>
-                <p data-scn="b">Same posting. It also asks for Kubernetes.</p>
-              </div>
-            </li>
-            <li class="stage" data-state-a="pass" data-state-b="pass">
-              <button type="button" class="stage-btn"><span class="stage-name">Analyse</span><span class="stage-sub">requirements, fit</span></button>
-              <div class="stage-body">
-                <p data-scn="a">Requirements are extracted and matched against the knowledge base. Production LLM work on Google Cloud: strong match, several facts.</p>
-                <p data-scn="b">Kubernetes: no fact in the knowledge base. The gap is recorded, not papered over.</p>
-              </div>
-            </li>
-            <li class="stage" data-state-a="pass" data-state-b="warn">
-              <button type="button" class="stage-btn"><span class="stage-name">Tailor</span><span class="stage-sub">from cited facts only</span></button>
-              <div class="stage-body">
-                <p data-scn="a">Drafts a bullet about the NL2SQL agent on Vertex AI and attaches the fact IDs it drew on.</p>
-                <p data-scn="b">The model drafts "deployed services on Kubernetes" anyway. Models do this. That is why the next stage exists.</p>
-              </div>
-            </li>
-            <li class="stage" data-state-a="pass" data-state-b="caught">
-              <button type="button" class="stage-btn"><span class="stage-name">Verify</span><span class="stage-sub">cite or reject</span></button>
-              <div class="stage-body">
-                <p data-scn="a">Each cited fact is fetched and compared with the claim. The bullet is supported. Cleared for rendering.</p>
-                <p data-scn="b">No citation resolves to a fact about Kubernetes. The claim is rejected and never reaches the document.</p>
-              </div>
-            </li>
-            <li class="stage stage-out" data-state-a="pass" data-state-b="pass">
-              <button type="button" class="stage-btn"><span class="stage-name">Render</span><span class="stage-sub">deterministic PDF and DOCX</span></button>
-              <div class="stage-body">
-                <p data-scn="a">The verified bullets are rendered with a deterministic template. Playwright assists with the application form.</p>
-                <p data-scn="b">The document renders without the Kubernetes line. The gap stays visible to me, so I can decide what to do about it honestly.</p>
-              </div>
-            </li>
-          </ol>
-          <img class="trace-naro" src="assets/mascots/naro-scout.png" alt="" aria-hidden="true" loading="lazy" width="210" height="320">
-        </div>
+          <p class="artifact-note">Exact public regression-test content, with the generated UUID shortened for display. The test asserts that the violation is caught.</p>
+        </figure>
 
         <div class="cs-result">
           <ul class="metrics">
-            <li><b data-count="190" data-suffix="+">190+</b><span>test files behind the pipeline</span></li>
-            <li><b data-count="6" data-suffix="&#8202;x">6&#8202;x</b><span>faster tailored-application drafting</span></li>
+            <li><b>129</b><span>automated tests collected across 25 test files</span></li>
+            <li><b>6&#8202;x</b><span>faster tailored-application drafting</span></li>
             <li><b>0</b><span>fabricated claims shipped since the gate landed</span></li>
           </ul>
           <p>From roughly three hours per tailored application to under thirty minutes, with every claim traceable to a stored fact.</p>
@@ -350,10 +326,10 @@
             <li><b>Knowledge base.</b> Facts about my experience live in Supabase with stable IDs. Generation prompts receive facts, not free text about me.</li>
             <li><b>Verification.</b> A separate pass resolves every citation and compares the claim to the fact. Unresolvable or contradicted claims are rejected; the draft is regenerated without them.</li>
             <li><b>Rendering.</b> Deterministic templates to PDF and DOCX, so a verified draft cannot change on the way out.</li>
-            <li><b>Orchestration.</b> Airflow for scheduled job discovery, Playwright for assisted autofill, ~190 test files across the pipeline.</li>
+            <li><b>Orchestration.</b> Airflow for scheduled job discovery, Playwright for assisted autofill, 129 automated tests collected across 25 test files.</li>
           </ul>
         </details>
-        <p class="stack" aria-label="Stack"><span>Python</span><span>Claude API</span><span>Supabase</span><span>Airflow</span><span>Playwright</span></p>
+        <p class="stack" aria-label="Stack"><span>Python</span><span>Claude API</span><span>Supabase</span><span>Airflow</span><span>Playwright</span><a href="https://github.com/mmuazhr/job-agent" rel="noopener">Code&nbsp;&#8599;</a></p>
       </article>
 
       <!-- 04 Self-improving -->
@@ -377,7 +353,7 @@
         </div>
         <div class="cs-result">
           <ul class="metrics">
-            <li><b data-count="31" data-suffix="%">31%</b><span>repeat-question deflection, quarter over quarter</span></li>
+            <li><b>31%</b><span>repeat-question deflection, quarter over quarter</span></li>
             <li><b>0&#8202;ms</b><span>added per-turn latency</span></li>
           </ul>
           <p>A policy change that once needed a redeploy now reaches every agent in seconds.</p>
@@ -398,30 +374,60 @@
     <section id="builds" class="wrap" aria-labelledby="builds-title">
       <div class="sec-head">
         <h2 id="builds-title">Independent builds</h2>
-        <p class="sec-note">Things I run outside work. One of them has real merchants behind it.</p>
+        <p class="sec-note">Products I run outside work, from a live merchant workflow to a human-gated media pipeline.</p>
       </div>
-      <ul class="ledger">
-        <li>
-          <div class="ledger-head"><h3>QueLess</h3><a class="live-link" href="https://queless-production.up.railway.app" rel="noopener">Live&nbsp;&#8599;</a></div>
-          <p>QR queue and order-ahead SaaS for Malaysian merchants, in front of real users with CI, health checks and Sentry.</p>
-          <p class="stack"><span>Next.js</span><span>Prisma</span><span>Postgres</span><span>Railway</span><a href="https://github.com/mmuazhr/smart-queue-saas" rel="noopener">Code&nbsp;&#8599;</a></p>
-        </li>
-        <li>
-          <div class="ledger-head"><h3>Content Studio</h3></div>
-          <p>Automated video pipeline for an AI mascot channel. Airflow orchestrates schema-validated Claude script generation, asset generation and a human approval gate.</p>
-          <p class="stack"><span>Python</span><span>Airflow</span><span>Claude API</span><span>Supabase</span><a href="https://github.com/mmuazhr/content-studio" rel="noopener">Code&nbsp;&#8599;</a></p>
-        </li>
-        <li>
-          <div class="ledger-head"><h3>FluentAI</h3></div>
-          <p>English fluency companion that adapts difficulty from your mistakes instead of correcting every sentence.</p>
+      <article class="build-feature">
+        <div class="build-copy">
+          <p class="cs-meta">Live product<span class="dot" aria-hidden="true"></span>Malaysian merchants</p>
+          <h3>QueLess</h3>
+          <p class="build-lede">A customer scans once, orders from the stall and follows the queue without installing an app. Merchants manage payments, capacity and fulfilment from one dashboard.</p>
+          <ul class="build-proof">
+            <li><span>Customer</span><p>Menu, cart, DuitNow QR payment and live order status in one mobile flow.</p></li>
+            <li><span>Merchant</span><p>Orders move from confirmation to accepted, preparing, ready and completed.</p></li>
+            <li><span>Operations</span><p>CI, health checks, Sentry and a Railway production deployment.</p></li>
+          </ul>
+          <p class="stack"><span>Next.js</span><span>Prisma</span><span>Postgres</span><span>Railway</span><a href="https://queless-production.up.railway.app" rel="noopener">Live&nbsp;&#8599;</a><a href="https://github.com/mmuazhr/smart-queue-saas" rel="noopener">Code&nbsp;&#8599;</a></p>
+        </div>
+        <figure class="product-media">
+          <div class="phone-frame">
+            <video controls playsinline preload="none" poster="assets/work/queless-checkout-poster.jpg" width="390" height="844" aria-label="QueLess customer ordering demo">
+              <source src="assets/work/queless-checkout.mp4" type="video/mp4">
+              Your browser does not support embedded video. <a href="assets/work/queless-checkout.mp4">Open the QueLess demo</a>.
+            </video>
+          </div>
+          <figcaption><span>Real product recording</span> Demo menu data · 32 seconds · no app install</figcaption>
+        </figure>
+      </article>
+
+      <div class="build-grid">
+        <article class="build-card build-card-media">
+          <figure class="mini-media">
+            <video controls playsinline preload="none" poster="assets/work/content-studio-poster.jpg" width="360" height="640" aria-label="Short output from the Content Studio pipeline">
+              <source src="assets/work/content-studio-episode.mp4" type="video/mp4">
+              Your browser does not support embedded video. <a href="assets/work/content-studio-episode.mp4">Open the Content Studio sample</a>.
+            </video>
+          </figure>
+          <div>
+            <p class="cs-meta">Pipeline output<span class="dot" aria-hidden="true"></span>9-second excerpt</p>
+            <h3>Content Studio</h3>
+            <p>Airflow turns a topic into a schema-validated script, generated assets and a final episode. The dashboard keeps a human approval gate between generation and publishing.</p>
+            <p class="media-why">The clip is the pipeline's output; the important product decision is that it still cannot publish itself.</p>
+            <p class="stack"><span>Python</span><span>Airflow</span><span>Claude API</span><span>Supabase</span><a href="https://github.com/mmuazhr/content-studio" rel="noopener">Code&nbsp;&#8599;</a></p>
+          </div>
+        </article>
+        <article class="build-card">
+          <p class="cs-meta">Adaptive learning</p>
+          <h3>FluentAI</h3>
+          <p>English fluency companion that adapts difficulty from your mistakes instead of interrupting every sentence with corrections.</p>
           <p class="stack"><span>Python</span><span>FastAPI</span><span>Gemini</span><a href="https://github.com/mmuazhr/fluent-ai" rel="noopener">Code&nbsp;&#8599;</a></p>
-        </li>
-        <li>
-          <div class="ledger-head"><h3>fitmu</h3></div>
-          <p>iPhone and Apple Watch weight-loss coach that understands Malaysian food, with Claude coaching through Supabase Edge Functions.</p>
+        </article>
+        <article class="build-card">
+          <p class="cs-meta">iPhone + Apple Watch</p>
+          <h3>fitmu</h3>
+          <p>A weight-loss coach built around Malaysian food and habits, with Claude coaching through Supabase Edge Functions.</p>
           <p class="stack"><span>React Native</span><span>Supabase</span><span>Claude API</span><a href="https://github.com/mmuazhr/fitmu" rel="noopener">Code&nbsp;&#8599;</a></p>
-        </li>
-      </ul>
+        </article>
+      </div>
     </section>
 
     <!-- ============ Experience ============ -->
@@ -469,24 +475,6 @@
       </ol>
     </section>
 
-    <!-- ============ Skills as evidence ============ -->
-    <section id="skills" class="wrap" aria-labelledby="skills-title">
-      <div class="sec-head">
-        <h2 id="skills-title">Skills, as evidence</h2>
-        <p class="sec-note">Each one points at the place on this page that proves it.</p>
-      </div>
-      <ul class="proofs">
-        <li><strong>Multi-agent orchestration</strong><a href="#nl2sql">Google ADK on Agent Engine, in production</a></li>
-        <li><strong>Grounding and guardrails</strong><a href="#nl2sql">every number validated against BigQuery, or abstain</a></li>
-        <li><strong>Agent evaluation</strong><a href="#qa-harness">adversarial probes beyond green suites</a></li>
-        <li><strong>Verification-first design</strong><a href="#job-agent">generation that must cite or be rejected</a></li>
-        <li><strong>LLMOps on Google Cloud</strong><a href="#nl2sql">Cloud Run, versioned prompts, cost monitoring</a></li>
-        <li><strong>Shipping full products</strong><a href="#builds">a live SaaS with CI and monitoring</a></li>
-        <li><strong>Data</strong><a href="#experience">SQL, BigQuery, Power BI and DAX, Fabric, scikit-learn, TensorFlow</a></li>
-        <li><strong>Business cases</strong><a href="#bundle">financial modelling and go-to-market at Maxis</a></li>
-      </ul>
-    </section>
-
     <!-- ============ Contact ============ -->
     <section id="contact" class="dark" aria-labelledby="contact-title">
       <img class="exa" src="exa.png" alt="" aria-hidden="true" loading="lazy" width="219" height="300">
@@ -514,6 +502,6 @@
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="script.js?v=5" defer></script>
 </body>
 </html>

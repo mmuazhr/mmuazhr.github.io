@@ -1,189 +1,224 @@
-// Portfolio V2 behaviour. Three small pieces, all progressive enhancement:
-//   1. Trace: the stepper inside each case study.
-//   2. Count-in for proof figures.
-//   3. Section-aware navigation.
-// With JS off the page is complete and static; the <html> class "js" is
-// added inline in <head> so styles can opt in.
+// Portfolio behaviour, progressively enhanced. The characters respond to
+// visitor input; the document remains complete without JavaScript.
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const hasIO = "IntersectionObserver" in window;
 
-/* ---------- 1. Trace ---------- */
+/* ---------- Hero crew ---------- */
+
+const hero = document.querySelector(".hero");
+const heroWrap = hero?.querySelector(".wrap");
+const crew = hero?.querySelector(".hero-crew");
+const crewNaro = crew?.querySelector(".crew-naro");
+const crewStatus = crew?.querySelector(".crew-status");
+const crewLive = hero?.querySelector(".crew-live");
+const metricChecks = Array.from(hero?.querySelectorAll(".metric-check") || []);
+let activeMetric = null;
+let crewTimer = null;
+
+function placeCrew(metric = activeMetric) {
+  if (!crew || !heroWrap || !crewNaro) return;
+  const wrapRect = heroWrap.getBoundingClientRect();
+  const compact = window.innerWidth <= 860;
+
+  if (!metric) {
+    crew.style.setProperty("--naro-x", `${compact ? 24 : wrapRect.width - 330}px`);
+    crew.style.setProperty("--naro-y", `${compact ? 20 : 255}px`);
+    return;
+  }
+
+  const index = metricChecks.indexOf(metric);
+  if (compact) {
+    crew.style.setProperty("--naro-x", `${24 + Math.max(0, index) * 74}px`);
+    crew.style.setProperty("--naro-y", "20px");
+    return;
+  }
+
+  const target = metric.getBoundingClientRect();
+  crew.style.setProperty("--naro-x", `${target.left - wrapRect.left + target.width / 2 - 31}px`);
+  crew.style.setProperty("--naro-y", `${target.top - wrapRect.top - 78}px`);
+}
+
+function inspectMetric(metric) {
+  if (!crew || !metric) return;
+  activeMetric = metric;
+  clearTimeout(crewTimer);
+  placeCrew(metric);
+  crew.classList.add("checking");
+  metric.classList.add("is-checking");
+  const claim = metric.dataset.crewTarget;
+  crewStatus.textContent = `Checking ${claim}…`;
+  if (crewLive) crewLive.textContent = `Naro is checking ${claim}.`;
+
+  crewTimer = setTimeout(() => {
+    crew.classList.remove("checking");
+    metric.classList.remove("is-checking");
+    metric.classList.add("is-checked");
+    crew.classList.add("confirmed");
+    crewStatus.textContent = "Checked against production telemetry.";
+    if (crewLive) crewLive.textContent = `${claim} checked against production telemetry.`;
+    setTimeout(() => crew.classList.remove("confirmed"), 600);
+  }, reduceMotion ? 0 : 520);
+}
+
+metricChecks.forEach((metric) => {
+  metric.addEventListener("pointerenter", () => inspectMetric(metric));
+  metric.addEventListener("focus", () => inspectMetric(metric));
+  metric.addEventListener("click", () => inspectMetric(metric));
+});
+
+if (hero && crew) {
+  hero.addEventListener("pointermove", (event) => {
+    const rect = hero.getBoundingClientRect();
+    const x = Math.max(-1, Math.min(1, (event.clientX - rect.left) / rect.width * 2 - 1));
+    const y = Math.max(-1, Math.min(1, (event.clientY - rect.top) / rect.height * 2 - 1));
+    crew.style.setProperty("--look-x", x.toFixed(3));
+    crew.style.setProperty("--look-y", y.toFixed(3));
+  });
+  hero.addEventListener("pointerleave", () => {
+    crew.style.setProperty("--look-x", "0");
+    crew.style.setProperty("--look-y", "0");
+  });
+  placeCrew();
+  window.addEventListener("resize", () => placeCrew(), { passive: true });
+}
+
+/* ---------- Interactive system traces ---------- */
 
 function initTrace(trace) {
   const stages = Array.from(trace.querySelectorAll(".stage"));
-  const buttons = stages.map((s) => s.querySelector(".stage-btn"));
+  const buttons = stages.map((stage) => stage.querySelector(".stage-btn"));
   const radios = Array.from(trace.querySelectorAll('input[type="radio"]'));
   const prev = trace.querySelector('[data-step="-1"]');
   const next = trace.querySelector('[data-step="1"]');
+  const naro = trace.querySelector(".trace-naro");
   const last = stages.length - 1;
-  const STEP_MS = 1500;
-
-  let scenario = (radios.find((r) => r.checked) || radios[0]).value;
+  const STEP_MS = 900;
+  let scenario = (radios.find((radio) => radio.checked) || radios[0]).value;
   let index = 0;
   let timer = null;
-  let touched = false;
+
+  function positionNaro() {
+    if (!naro) return;
+    const traceRect = trace.getBoundingClientRect();
+    const buttonRect = buttons[index].getBoundingClientRect();
+    const compact = window.innerWidth <= 860;
+    const x = compact ? traceRect.width - 6 : buttonRect.left - traceRect.left + buttonRect.width / 2;
+    const y = compact ? buttonRect.bottom - traceRect.top + 6 : buttonRect.top - traceRect.top - 46;
+    trace.style.setProperty("--trace-naro-x", `${x}px`);
+    trace.style.setProperty("--trace-naro-y", `${Math.max(0, y)}px`);
+  }
 
   function render() {
     trace.dataset.scenario = scenario;
-    stages.forEach((stage, k) => {
-      stage.dataset.state = stage.getAttribute("data-state-" + scenario) || "pass";
-      stage.classList.toggle("active", k === index);
-      stage.classList.toggle("done", k < index);
-      stage.classList.toggle("todo", k > index);
-      buttons[k].setAttribute("aria-current", k === index ? "step" : "false");
+    stages.forEach((stage, stageIndex) => {
+      stage.dataset.state = stage.getAttribute(`data-state-${scenario}`) || "pass";
+      stage.classList.toggle("active", stageIndex === index);
+      stage.classList.toggle("done", stageIndex < index);
+      stage.classList.toggle("todo", stageIndex > index);
+      buttons[stageIndex].setAttribute("aria-current", stageIndex === index ? "step" : "false");
     });
     trace.dataset.activeState = stages[index].dataset.state;
     prev.disabled = index === 0;
     next.disabled = index === last;
+    requestAnimationFrame(positionNaro);
   }
 
-  function go(n) {
-    index = Math.max(0, Math.min(last, n));
+  function go(nextIndex) {
+    index = Math.max(0, Math.min(last, nextIndex));
     render();
   }
 
   function stop() {
     if (timer) clearInterval(timer);
     timer = null;
+    trace.dataset.running = "false";
   }
 
-  // Walks the request through the system once, then hands control over.
   function play() {
     stop();
-    if (reduceMotion) return;
+    go(0);
+    if (reduceMotion) { go(last); return; }
+    trace.dataset.running = "true";
     timer = setInterval(() => {
       if (index >= last) { stop(); return; }
       go(index + 1);
     }, STEP_MS);
   }
 
-  function userDrove(fn) {
-    return (event) => { touched = true; stop(); fn(event); };
+  function userDrove(action) {
+    return (event) => { stop(); action(event); };
   }
 
-  buttons.forEach((btn, k) => btn.addEventListener("click", userDrove(() => go(k))));
+  buttons.forEach((button, stageIndex) => button.addEventListener("click", userDrove(() => go(stageIndex))));
   prev.addEventListener("click", userDrove(() => go(index - 1)));
   next.addEventListener("click", userDrove(() => go(index + 1)));
 
-  radios.forEach((r) => r.addEventListener("change", () => {
-    if (!r.checked) return;
-    touched = true;
-    scenario = r.value;
-    go(0);
-    play(); // switching scenario is a request to see it run
+  radios.forEach((radio) => radio.addEventListener("change", () => {
+    if (!radio.checked) return;
+    scenario = radio.value;
+    play();
   }));
 
-  // Arrow keys move between stages when focus is on a stage button.
-  trace.querySelector(".stages").addEventListener("keydown", (e) => {
-    const k = buttons.indexOf(document.activeElement);
-    if (k === -1) return;
+  trace.querySelector(".stages").addEventListener("keydown", (event) => {
+    const current = buttons.indexOf(document.activeElement);
+    if (current === -1) return;
     let target = null;
-    if (e.key === "ArrowRight" || e.key === "ArrowDown") target = Math.min(last, k + 1);
-    if (e.key === "ArrowLeft" || e.key === "ArrowUp") target = Math.max(0, k - 1);
-    if (e.key === "Home") target = 0;
-    if (e.key === "End") target = last;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") target = Math.min(last, current + 1);
+    if (event.key === "ArrowLeft" || event.key === "ArrowUp") target = Math.max(0, current - 1);
+    if (event.key === "Home") target = 0;
+    if (event.key === "End") target = last;
     if (target === null) return;
-    e.preventDefault();
-    touched = true; stop();
+    event.preventDefault();
+    stop();
     go(target);
     buttons[target].focus();
   });
 
-  // First time the trace scrolls into view it runs once on its own, so a
-  // reader who never clicks still sees the request travel. Any interaction
-  // beforehand cancels that.
-  if (hasIO && !reduceMotion) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          io.disconnect();
-          if (!touched) setTimeout(() => { if (!touched) play(); }, 500);
-        }
-      });
-    }, { threshold: 0.55 });
-    io.observe(trace);
-  }
-
+  window.addEventListener("resize", positionNaro, { passive: true });
   render();
 }
 
 document.querySelectorAll(".trace").forEach(initTrace);
 
-/* ---------- 2. Count-in ---------- */
-
-function countIn(el) {
-  const target = parseFloat(el.dataset.count);
-  const decimals = parseInt(el.dataset.decimals || "0", 10);
-  const suffix = el.dataset.suffix || "";
-  const final = el.textContent;
-  const duration = 900;
-  const start = performance.now();
-  const fmt = (v) => v.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
-
-  function frame(now) {
-    const t = Math.min(1, (now - start) / duration);
-    const eased = 1 - Math.pow(1 - t, 3);
-    el.textContent = fmt(target * eased) + suffix;
-    if (t < 1) requestAnimationFrame(frame);
-    else el.textContent = final;
-  }
-  requestAnimationFrame(frame);
-}
-
-if (hasIO && !reduceMotion) {
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        countIn(entry.target);
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.6 });
-  document.querySelectorAll("[data-count]").forEach((el) => io.observe(el));
-}
-
-/* ---------- 3. Section-aware nav ---------- */
+/* ---------- Section-aware navigation ---------- */
 
 const navLinks = Array.from(document.querySelectorAll('.site-head nav a[href^="#"]'));
-const navTargets = navLinks.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+const navTargets = navLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
 
 if (hasIO && navTargets.length) {
-  const setCurrent = (id) => {
-    navLinks.forEach((a) => {
-      const on = a.getAttribute("href") === "#" + id;
-      if (on) a.setAttribute("aria-current", "true");
-      else a.removeAttribute("aria-current");
-    });
-  };
-  const io = new IntersectionObserver((entries) => {
-    // The section occupying the middle band of the viewport wins.
-    const visible = entries.filter((e) => e.isIntersecting);
+  const setCurrent = (id) => navLinks.forEach((link) => {
+    const current = link.getAttribute("href") === `#${id}`;
+    if (current) link.setAttribute("aria-current", "true");
+    else link.removeAttribute("aria-current");
+  });
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries.filter((entry) => entry.isIntersecting);
     if (visible.length) setCurrent(visible[0].target.id);
     else if (window.scrollY < 200) setCurrent("");
   }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
-  navTargets.forEach((s) => io.observe(s));
+  navTargets.forEach((section) => observer.observe(section));
 }
 
-/* ---------- Exa ---------- */
+/* ---------- Contact Exa ---------- */
 
 const exa = document.querySelector(".exa");
-const cta = document.querySelector("#contact .cta");
+const contactCta = document.querySelector("#contact .cta");
 if (exa) {
   if (hasIO && !reduceMotion) {
-    const io = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) { exa.classList.add("in"); io.disconnect(); }
+        if (entry.isIntersecting) { exa.classList.add("in"); observer.disconnect(); }
       });
     }, { threshold: 0.1, rootMargin: "0px 0px 40% 0px" });
-    io.observe(exa);
+    observer.observe(exa);
   }
-  if (cta && !reduceMotion) {
+  if (contactCta && !reduceMotion) {
     const excite = () => exa.classList.add("excited");
     const calm = () => exa.classList.remove("excited");
-    cta.addEventListener("mouseenter", excite);
-    cta.addEventListener("mouseleave", calm);
-    cta.addEventListener("focus", excite);
-    cta.addEventListener("blur", calm);
+    contactCta.addEventListener("mouseenter", excite);
+    contactCta.addEventListener("mouseleave", calm);
+    contactCta.addEventListener("focus", excite);
+    contactCta.addEventListener("blur", calm);
   }
 }
