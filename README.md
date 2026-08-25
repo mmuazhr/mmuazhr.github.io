@@ -27,3 +27,7 @@ Verifies that the JS parses, every local href/src/font path exists, in-page anch
 ## Deploy
 
 Served by GitHub Pages from `main`. **A push to `main` is a production deploy** — run the smoke test and preview locally first.
+
+## Archived direction
+
+The more interaction-heavy Exa/Naro verification-crew version is preserved on the `v2` branch and at the immutable tag `archive/interactive-crew-2026-08-25`. Its rationale, implementation notes and browser QA live in `docs/v2/` on that branch. It is intentionally kept separate from the production design system.
