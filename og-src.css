@@ -1,0 +1,9 @@
+/* only used by og-src.html */
+html, body.og { width: 1200px; height: 630px; overflow: hidden; }
+body.og { position: relative; }
+body.og::before { display: none; }
+.og-art { position: absolute; z-index: 0; right: -30px; bottom: -6px; width: 940px; height: auto; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 42%), linear-gradient(180deg, transparent 0, #000 22%); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0, #000 42%), linear-gradient(180deg, transparent 0, #000 22%); mask-composite: intersect; }
+.og-copy { position: relative; z-index: 1; padding: 64px 72px 0; }
+.og-copy h1 { margin-top: 18px; font-size: 76px; letter-spacing: -0.04em; line-height: 0.96; max-width: 13ch; }
+.og-copy .dot { color: var(--green); }
+.og-meta { margin-top: 22px; font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); }

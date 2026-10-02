@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Muaz Husaini, AI Engineer</title>
-  <meta name="description" content="Muaz Husaini builds production AI agents at Maxis: multi-agent NL2SQL on Vertex AI Agent Engine, grounding guardrails, adversarial evaluation. Kuala Lumpur, Malaysia.">
-  <meta property="og:title" content="Muaz Husaini, AI Engineer">
-  <meta property="og:description" content="I build AI agents that ship to production. Multi-agent systems on Google Cloud at Maxis, Kuala Lumpur.">
+  <title>Muaz Husaini · AI agents that ship to production</title>
+  <meta name="description" content="Muaz Husaini builds AI agents and LLM systems that run in production: multi-agent analytics on Google Cloud at Maxis, plus independent builds. Kuala Lumpur, Malaysia.">
+  <meta property="og:title" content="Muaz Husaini · AI agents that ship to production">
+  <meta property="og:description" content="AI engineering for agents and LLM systems. IT Associate, Data &amp; AI DevOps at Maxis, Kuala Lumpur.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mmuazhr.github.io/">
   <meta property="og:image" content="https://mmuazhr.github.io/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Muaz Husaini, AI Engineer: I build AI agents that ship to production.">
+  <meta property="og:image:alt" content="Muaz Husaini: I build AI agents that ship to production.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://mmuazhr.github.io/">
-  <meta name="theme-color" content="#FAFAF9">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317171A'/%3E%3Ctext x='12' y='45' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='34' fill='%23FAFAF9'%3EM%3C/text%3E%3Ccircle cx='47' cy='42' r='5' fill='%23E9530E'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#F1EDE3">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F1EDE3'/%3E%3Ctext x='11' y='45' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='34' fill='%23161614'%3EM%3C/text%3E%3Ccircle cx='48' cy='42' r='5' fill='%231F4D3A'/%3E%3C/svg%3E">
   <link rel="preload" href="fonts/GeneralSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
@@ -26,23 +26,26 @@
     "@type": "Person",
     "name": "Muaz Husaini",
     "url": "https://mmuazhr.github.io/",
-    "jobTitle": "AI Engineer",
+    "jobTitle": "IT Associate, Data & AI DevOps",
     "worksFor": { "@type": "Organization", "name": "Maxis" },
+    "knowsAbout": ["AI agents", "LLM systems", "LLMOps", "Google Cloud"],
     "email": "mailto:muazhusaini@gmail.com",
     "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" },
     "sameAs": ["https://github.com/mmuazhr", "https://linkedin.com/in/muazhusaini"]
   }
   </script>
+  <script src="site.js"></script>
+  <script src="script.js" defer></script>
 </head>
-<body>
+<body class="home">
   <a class="skip" href="#work">Skip to work</a>
 
   <header class="site-head">
     <div class="wrap head-row">
-      <p class="brand">Muaz Husaini <span class="avail">Open to roles</span></p>
+      <a class="brand" href="index.html">Muaz Husaini</a>
       <nav aria-label="Sections">
         <a href="#work">Work</a>
-        <a href="#builds">Builds</a>
+        <a href="#method">Method</a>
         <a href="#experience">Experience</a>
         <a href="muaz-husaini-cv.pdf">CV</a>
         <a href="#contact">Contact</a>
@@ -51,236 +54,245 @@
   </header>
 
   <main>
-    <section class="hero wrap" aria-label="Introduction">
-      <h1>I build AI agents that <br>ship to production<span class="sig">.</span></h1>
-      <p class="hero-sub">Data &amp; AI DevOps at Maxis. I design and run multi-agent systems on Google Cloud.</p>
+    <section id="intro" class="intro" aria-label="Introduction">
+      <div class="intro-stage">
+        <div class="intro-copy wrap">
+          <p class="kicker mono">AI engineering &middot; agents and LLM systems &middot; Kuala Lumpur</p>
+          <h1>I build AI agents that ship to production<span class="dot">.</span></h1>
+          <div class="intro-row">
+            <p class="intro-sub">IT Associate in Data &amp; AI DevOps at Maxis, where I design and run multi-agent systems on Google Cloud.</p>
+            <p class="actions"><a class="btn" href="#work">See the work</a><a class="btn ghost" href="muaz-husaini-cv.pdf">CV (PDF)</a></p>
+          </div>
+        </div>
+
+        <figure class="intro-band">
+          <img src="assets/art/hero-hands-2000.webp" srcset="assets/art/hero-hands-1100.webp 1100w, assets/art/hero-hands-2000.webp 2000w" sizes="100vw" alt="" width="2000" height="667" fetchpriority="high" decoding="async">
+        </figure>
+
+        <div class="proof">
+          <p class="proof-caption cap-left mono">Who</p>
+          <figure class="proof-portrait card">
+            <img src="assets/art/portrait-900.webp" alt="Muaz Husaini, halftone portrait" width="900" height="900" decoding="async">
+            <figcaption class="mono">Muaz Husaini</figcaption>
+          </figure>
+          <ul class="proof-cards">
+            <li class="card"><span class="mono">Now</span><strong>IT Associate, Data &amp; AI DevOps</strong><span>Maxis Graduate Programme</span></li>
+            <li class="card"><span class="mono">In production</span><strong>Multi-agent analytics</strong><span>Vertex AI, BigQuery, Cloud Run</span></li>
+            <li class="card"><span class="mono">Kaggle</span><strong>33rd of 356</strong><span>Poker fraud detection, top 10%</span></li>
+            <li class="card"><span class="mono">UKM</span><strong>First Class, 3.88</strong><span>Dean's List, 8 of 8 semesters</span></li>
+          </ul>
+          <p class="proof-caption cap-right mono">Proof</p>
+        </div>
+      </div>
     </section>
 
-    <section id="work" class="wrap" tabindex="-1">
-      <h2>Selected work</h2>
-
-      <!-- Case study 1: flagship -->
-      <article class="cs cs-flagship" id="nl2sql">
-        <p class="cs-meta">Maxis&ensp;/&ensp;In production</p>
-        <h3>NL2SQL Agentic System</h3>
-        <div class="cs-cols">
-          <div>
-            <p class="lbl">Problem</p>
-            <p>Business teams could not query BigQuery themselves, so every KPI question became an ad-hoc ticket and analysts spent their weeks answering them.</p>
-          </div>
-          <div>
-            <p class="lbl">Approach</p>
-            <p>A multi-agent system on Vertex AI Agent Engine, built with Google ADK. A semantic router sends each question to the right specialist. SQL generation is M-Schema aware, so the agent cannot invent tables that do not exist, and a grounding guardrail validates every number against live BigQuery results before it reaches a user. When confidence is low, the agent abstains instead of guessing.</p>
-          </div>
+    <section id="work" class="reel" aria-labelledby="work-title" tabindex="-1">
+      <div class="reel-stage">
+        <div class="reel-head wrap">
+          <h2 id="work-title" class="label">Selected work</h2>
+          <p class="reel-count mono" aria-hidden="true"><span class="reel-now">01</span> / <span class="reel-total">07</span></p>
         </div>
-
-        <div class="diagram" role="img" aria-label="Architecture: a user question passes through a semantic router to an M-Schema aware SQL agent, then a grounding guardrail validates results against live BigQuery before answering or abstaining.">
-          <div class="flow">
-            <div class="node"><span>question</span><small>plain language, multi-turn</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>semantic router</span><small>picks the specialist agent</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>SQL agent</span><small>M-Schema aware generation</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node key"><span>grounding guardrail</span><small>validates against live BigQuery</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>answer, or abstain</span><small>no unverified numbers</small></div>
-          </div>
+        <div class="reel-gate wrap">
+        <!-- reel:start (generated by tools/build.mjs) -->
+        <ol class="reel-frames">
+          <li class="frame" id="case-maxis-data-agents">
+            <a class="frame-link" href="work/maxis-data-agents.html">
+              <picture class="frame-art">
+          <source media="(max-width: 820px)" srcset="assets/art/maxis-data-crop-1100.webp" width="1100" height="688">
+          <img src="assets/art/maxis-data-2000.webp" srcset="assets/art/maxis-data-1100.webp 1100w, assets/art/maxis-data-2000.webp 2000w" sizes="(max-width: 1340px) 100vw, 1240px" alt="Engraved collage: a card-catalogue cabinet whose cards turn into charts, a magnifying glass and a checked shield." width="2000" height="667" loading="lazy" decoding="async">
+        </picture>
+              <div class="frame-meta">
+                <p class="frame-kicker mono"><span class="frame-no">01</span>Maxis · Data &amp; AI DevOps &middot; In production</p>
+                <h3>Data agents that check their own numbers</h3>
+                <p class="frame-line">Plain-language analytics on BigQuery and Power BI, with a guardrail that validates every figure before anyone sees it.</p>
+                <ul class="stack" aria-label="Stack"><li>Python</li><li>Google ADK</li><li>Vertex AI Agent Engine</li><li>BigQuery</li></ul>
+                <span class="frame-cta mono">Read the case study &rarr;</span>
+              </div>
+            </a>
+          </li>
+          <li class="frame" id="case-job-agent">
+            <a class="frame-link" href="work/job-agent.html">
+              <picture class="frame-art">
+          <source media="(max-width: 820px)" srcset="assets/art/job-agent-crop-1100.webp" width="1100" height="688">
+          <img src="assets/art/job-agent-2000.webp" srcset="assets/art/job-agent-1100.webp 1100w, assets/art/job-agent-2000.webp 2000w" sizes="(max-width: 1340px) 100vw, 1240px" alt="Engraved collage: a typewriter, a stack of sealed envelopes, a pinned map, a rubber stamp and a pocket watch." width="2000" height="667" loading="lazy" decoding="async">
+        </picture>
+              <div class="frame-meta">
+                <p class="frame-kicker mono"><span class="frame-no">02</span>Independent build &middot; Built, first live run next</p>
+                <h3>A job-application copilot that cannot lie about you</h3>
+                <p class="frame-line">Every sentence it writes must cite a fact from my real CV, and a person always presses Submit.</p>
+                <ul class="stack" aria-label="Stack"><li>Python</li><li>Claude Agent SDK</li><li>Supabase</li><li>Airflow</li></ul>
+                <span class="frame-cta mono">Read the case study &rarr;</span>
+              </div>
+            </a>
+          </li>
+          <li class="frame" id="case-kaggle">
+            <a class="frame-link" href="work/kaggle.html">
+              <picture class="frame-art">
+          <source media="(max-width: 820px)" srcset="assets/art/kaggle-crop-1100.webp" width="1100" height="688">
+          <img src="assets/art/kaggle-2000.webp" srcset="assets/art/kaggle-1100.webp 1100w, assets/art/kaggle-2000.webp 2000w" sizes="(max-width: 1340px) 100vw, 1240px" alt="Engraved collage: playing cards and poker chips under a magnifying lens, dissolving into a scatter of data points, with a ribbon medal." width="2000" height="667" loading="lazy" decoding="async">
+        </picture>
+              <div class="frame-meta">
+                <p class="frame-kicker mono"><span class="frame-no">03</span>Kaggle · Data science &middot; Top 10%</p>
+                <h3>Competitive data science, run like research</h3>
+                <p class="frame-line">33rd of 356 teams in a poker fraud-detection competition, where every submission had to earn its place on an honest holdout first.</p>
+                <ul class="stack" aria-label="Stack"><li>Python</li><li>DuckDB</li><li>LightGBM</li><li>PyTorch</li></ul>
+                <span class="frame-cta mono">Read the case study &rarr;</span>
+              </div>
+            </a>
+          </li>
+          <li class="frame" id="case-content-studio">
+            <a class="frame-link" href="work/content-studio.html">
+              <picture class="frame-art">
+          <source media="(max-width: 820px)" srcset="assets/art/content-studio-crop-1100.webp" width="1100" height="688">
+          <img src="assets/art/content-studio-2000.webp" srcset="assets/art/content-studio-1100.webp 1100w, assets/art/content-studio-2000.webp 2000w" sizes="(max-width: 1340px) 100vw, 1240px" alt="Engraved collage: a vintage ribbon microphone, a film strip, a clapperboard and a printed sound waveform." width="2000" height="667" loading="lazy" decoding="async">
+        </picture>
+              <div class="frame-meta">
+                <p class="frame-kicker mono"><span class="frame-no">04</span>Independent build &middot; Pipeline working</p>
+                <h3>An AI video studio with a human in the loop</h3>
+                <p class="frame-line">Research, script and video for a Malay-language AI explainer channel, orchestrated end to end, with approval gates in front of every paid step.</p>
+                <ul class="stack" aria-label="Stack"><li>Python</li><li>Airflow</li><li>Claude</li><li>Supabase</li></ul>
+                <span class="frame-cta mono">Read the case study &rarr;</span>
+              </div>
+            </a>
+          </li>
+          <li class="frame" id="case-notch-app">
+            <a class="frame-link" href="work/notch-app.html">
+              <picture class="frame-art">
+          <source media="(max-width: 820px)" srcset="assets/art/notch-app-crop-1100.webp" width="1100" height="688">
+          <img src="assets/art/notch-app-2000.webp" srcset="assets/art/notch-app-1100.webp 1100w, assets/art/notch-app-2000.webp 2000w" sizes="(max-width: 1340px) 100vw, 1240px" alt="Engraved collage: a small wallet with receipts and coins rising out of a laptop's camera notch, beside a bar chart." width="2000" height="667" loading="lazy" decoding="async">
+        </picture>
+              <div class="frame-meta">
+                <p class="frame-kicker mono"><span class="frame-no">05</span>Independent build · macOS &middot; My daily driver</p>
+                <h3>AI Wallet, a native notch app for the Mac</h3>
+                <p class="frame-line">The MacBook notch turned into a live surface for music, activities and AI usage, built in Swift and used every day.</p>
+                <ul class="stack" aria-label="Stack"><li>Swift 6</li><li>SwiftUI</li><li>AppKit</li><li>XcodeGen</li></ul>
+                <span class="frame-cta mono">Read the case study &rarr;</span>
+              </div>
+            </a>
+          </li>
+          <li class="frame" id="case-pjbumi-inspection">
+            <a class="frame-link" href="work/pjbumi-inspection.html">
+              <picture class="frame-art">
+          <source media="(max-width: 820px)" srcset="assets/art/pjbumi-crop-1100.webp" width="1100" height="688">
+          <img src="assets/art/pjbumi-2000.webp" srcset="assets/art/pjbumi-1100.webp 1100w, assets/art/pjbumi-2000.webp 2000w" sizes="(max-width: 1340px) 100vw, 1240px" alt="Engraved collage: an inspection camera on an arm examining a rusty pipe joint, over an engineering blueprint." width="2000" height="667" loading="lazy" decoding="async">
+        </picture>
+              <div class="frame-meta">
+                <p class="frame-kicker mono"><span class="frame-no">06</span>PJBUMI Heavy Engineering &middot; MLOps apprentice</p>
+                <h3>Computer vision for oil and gas inspection</h3>
+                <p class="frame-line">Defect detection and asset-health models for an inspection service used with oil and gas clients.</p>
+                <ul class="stack" aria-label="Stack"><li>Python</li><li>TensorFlow</li><li>OpenCV</li><li>Flask</li></ul>
+                <span class="frame-cta mono">Read the case study &rarr;</span>
+              </div>
+            </a>
+          </li>
+          <li class="frame" id="case-queless">
+            <a class="frame-link" href="work/queless.html">
+              <picture class="frame-art">
+          <source media="(max-width: 820px)" srcset="assets/art/queless-crop-1100.webp" width="1100" height="688">
+          <img src="assets/art/queless-2000.webp" srcset="assets/art/queless-1100.webp 1100w, assets/art/queless-2000.webp 2000w" sizes="(max-width: 1340px) 100vw, 1240px" alt="Engraved collage: a café counter with a QR table card, a receipt printer pushing out an order ticket, a coffee cup and a phone." width="2000" height="667" loading="lazy" decoding="async">
+        </picture>
+              <div class="frame-meta">
+                <p class="frame-kicker mono"><span class="frame-no">07</span>Independent build · SaaS &middot; Live, closed trial</p>
+                <h3>QueLess, order-ahead for Malaysian merchants</h3>
+                <p class="frame-line">Customers scan a QR, order ahead and pay the merchant directly. No queue at the counter, no payment-gateway fees.</p>
+                <ul class="stack" aria-label="Stack"><li>Next.js</li><li>Prisma</li><li>Postgres</li><li>Railway</li></ul>
+                <span class="frame-cta mono">Read the case study &rarr;</span>
+              </div>
+            </a>
+          </li>
+        </ol>
+        <nav class="reel-strip" aria-label="Jump to a case">
+          <a href="#case-maxis-data-agents" data-i="0"><img src="assets/art/maxis-data-crop-700.webp" alt="" width="700" height="438" loading="lazy" decoding="async"><span class="mono">01</span><span class="visually-hidden">Data agents that check their own numbers</span></a>
+          <a href="#case-job-agent" data-i="1"><img src="assets/art/job-agent-crop-700.webp" alt="" width="700" height="438" loading="lazy" decoding="async"><span class="mono">02</span><span class="visually-hidden">A job-application copilot that cannot lie about you</span></a>
+          <a href="#case-kaggle" data-i="2"><img src="assets/art/kaggle-crop-700.webp" alt="" width="700" height="438" loading="lazy" decoding="async"><span class="mono">03</span><span class="visually-hidden">Competitive data science, run like research</span></a>
+          <a href="#case-content-studio" data-i="3"><img src="assets/art/content-studio-crop-700.webp" alt="" width="700" height="438" loading="lazy" decoding="async"><span class="mono">04</span><span class="visually-hidden">An AI video studio with a human in the loop</span></a>
+          <a href="#case-notch-app" data-i="4"><img src="assets/art/notch-app-crop-700.webp" alt="" width="700" height="438" loading="lazy" decoding="async"><span class="mono">05</span><span class="visually-hidden">AI Wallet, a native notch app for the Mac</span></a>
+          <a href="#case-pjbumi-inspection" data-i="5"><img src="assets/art/pjbumi-crop-700.webp" alt="" width="700" height="438" loading="lazy" decoding="async"><span class="mono">06</span><span class="visually-hidden">Computer vision for oil and gas inspection</span></a>
+          <a href="#case-queless" data-i="6"><img src="assets/art/queless-crop-700.webp" alt="" width="700" height="438" loading="lazy" decoding="async"><span class="mono">07</span><span class="visually-hidden">QueLess, order-ahead for Malaysian merchants</span></a>
+        </nav>
+        <!-- reel:end -->
+          <canvas class="reel-fx" aria-hidden="true"></canvas>
         </div>
-
-        <div class="cs-result">
-          <p class="lbl">Result</p>
-          <p>In production at Maxis today, answering telecom KPI questions for non-technical users. The grounding loop eliminated hallucinated figures: every number shown has been checked against the warehouse that produced it. I own the full LLMOps loop, from containerized Cloud Run deploys to versioned prompts, reliability and cost monitoring.</p>
-        </div>
-        <ul class="stack" aria-label="Stack"><li>Python</li><li>Google ADK</li><li>Vertex AI Agent Engine</li><li>BigQuery</li><li>Cloud Run</li></ul>
-      </article>
-
-      <!-- Case study 2: split, diagram right -->
-      <article class="cs cs-split" id="qa-harness">
-        <div class="cs-text">
-          <h3>NL-to-DAX Agent, and the harness that attacks it</h3>
-          <p class="lbl">Problem</p>
-          <p>An agent can pass every automated test and still fail real users. Happy-path suites reward memorizing the demo.</p>
-          <p class="lbl">Approach</p>
-          <p>I built a natural-language-to-DAX agent for Power BI, then built an adversarial QA harness to break it: probes that feed the agent inputs the test oracle never covered, score the answers, and turn every failure into a permanent regression case.</p>
-          <p class="lbl">Result</p>
-          <p>This is now how I evaluate every agent I ship. A green suite is necessary. It is never sufficient.</p>
-          <ul class="stack" aria-label="Stack"><li>Python</li><li>Power BI</li><li>DAX</li><li>LLM evaluation</li></ul>
-        </div>
-        <div class="diagram diagram-v" role="img" aria-label="Evaluation flow: the agent under test passes the happy-path suite, then adversarial probes with uncovered inputs surface failures, each becoming a regression test for a hardened agent.">
-          <div class="flow">
-            <div class="node"><span>agent under test</span></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>happy-path suite</span><small>all green. necessary</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node strong"><span>adversarial probes</span><small>inputs the oracle never covered</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>surfaced failures</span><small>each becomes a regression test</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>hardened agent</span></div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Case study 3: merge diagram -->
-      <article class="cs" id="self-improving">
-        <h3>Self-Improving Agent Architecture</h3>
-        <div class="cs-cols">
-          <div>
-            <p class="lbl">Problem</p>
-            <p>Agent Engine sessions are stateless. Anything an agent learns dies with the conversation, and the naive fix adds a database read to every single turn.</p>
-          </div>
-          <div>
-            <p class="lbl">Approach</p>
-            <p>Learned policy lives in Firestore, separated cleanly from per-user conversational memory. In-memory caching plus realtime listeners mean agents pick up cross-user policy updates instantly, without a per-turn latency cost. What one conversation teaches, every future conversation knows.</p>
-          </div>
-        </div>
-        <div class="diagram diagram-merge" role="img" aria-label="Architecture: a cross-user policy store in Firestore with caching and realtime listeners, and per-user session memory, both feed each agent turn; the agent writes what it learns back to the policy store.">
-          <div class="node strong m-src1"><span>policy store</span><small>Firestore. cross-user, cached, realtime listeners</small></div>
-          <div class="arrow m-a1" aria-hidden="true"></div>
-          <div class="node m-src2"><span>session memory</span><small>per-user, stateless sessions</small></div>
-          <div class="arrow m-a2" aria-hidden="true"></div>
-          <div class="node m-target"><span>agent turn</span><small>reads both at zero added latency, writes learned policy back</small></div>
-        </div>
-        <ul class="stack" aria-label="Stack"><li>Python</li><li>Firestore</li><li>Agent Engine</li></ul>
-      </article>
-
-      <!-- Case study 4: Job Agent -->
-      <article class="cs" id="job-agent">
-        <p class="cs-meta">Independent build</p>
-        <h3>Job Agent, a pipeline that cannot lie about you</h3>
-        <div class="cs-cols">
-          <div>
-            <p class="lbl">Problem</p>
-            <p>Most LLM resume tools happily invent experience. An agent that writes about you has to be incapable of lying.</p>
-          </div>
-          <div>
-            <p class="lbl">Approach</p>
-            <p>Every generated bullet must cite a fact stored in a Supabase knowledge base, and a verification pass rejects any claim without a source before rendering. The repository currently collects 129 tests, with Airflow for scheduled job discovery and Playwright for assisted autofill.</p>
-          </div>
-        </div>
-        <div class="diagram" role="img" aria-label="Pipeline: a job description is analyzed, the application is tailored from cited facts, a verification step rejects unsourced claims, then the deterministic renderer produces PDF and DOCX.">
-          <div class="flow">
-            <div class="node"><span>job description</span></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>analyze</span><small>requirements, fit</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>tailor</span><small>from cited facts only</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node strong"><span>verify</span><small>unsourced claims rejected</small></div>
-            <div class="arrow" aria-hidden="true"></div>
-            <div class="node"><span>render</span><small>deterministic PDF and DOCX</small></div>
-          </div>
-        </div>
-        <ul class="stack" aria-label="Stack"><li>Python</li><li>Claude API</li><li>Supabase</li><li>Airflow</li><li>Playwright</li></ul>
-      </article>
-
-      <!-- Case study 5: business case, text only -->
-      <article class="cs cs-quiet" id="bundle">
-        <h3>AI Bundle Business Case</h3>
-        <p class="cs-narrow">Not every AI problem is a coding problem. At Maxis I built the full financial model and pitch for bundling an AI subscription into Hotlink Youth plans, and caught a rebate modelling error that changed the strategy. I can argue the business case for a system, not just build it.</p>
-        <ul class="stack" aria-label="Stack"><li>Financial modelling</li><li>Go-to-market</li></ul>
-      </article>
+      </div>
     </section>
 
-    <section id="builds" class="wrap">
-      <h2>Independent builds</h2>
-      <ul class="ledger">
-        <li>
-          <div class="ledger-head"><h3>QueLess</h3><a class="live-link" href="https://queless-production.up.railway.app" rel="noopener">Live&nbsp;&#8599;</a></div>
-          <p>QR queue and order-ahead SaaS for Malaysian merchants, running in front of real users with CI, health checks and Sentry.</p>
-          <ul class="stack"><li>Next.js</li><li>Prisma</li><li>Postgres</li><li>Railway</li></ul>
-        </li>
-        <li>
-          <div class="ledger-head"><h3>Content Studio</h3></div>
-          <p>Automated video pipeline for an AI mascot channel. Airflow orchestrates Claude script generation, asset generation and a human approval gate.</p>
-          <ul class="stack"><li>Python</li><li>Airflow</li><li>Claude API</li><li>Supabase</li></ul>
-        </li>
-        <li>
-          <div class="ledger-head"><h3>FluentAI</h3></div>
-          <p>English fluency companion that adapts difficulty from your mistakes instead of correcting every sentence.</p>
-          <ul class="stack"><li>Python</li><li>FastAPI</li><li>Gemini</li></ul>
-        </li>
-        <li>
-          <div class="ledger-head"><h3>fitmu</h3></div>
-          <p>iPhone and Apple Watch weight-loss coach that understands Malaysian food, with Claude coaching through Supabase Edge Functions.</p>
-          <ul class="stack"><li>React Native</li><li>Supabase</li><li>Claude API</li></ul>
-        </li>
-      </ul>
-    </section>
-
-    <section id="experience" class="wrap">
-      <h2>Experience</h2>
-      <ul class="timeline">
-        <li>
-          <p class="when">2025 to now</p>
-          <div>
-            <h3>Maxis, Kuala Lumpur</h3>
-            <p>Graduate Program. Current rotation in Data &amp; AI DevOps, building the agentic systems above. Earlier rotations in Consumer Business go-to-market and Mobile Product.</p>
-          </div>
-        </li>
-        <li>
-          <p class="when">2024</p>
-          <div>
-            <h3>Deloitte Consulting SEA</h3>
-            <p>AI &amp; Data internship. Generative AI document automation on Microsoft Fabric, plus a dashboard migration as business analyst.</p>
-          </div>
-        </li>
-        <li>
-          <p class="when">2023 to 2024</p>
-          <div>
-            <h3>PJBUMI Heavy Engineering</h3>
-            <p>MLOps apprentice. Computer-vision inspection and asset-health models for oil and gas clients, including work on a Petronas engagement.</p>
-          </div>
-        </li>
-        <li>
-          <p class="when">2024</p>
-          <div>
-            <h3>UKM, BSc Computer Science</h3>
-            <p>First Class Honours, CGPA 3.88. Dean's List in all eight semesters.</p>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section id="skills" class="wrap">
-      <h2>Skills, as evidence</h2>
-      <ul class="proofs">
-        <li><strong>Multi-agent orchestration</strong><a href="#nl2sql">in production at Maxis</a></li>
-        <li><strong>Grounding and guardrails</strong><a href="#nl2sql">every number validated against BigQuery</a></li>
-        <li><strong>Agent evaluation</strong><a href="#qa-harness">adversarial probing beyond green suites</a></li>
-        <li><strong>LLMOps on Google Cloud</strong><a href="#nl2sql">Cloud Run, versioned prompts, cost monitoring</a></li>
-        <li><strong>Verification-first design</strong><a href="#job-agent">generation that must cite or abstain</a></li>
-        <li><strong>Shipping full products</strong><a href="#builds">a live SaaS with CI and monitoring</a></li>
-      </ul>
-    </section>
-
-    <section id="contact" class="dark">
-      <img class="exa" src="exa.png" alt="" aria-hidden="true" loading="lazy" width="266" height="420">
-      <div class="wrap contact">
-        <h2 class="visually-hidden">Contact</h2>
-        <p class="contact-line">Need agents that hold up <br>in production?</p>
-        <a class="cta" href="mailto:muazhusaini@gmail.com">Email Muaz</a>
-        <p class="contact-note">Open to AI Engineer roles, and select freelance work through TERAS TECH.</p>
-        <p class="mascot-note">The robots are Naro and Exa, my voxel sidekicks. Exa brought the laptop; Naro is on patrol.</p>
-        <ul class="contact-links">
-          <li><a href="mailto:muazhusaini@gmail.com">muazhusaini@gmail.com</a></li>
-          <li><a href="https://github.com/mmuazhr" rel="noopener">github.com/mmuazhr</a></li>
-          <li><a href="https://linkedin.com/in/muazhusaini" rel="noopener">linkedin.com/in/muazhusaini</a></li>
-          <li><a href="muaz-husaini-cv.pdf" download>download CV (PDF)</a></li>
+    <section id="also" class="section wrap" aria-labelledby="also-title">
+      <h2 id="also-title" class="label">Also built</h2>
+        <!-- also:start (generated by tools/build.mjs) -->
+        <ul class="ledger">
+          <li class="reveal"><h3>Self-improving agent architecture</h3><p>A cross-user policy store in Firestore, kept apart from per-user memory, so what one conversation teaches every later one knows, with no added latency per turn.</p></li>
+          <li class="reveal"><h3>AI bundle business case</h3><p>The financial model and pitch for bundling an AI subscription into Hotlink youth plans at Maxis. It caught a rebate modelling error that changed the strategy.</p></li>
+          <li class="reveal"><h3>Rebate-assignment automation</h3><p>Automated the rebate process for newly launched Maxis plans, cutting manual work before campaigns.</p></li>
+          <li class="reveal"><h3>FluentAI</h3><p>An English fluency companion that adapts difficulty from your mistakes instead of correcting every sentence.</p></li>
+          <li class="reveal"><h3>fitmu</h3><p>An iPhone and Apple Watch weight-loss coach that understands Malaysian food.</p></li>
         </ul>
+        <!-- also:end -->
+    </section>
+
+    <section id="method" class="section method" aria-labelledby="method-title">
+      <div class="wrap method-head">
+        <p class="label">Method</p>
+        <h2 id="method-title">How I build with AI agents</h2>
+        <p class="section-lede">I run AI coding agents the way I would run a small team: a clear spec, the right model for each job, and nothing counts as done until it has actually run.</p>
+      </div>
+      <figure class="method-art wrap reveal">
+        <img src="assets/art/agent-workflow-2000.webp" srcset="assets/art/agent-workflow-1100.webp 1100w, assets/art/agent-workflow-2000.webp 2000w" sizes="100vw" alt="Engraved collage: an old telephone switchboard whose patch cables lead to a typewriter, a camera, a magnifying glass and a ticked checklist." width="2000" height="667" loading="lazy" decoding="async">
+      </figure>
+      <ol class="principles wrap">
+        <li class="card reveal"><span class="mono">01</span><h3>Spec before code</h3><p>Every task starts as checks that must pass: a command and the output it should give. Agents build against those checks, not against a vague goal.</p></li>
+        <li class="card reveal"><span class="mono">02</span><h3>The right model for each job</h3><p>Fast models search and take inventory, a strong model builds, and a fresh reviewer with none of the builder's assumptions tries to prove the work is not finished.</p></li>
+        <li class="card reveal"><span class="mono">03</span><h3>Done means it ran</h3><p>Tests, builds, screenshots and real requests. "It should work" never counts, and every agent's claim is re-checked before anything merges.</p></li>
+        <li class="card reveal"><span class="mono">04</span><h3>Guardrails in code, not prompts</h3><p>Rules that matter, such as spending caps on paid AI tools, are enforced by hooks that block the action outright. A prompt can be ignored; a hook cannot.</p></li>
+      </ol>
+      <div class="wrap"><p class="method-foot">I also build the tools my agents use: MCP servers that let them drive image, video and 3D-design apps, and a self-hosted gateway for reaching other model providers.</p></div>
+    </section>
+
+    <section id="experience" class="section wrap" aria-labelledby="exp-title">
+      <h2 id="exp-title" class="label">Experience</h2>
+      <ol class="timeline">
+        <li class="reveal"><p class="when mono">Jan 2026 to now</p><div><h3>Maxis &middot; IT Associate, Data &amp; AI DevOps</h3><p>Graduate Programme. Building and running the production data agents in the reel above.</p></div></li>
+        <li class="reveal"><p class="when mono">2025</p><div><h3>Maxis &middot; Consumer Business Associate</h3><p>Go-to-market for Maxis and Hotlink campaigns, then pricing and subsidy analysis for Mobile Product. Automated rebate assignment for new plans.</p></div></li>
+        <li class="reveal"><p class="when mono">2024</p><div><h3>Deloitte Consulting SEA &middot; AI &amp; Data intern</h3><p>Generative AI document automation on Microsoft Fabric, and business analysis for a Tableau dashboard migration.</p></div></li>
+        <li class="reveal"><p class="when mono">2023 to 2024</p><div><h3>PJBUMI Heavy Engineering &middot; MLOps apprentice</h3><p>Computer-vision inspection models for oil and gas clients.</p></div></li>
+        <li class="reveal"><p class="when mono">Dec 2024</p><div><h3>UKM &middot; BSc Computer Science</h3><p>First Class Honours, CGPA 3.88. Dean's List in all eight semesters.</p></div></li>
+      </ol>
+      <ul class="proof-strip" aria-label="Credentials">
+        <li class="reveal"><strong>3.88</strong><span>CGPA, First Class Honours</span></li>
+        <li class="reveal"><strong>8 / 8</strong><span>Semesters on the Dean's List</span></li>
+        <li class="reveal"><strong>Top 10%</strong><span>Kaggle, 33rd of 356 teams</span></li>
+        <li class="reveal"><strong>Scholar</strong><span>Yayasan Peneraju, 2024</span></li>
+        <li class="reveal"><strong>IBM</strong><span>AI Engineering certificate</span></li>
+        <li class="reveal"><strong>Google</strong><span>Data Analytics certificate</span></li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="label">Contact</p>
+          <h2 id="contact-title" class="contact-line">Need agents that hold up in production?</h2>
+          <p class="contact-note">Open to AI engineering roles, and select freelance work through TERAS TECH.</p>
+          <p class="actions"><a class="btn" href="mailto:muazhusaini@gmail.com">Email Muaz</a><a class="btn ghost" href="muaz-husaini-cv.pdf" download>Download CV</a></p>
+          <ul class="contact-links mono">
+            <li><a href="mailto:muazhusaini@gmail.com">muazhusaini@gmail.com</a></li>
+            <li><a href="https://github.com/mmuazhr" rel="noopener">github.com/mmuazhr</a></li>
+            <li><a href="https://linkedin.com/in/muazhusaini" rel="noopener">linkedin.com/in/muazhusaini</a></li>
+          </ul>
+        </div>
+        <figure class="cameo reveal">
+          <img src="naro.png" alt="" width="274" height="420" loading="lazy">
+          <img src="exa.png" alt="" width="266" height="420" loading="lazy">
+          <figcaption class="mono">Naro and Exa, the characters from my video pipeline.</figcaption>
+        </figure>
       </div>
     </section>
   </main>
 
-  <footer class="dark">
-    <div class="wrap site-foot">
-      <p>Muaz Husaini. Kuala Lumpur, Malaysia.</p>
+  <footer class="site-foot">
+    <div class="wrap foot-row">
+      <p>Muaz Husaini, Kuala Lumpur.</p>
+      <p class="mono">Artwork: engraved halftone collages made for this site.</p>
     </div>
   </footer>
-
-  <img class="naro" src="naro.png" alt="" aria-hidden="true" width="274" height="420">
-
-  <script src="script.js" defer></script>
 </body>
 </html>
