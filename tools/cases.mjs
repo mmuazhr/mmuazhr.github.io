@@ -41,7 +41,7 @@ export const cases = [
     art: "job-agent",
     alt: "Engraved collage: a typewriter, a stack of sealed envelopes, a pinned map, a rubber stamp and a pocket watch.",
     kicker: "Independent build",
-    status: "Built, first live run next",
+    status: "Built, pre-launch",
     when: "2026",
     role: "Product, architecture and review",
     title: "A job-application copilot that cannot lie about you",
@@ -82,7 +82,7 @@ export const cases = [
     ],
     approach: [
       "I built a local research toolkit and ran the competition like a lab. Every experiment is registered, and the measuring stick is an honest five-fold holdout, not the public leaderboard: ideas that only improved the public score were treated as noise.",
-      "AI agents run the experiments under these rules. Every submission needs my explicit approval, and every decision and finding is logged so nothing gets re-tried by accident.",
+      "AI agents run the experiments under these rules. Every submission needed my explicit approval, and every decision and finding is logged so nothing gets re-tried by accident.",
     ],
     flow: [
       ["idea", ""],
@@ -101,11 +101,11 @@ export const cases = [
     art: "content-studio",
     alt: "Engraved collage: a vintage ribbon microphone, a film strip, a clapperboard and a printed sound waveform.",
     kicker: "Independent build",
-    status: "Pipeline working",
+    status: "In development",
     when: "2026",
-    role: "Design and build",
+    role: "Design and build (with coding agents)",
     title: "An AI video studio with a human in the loop",
-    line: "Research, script and video for a Malay-language AI explainer channel, orchestrated end to end, with approval gates in front of every paid step.",
+    line: "Research, script and video for a Malay-language AI explainer channel, orchestrated as one pipeline, with approval gates in front of every paid step.",
     stack: ["Python", "Airflow", "Claude", "Supabase", "FastAPI", "Veo"],
     problem: [
       "Short explainer videos need research, a script, generated shots and editing. Fully automatic AI output drifts off-topic and burns paid generation credits on takes nobody wanted.",
@@ -122,7 +122,7 @@ export const cases = [
       ["approval, then publish", ""],
     ],
     result: [
-      "The pipeline works end to end, and its first slice passed my acceptance testing in July 2026. A new episode format is in progress before the channel launches.",
+      "The first slice (research, script, approval and video generation) passed my acceptance testing in July 2026. Final assembly, a new episode format and the channel launch are next.",
     ],
   },
   {
@@ -132,7 +132,7 @@ export const cases = [
     kicker: "Independent build · macOS",
     status: "My daily driver",
     when: "2026",
-    role: "Design and build",
+    role: "Design and build (with coding agents)",
     title: "AI Wallet, a native notch app for the Mac",
     line: "The MacBook notch turned into a live surface for music, activities and AI usage, built in Swift and used every day.",
     stack: ["Swift 6", "SwiftUI", "AppKit", "XcodeGen", "XCUITest"],
@@ -176,22 +176,21 @@ export const cases = [
     art: "queless",
     alt: "Engraved collage: a café counter with a QR table card, a receipt printer pushing out an order ticket, a coffee cup and a phone.",
     kicker: "Independent build · SaaS",
-    status: "Live, closed trial",
+    status: "Closed trial",
     when: "2026",
-    role: "Product and full-stack build",
+    role: "Product, architecture and build (with coding agents)",
     title: "QueLess, order-ahead for Malaysian merchants",
     line: "Customers scan a QR, order ahead and pay the merchant directly. No queue at the counter, no payment-gateway fees.",
     stack: ["Next.js", "Prisma", "Postgres", "Railway", "Sentry"],
-    link: { href: "https://queless-production.up.railway.app", label: "Open the live site" },
     problem: [
       "Small food and drink merchants lose customers to queues, and payment gateways take a cut of every order.",
     ],
     approach: [
       "Customers order from a QR code and pay with the merchant's own DuitNow QR, then upload proof. The queue number is issued only when the merchant confirms, so nobody jumps the line on an unpaid order. Live queue updates stream to the customer, and waiting times are estimated from how many orders the kitchen can work on at once.",
-      "It runs on Railway in Singapore, close to Malaysian users, with CI, health checks and Sentry error monitoring.",
+      "It is built to run on Railway in Singapore, close to Malaysian users, with CI, health checks and Sentry error monitoring.",
     ],
     result: [
-      "Live in production, running as a closed trial.",
+      "Deployed to production for a closed trial with merchants.",
     ],
   },
 ];

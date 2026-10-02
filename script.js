@@ -169,13 +169,34 @@
     return top + ((i + 0.5) / N) * (reel.offsetHeight - innerHeight);
   };
 
+  const frameLink = (i) => frames[i].querySelector(".frame-link");
+  let jumping = false;
   thumbs.forEach((t, i) => {
     t.addEventListener("click", (e) => {
       if (!motionOn()) return;
       e.preventDefault();
+      // move focus to the case link too, so Tab continues from the chosen case
+      jumping = true;
+      frameLink(i).focus({ preventScroll: true });
+      jumping = false;
       scrollTo({ top: frameScrollTop(i), behavior: "smooth" });
     });
   });
+
+  // Tabbing onto a case link scrolls the reel to that frame so it is the one on show.
+  frames.forEach((f, i) => {
+    frameLink(i).addEventListener("focus", () => {
+      if (!motionOn() || jumping || i === active) return;
+      // after the browser's own scroll-into-view for the focused link, which would win otherwise
+      setTimeout(() => scrollTo({ top: frameScrollTop(i), behavior: "instant" }), 0);
+    });
+  });
+
+  // Arriving at index.html#case-<slug> (the "All work" link on a case page) shows that case.
+  const showHashFrame = () => {
+    const i = frames.findIndex((f) => `#${f.id}` === location.hash);
+    if (i >= 0 && motionOn()) scrollTo({ top: frameScrollTop(i), behavior: "instant" });
+  };
 
   // ---------------------------------------------------------------- frame loop
   let lastY = scrollY, smear = 0, queued = false;
@@ -226,6 +247,8 @@
     schedule();
   };
 
+  addEventListener("load", showHashFrame);
+  addEventListener("hashchange", showHashFrame);
   addEventListener("scroll", schedule, { passive: true });
   addEventListener("resize", () => { if (motionOn()) { sizeFx(); sizeIntro(); } schedule(); });
   if (document.fonts) document.fonts.ready.then(() => { if (motionOn()) sizeIntro(); });

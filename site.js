@@ -5,7 +5,7 @@
   "use strict";
   const root = document.documentElement;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-  const wide = matchMedia("(min-width: 900px) and (min-height: 560px)");
+  const wide = matchMedia("(min-width: 1100px) and (min-height: 600px)");
   const PT_KEY = "pt-arrive";
   const LEAVE_MS = 620;
   const ARRIVE_MS = 760;

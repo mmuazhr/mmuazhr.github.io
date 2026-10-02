@@ -84,7 +84,7 @@ ${header("../")}
   <main id="main">
     <article>
       <header class="case-hero wrap">
-        <p class="case-crumbs mono"><a href="../index.html#work">&larr; All work</a><span>Case ${pad(i + 1)} / ${total}</span></p>
+        <p class="case-crumbs mono"><a href="../index.html#case-${c.slug}">&larr; All work</a><span>Case ${pad(i + 1)} / ${total}</span></p>
         <p class="kicker mono">${esc(c.kicker)}</p>
         <h1>${esc(c.title)}</h1>
         <p class="lede">${esc(c.line)}</p>

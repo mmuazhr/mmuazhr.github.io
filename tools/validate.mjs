@@ -3,7 +3,7 @@
 // Run from anywhere: node tools/validate.mjs
 // Checks: JS files parse, local href/src/url() refs exist on disk,
 // in-page anchors resolve to an id, every <img> has an alt attribute,
-// and no referenced file is git-ignored (it would 404 on Pages).
+// and every referenced file is tracked in git with exact case (else it would 404 on Pages).
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { dirname, join, relative, resolve } from "node:path";
@@ -84,18 +84,13 @@ for (const f of cssFiles) {
   checkUrlRefs(f, readFileSync(join(root, f), "utf8"));
 }
 
-// A file that exists locally but is git-ignored passes the disk check and 404s once deployed.
-const refList = [...referenced].filter((f) => !f.startsWith(".."));
-if (refList.length > 0) {
-  let ignored = "";
-  try {
-    ignored = execFileSync("git", ["check-ignore", "--no-index", ...refList], { cwd: root, stdio: "pipe" }).toString();
-  } catch (e) {
-    ignored = e.stdout ? e.stdout.toString() : ""; // exit 1 = nothing ignored
-  }
-  for (const f of ignored.split("\n").filter(Boolean)) {
-    failures.push(`${f}: referenced by a page but git-ignored, so it would 404 on Pages`);
-  }
+// Pages serves what is in git, with exact case. A file that only exists locally (untracked or
+// git-ignored), or whose case differs (macOS disks ignore case), passes the disk check and 404s.
+const tracked = new Set(
+  execFileSync("git", ["ls-files", "-z"], { cwd: root, stdio: "pipe" }).toString().split("\0").filter(Boolean)
+);
+for (const f of [...referenced].filter((f) => !f.startsWith(".."))) {
+  if (!tracked.has(f)) failures.push(`${f}: referenced by a page but not in git (or wrong case), so it would 404 on Pages`);
 }
 
 if (failures.length > 0) {
